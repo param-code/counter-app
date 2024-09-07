@@ -22,6 +22,10 @@ export const Count = ()=>{
         c.innerHTML = 'Counter' + count;
         document.getElementById('add').appendChild(c);
     }
+    function Reset(){
+        setCount(0);
+        Stop();
+    }
     return (
         <div className={'flex h-96 items-center justify-center flex-col mt-6'}>
             <h2 className={'text-7xl font-mono font-bold slashed-zero bg-gradient-to-r from-pink-500 to-violet-500 rounded-2xl'}>Counter {count}</h2>
@@ -36,6 +40,10 @@ export const Count = ()=>{
                 <button onClick={Add}
                         className={'hover:scale-110 m-3 text-2xl size-20 p-2 bg-gray-800 text-orange-300 rounded-xl'}
                         style={{margin: 20}}>Lap
+                </button>
+                <button onClick={Reset}
+                        className={'hover:scale-110 m-3 text-2xl size-20 p-2 bg-gray-900 text-red-400 rounded-xl'}
+                        style={{margin: 20}}>Reset
                 </button>
             </div>
             <div id={'add'}>
