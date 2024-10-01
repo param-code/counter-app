@@ -1,16 +1,9 @@
-import {Count} from "./components/Count.jsx";
-import {Running} from "./components/Running.jsx";
-// import {Thanks} from "./components/Thanks.jsx";
+import AutoCounterPage from './pages/AutoCounterPage';
 
-function App() {
-
+const App = () => {
   return (
-    <>
-        <Running/>
-        <Count/>
-        {/*<Thanks/>*/}
-    </>
-  )
-}
+      <AutoCounterPage />
+  );
+};
 
-export default App
+export default App;
