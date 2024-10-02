@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 import Timer from "../components/timer";
