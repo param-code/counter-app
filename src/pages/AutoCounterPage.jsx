@@ -5,6 +5,8 @@ import Timer from "../components/timer";
 import Controls from "../components/controls";
 import LapList from "../components/laplist";
 import Navbar from "../components/navbar";
+import LapAnalysis from "../components/LapAnalysis";
+import LapVisualization from "../components/LapVisualization";
 import SwitchTab from "../components/SwitchTab"; // Correct import
 
 const AutoCounterPage = () => {
@@ -14,6 +16,7 @@ const AutoCounterPage = () => {
   const [laps, setLaps] = useState([]);
   const lapsEndRef = useRef(null);
   const [theme, setTheme] = useState("light");
+  const [showAnalysis, setShowAnalysis] = useState(false);
 
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
@@ -59,6 +62,9 @@ const AutoCounterPage = () => {
   }, []);
 
   const handleStartStop = () => {
+    if (!isRunning && showAnalysis) {
+      setShowAnalysis(false);
+    }
     setIsRunning(!isRunning);
   };
 
@@ -66,12 +72,66 @@ const AutoCounterPage = () => {
     setIsRunning(false);
     setCount(0);
     setLaps([]);
+    setShowAnalysis(false);
   };
 
   const handleLap = () => {
     setLaps((prevLaps) => [...prevLaps, count]);
   };
 
+
+  const handleShowAnalysis = () => {
+    setShowAnalysis(true);
+  };
+
+  return (
+    <div className={`min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300`}>
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      <div className="container mx-auto px-2 py-4 max-w-xl">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+          <div className="p-4 sm:p-6">
+            <Timer formattedTime={formatTime(count)} />
+            <Controls
+              isRunning={isRunning}
+              handleStartStop={handleStartStop}
+              handleLap={handleLap}
+              handleReset={handleReset}
+            />
+          </div>
+          <div className="bg-gray-50 dark:bg-gray-700 p-4 sm:p-6">
+            {showAnalysis ? (
+              <div className="space-y-6">
+                <LapVisualization laps={laps} formatTime={formatTime} />
+                <LapAnalysis laps={laps} formatTime={formatTime} />
+                <button
+                  className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition duration-300 ease-in-out"
+                  onClick={() => setShowAnalysis(false)}
+                >
+                  Close Analysis
+                </button>
+              </div>
+            ) : (
+              <>
+                <LapList
+                  laps={laps}
+                  formatTime={formatTime}
+                  lapsEndRef={lapsEndRef}
+                />
+                {laps.length > 0 && (
+                  <button
+                    className="mt-4 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded transition duration-300 ease-in-out"
+                    onClick={handleShowAnalysis}
+                  >
+                    Show Analysis
+                  </button>
+                )}
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
   const handleSwitchToTimer = () => {
     navigate("/timer"); // Navigate to the Timer page
   };
