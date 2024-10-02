@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Timer from "../components/timer";
 import Controls from "../components/controls";
 import LapList from "../components/laplist";
