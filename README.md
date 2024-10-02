@@ -1,8 +1,95 @@
-# React + Vite
+# ⏱️ Counter App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Counter App! This project is a feature-rich stopwatch application built using React and Vite. It includes functionalities such as lap tracking, session analysis, light/dark mode switching, and a world clock.
 
-Currently, two official plugins are available:
+## 📋 Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Introduction
+- Features
+- Installation
+- Usage
+- How It Works
+- Functionality Details
+- Videos
+- Contributing
+- License
+
+## 🌟 Introduction
+
+The Counter App is a comprehensive stopwatch application that allows users to track time, record laps, analyze sessions, switch between light and dark modes, and view world clocks.
+
+## 🚀 Features
+
+- **Start, pause, and reset the stopwatch**
+- **Record laps with individual lap times**
+- **Analyze sessions with average, fastest, and slowest lap times**
+- **Display lap times in bar graphs**
+- **Switch between light and dark modes**
+- **View current times of different countries**
+
+## 🛠️ Installation
+
+To get started with the Counter App, follow these steps:
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/param-code/counter-app.git
+   cd counter-app
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+## 📖 Usage
+
+Access the application at `http://localhost:3000`. Use the stopwatch to start, pause, and reset the timer. Record laps and analyze your session. Switch between light and dark modes and check the world clock for different countries.
+
+## ⚙️ How It Works
+
+The Counter App is built using React and Vite. Vite provides a fast development environment with Hot Module Replacement (HMR), ensuring instant reflection of code changes in the browser.
+
+### Project Structure
+
+- `src/`: Contains the source code of the application
+  - `App.jsx`: The main component that renders the stopwatch and other features
+  - `index.jsx`: The entry point of the application
+- `public/`: Contains static assets
+- `vite.config.js`: Configuration file for Vite
+- `.eslintrc.cjs`: Configuration file for ESLint
+
+## 🔍 Functionality Details
+
+### Stopwatch
+
+- **Start, Pause, Reset:** Control the timer with these buttons.
+- **Record Laps:** Capture individual lap times.
+
+### Session Analysis
+
+- **Show Analysis:** View average, fastest, and slowest lap times.
+- **Bar Graphs:** Visual representation of lap times.
+
+### Light/Dark Mode
+
+- **Toggle Mode:** Switch between light and dark themes.
+
+### World Clock
+
+- **Global Time:** View current times of different countries.
+
+## 🤝 Contributing
+
+Contributions are welcome! If you have any suggestions or improvements, feel free to open an issue or submit a pull request.
+
+## 📜 License
+
+This project is licensed under the MIT License. See the LICENSE file for more details.
