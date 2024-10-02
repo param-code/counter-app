@@ -69,7 +69,11 @@ The Counter App uses React's state management to control the stopwatch functiona
 
 Check out the app in action by watching this demo:
 
-[Counter App Demo](https://drive.google.com/file/d/1MAKsCsaovAavIkGXpT12kf53WAhgYal1/view?usp=sharing)
+
+https://github.com/user-attachments/assets/2a8209c3-8b5b-4275-9fda-f2033a4fa03d
+
+
+
 
 ## 🤝 Contributing
 
