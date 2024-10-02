@@ -1,3 +1,4 @@
+
 # ⏱️ Counter App - Stopwatch Application
 
 Welcome to the **Counter App**, a simple stopwatch application built using **React** and **Vite**. This app allows users to measure time intervals with features for starting, pausing, and resetting the stopwatch.
@@ -9,7 +10,10 @@ Welcome to the **Counter App**, a simple stopwatch application built using **Rea
   <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge"/>
 </p>
 
+
 ## 📋 Table of Contents
+
+- Introduction
 - Features
 - Installation
 - Usage
