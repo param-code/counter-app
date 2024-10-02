@@ -1,0 +1,136 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: #333;
+  }
+  
+  /* Container */
+  .timer-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  /* Timer Display */
+  .timer-display {
+    font-size: 48px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Input Field */
+  input[type="number"] {
+    width: 100%;
+    max-width: 300px; /* Max width for better layout */
+    padding: 10px;
+    margin-bottom: 2px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  input[type="number"]:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  }
+  
+  /* Start Div Container */
+  .start-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Light background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  }
+  
+  /* Button Container */
+.button-container {
+    display: flex;                  /* Use flexbox for layout */
+    justify-content: space-between; /* Space buttons evenly */
+    margin-top: 20px;              /* Space above the button container */
+  }
+  
+  /* Common Button Styles */
+  button {
+    background-color: #6200ea; /* Default button color */
+    color: white;              /* Text color */
+    padding: 15px 25px;       /* Padding for buttons */
+    border: none;              /* Remove default border */
+    border-radius: 5px;       /* Rounded corners */
+    font-size: 16px;           /* Base font size */
+    cursor: pointer;           /* Pointer on hover */
+    flex: 1;                   /* Allow buttons to grow */
+    margin: 0 5px;             /* Horizontal spacing between buttons */
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition */
+  }
+  
+  /* Individual Button Styles */
+  .start-button {
+    background-color: #4caf50; /* Green for Start button */
+  }
+  
+  .start-button:hover {
+    background-color: #388e3c; /* Darker green on hover */
+  }
+  
+  .pause-button {
+    background-color: #ff9800; /* Orange for Pause button */
+  }
+  
+  .pause-button:hover {
+    background-color: #f57c00; /* Darker orange on hover */
+  }
+  
+  .reset-button {
+    background-color: #f44336; /* Red for Reset button */
+  }
+  
+  .reset-button:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+  }
+  
+  .preset-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 15px; /* Max width for better layout */
+  }
+  
+  .preset-buttons button {
+    flex: 1; /* Allow buttons to share space evenly */
+    margin: 0 5px; /* Horizontal spacing */
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 600px) {
+    .timer-display {
+      font-size: 36px; /* Smaller font size on small screens */
+    }
+  
+    button {
+      padding: 10px 15px; /* Smaller padding for buttons */
+      font-size: 14px; /* Smaller font size for buttons */
+    }
+  
+    input[type="number"] {
+      max-width: 100%; /* Allow input to be full width on small screens */
+    }
+  }
+  
