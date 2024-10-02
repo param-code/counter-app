@@ -10,14 +10,14 @@ Welcome to the **Counter App**, a simple stopwatch application built using **Rea
 </p>
 
 ## 📋 Table of Contents
-- [Features]
-- [Installation]
-- [Usage](#usage)
-- [How It Works]
-- [Functionality Overview]
-- [Video Demo]
-- [Contributing]
-- [License]
+- Features
+- Installation
+- Usage
+- How It Works
+- Functionality Overview
+- Video Demo
+- Contributing
+- License
 
 ## ✨ Features
 
