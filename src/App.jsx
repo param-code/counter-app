@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AutoCounterPage from "./pages/AutoCounterPage"; // adjust the path as needed
 import TimerPage from "./pages/TimerPage"; // create this component
-import WorldClockPage from './pages/worldclockpage';
+import WorldClockPage from './pages/WorldClockPage';
 
 const App = () => {
   return (
