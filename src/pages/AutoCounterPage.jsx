@@ -128,6 +128,10 @@ const AutoCounterPage = () => {
               </>
             )}
           </div>
+        </div>
+      </div>
+    </div>
+  )
   const handleSwitchToTimer = () => {
     navigate("/timer"); // Navigate to the Timer page
   };
