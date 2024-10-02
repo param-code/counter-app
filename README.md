@@ -86,17 +86,6 @@ The Counter App is built using React and Vite. Vite provides a fast development 
 
 - **Global Time:** View current times of different countries.
 
-## 🎥 Videos
-
-Here are some videos explaining the project and its functionalities:
-
-- Project Overview - A brief overview of the Counter App and its features.
-- How to Install and Run - Step-by-step guide on how to set up the project.
-- Stopwatch and Lap Functionality - Detailed explanation of how the stopwatch and lap recording works.
-- Session Analysis - Explanation of the session analysis feature.
-- Light/Dark Mode - Demonstration of the light and dark mode switching.
-- World Clock - Overview of the world clock feature.
-
 ## 🤝 Contributing
 
 Contributions are welcome! If you have any suggestions or improvements, feel free to open an issue or submit a pull request.
