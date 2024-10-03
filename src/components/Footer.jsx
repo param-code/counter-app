@@ -9,27 +9,27 @@ const Footer = () => {
             <div className="container mx-auto px-4">
                 <div className="flex flex-col md:flex-row justify-between items-center">
                     <div className="footer-logo mb-4 md:mb-0">
-                        <h1 className="text-xl font-bold">Counter Timer</h1>
+                        <h1 className="text-xl font-bold hover:text-blue-400 transition-colors duration-300">Counter Timer</h1>
                     </div>
                     <div className="footer-links mb-4 md:mb-0">
-                        <a href="/" className="text-gray-300 hover:text-white mx-2">Home</a>
-                        <a href="/timer" className="text-gray-300 hover:text-white mx-2">Timer</a>
-                        <a href="/world-clock" className="text-gray-300 hover:text-white mx-2">World Clock</a>
+                        <a href="/" className="text-gray-300 hover:text-white mx-2 transition-all duration-300 hover:underline transform hover:scale-110 inline-block">Home</a>
+                        <a href="/timer" className="text-gray-300 hover:text-white mx-2 transition-all duration-300 hover:underline transform hover:scale-110 inline-block">Timer</a>
+                        <a href="/world-clock" className="text-gray-300 hover:text-white mx-2 transition-all duration-300 hover:underline transform hover:scale-110 inline-block">World Clock</a>
                     </div>
                     <div className="footer-socials flex">
-                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white mx-2">
-                            <FontAwesomeIcon icon={faFacebook} size="lg" />
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-500 mx-2 transition-all duration-300 transform hover:scale-125">
+                            <FontAwesomeIcon icon={faFacebook} size="lg" className="hover:animate-pulse" />
                         </a>
-                        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white mx-2">
-                            <FontAwesomeIcon icon={faTwitter} size="lg" />
+                        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 mx-2 transition-all duration-300 transform hover:scale-125">
+                            <FontAwesomeIcon icon={faTwitter} size="lg" className="hover:animate-bounce" />
                         </a>
-                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white mx-2">
-                            <FontAwesomeIcon icon={faInstagram} size="lg" />
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-pink-500 mx-2 transition-all duration-300 transform hover:scale-125">
+                            <FontAwesomeIcon icon={faInstagram} size="lg" className="hover:animate-spin-slow" />
                         </a>
                     </div>
                 </div>
                 <div className="footer-bottom mt-4 text-center">
-                    <p className="text-sm">© 2024 Counter Timer. All Rights Reserved.</p>
+                    <p className="text-sm hover:text-gray-400 transition-colors duration-300">© 2024 Counter Timer. All Rights Reserved.</p>
                 </div>
             </div>
         </footer>
