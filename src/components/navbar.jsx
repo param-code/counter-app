@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from "./ui/button"
 import { Github, Moon, Sun, Globe } from "lucide-react"
+import logo from "../assets/logo.png"
 
 const Navbar = ({ theme, toggleTheme }) => {
   const navigate = useNavigate();
@@ -11,7 +12,11 @@ const Navbar = ({ theme, toggleTheme }) => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="font-bold text-xl text-blue-600 dark:text-blue-400">
-              Counter
+              <img
+                src={logo}
+                alt="Counter"
+                className="h-9 w-55"
+              />
             </Link>
           </div>
           <div>
@@ -22,9 +27,9 @@ const Navbar = ({ theme, toggleTheme }) => {
                 size="icon"
                 className="rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 mr-2"
               >
-                <Github className='h-5 w-5'/>
+                <Github className='h-5 w-5' />
               </Button>
-              
+
               {/* World Clock button */}
               <Button
                 onClick={() => navigate('/world-clock')}
