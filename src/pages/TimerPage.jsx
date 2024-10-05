@@ -3,7 +3,8 @@ import Navbar from "../components/navbar"; // Ensure you have this component
 // import Timer from "../components/timer"; // You can use the same Timer component
 // import Controls from "../components/controls"; // Adjust based on your needs
 import SwitchTab from "../components/SwitchTab"; // Import SwitchTab
-import './TimerPage.css';
+import './TimerPage.css'
+import Footer from "../components/Footer";
 
 const TimerPage = () => {
   const [secondsLeft, setSecondsLeft] = useState(0);
@@ -69,9 +70,9 @@ const TimerPage = () => {
   };
 
   return (
-    <div className={`h-svh bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-305`}>
+    <div className={`min-h-screen flex flex-col bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-305`}>
       <Navbar theme={theme} toggleTheme={() => setTheme((prev) => (prev === "dark" ? "light" : "dark"))} />
-      <div className="flex flex-col items-center justify-center h-[84vh] p-4 sm:p-6 md:p-8">
+      <div className="flex flex-col items-center justify-center flex-grow p-4 sm:p-6 md:p-8">
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 sm:p-8 w-full max-w-sm sm:max-w-md md:max-w-lg transition-all duration-300 ease-in-out">
           <h1>Timer</h1>
           <div className="timer-display">{formatTime(secondsLeft)}</div>
@@ -83,7 +84,6 @@ const TimerPage = () => {
               onChange={(e) => setCustomTime(e.target.value)}
             />
           </div>
-          {/* Use button-container class here */}
           <div className="button-container">
             <button className="start-button" onClick={handleStart}>Start</button>
             <button className="pause-button" onClick={handlePause}>{isPaused ? "Resume" : "Pause"}</button>
@@ -97,9 +97,9 @@ const TimerPage = () => {
           <SwitchTab /> {/* Include the SwitchTab component here */}
         </div>
       </div>
+      <Footer />
     </div>
   );
-  
 };
 
 export default TimerPage;

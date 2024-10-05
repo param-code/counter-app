@@ -3,6 +3,7 @@ import Clock from "react-clock";
 import "react-clock/dist/Clock.css";
 import moment from "moment-timezone";
 import Navbar from "../components/navbar";
+import Footer from "../components/Footer";
 
 const WorldClockPage = () => {
   const [selectedCountry, setSelectedCountry] = useState("UTC");
@@ -33,12 +34,11 @@ const WorldClockPage = () => {
 
   useEffect(() => {
     const timezone = countryTimezones[selectedCountry] || "UTC";
-    
+
     const updateTime = () => {
       const now = moment();
       const time = now.tz(timezone);
-      
-     
+
       const newDate = new Date(
         time.year(),
         time.month(),
@@ -47,14 +47,12 @@ const WorldClockPage = () => {
         time.minute(),
         time.second()
       );
-      
+
       setCurrentTime(newDate);
     };
 
-   
     updateTime();
 
-   
     const timer = setInterval(updateTime, 1000);
 
     return () => clearInterval(timer);
@@ -63,18 +61,17 @@ const WorldClockPage = () => {
   const handleCountryChange = (e) => {
     setSelectedCountry(e.target.value);
   };
-  // const [theme, setTheme] = useState("");
-  // const [theme, setTheme] = useState("");
-  let ty="";
+
+  let ty = "";
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme) {
-      ty=storedTheme
+      ty = storedTheme;
       setTheme(storedTheme);
     }
   }, []);
   const [theme, setTheme] = useState(ty);
-  // let ty="";
+
   useEffect(() => {
     document.body.className = theme;
     localStorage.setItem("theme", theme);
@@ -85,9 +82,9 @@ const WorldClockPage = () => {
   };
 
   return (
-    <div className="h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
       <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <div className="flex flex-col items-center justify-center h-[calc(100vh-4rem)] p-4 sm:p-6 md:p-8">
+      <div className="flex flex-col items-center justify-center flex-grow p-4 sm:p-6 md:p-8">
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 sm:p-8 w-full max-w-sm sm:max-w-md md:max-w-lg transition-all duration-300 ease-in-out">
           <h1 className="text-3xl font-bold mb-6 text-center text-gray-800 dark:text-white">
             World Clock
@@ -115,6 +112,7 @@ const WorldClockPage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
