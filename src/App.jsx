@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import WorldClockPage from './WorldClockPage';
 import Footer from './components/Footer';
 import WorldClockPage from './pages/WorldClockPage';
+import SignUpPage from "./pages/SignUpPage";
 import TimerPage from './pages/TimerPage';
 import AutoCounterPage from './pages/AutoCounterPage';
 // import Footer from './Footer'; // Import the Footer component
@@ -16,6 +17,7 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<AutoCounterPage />} />
                     <Route path="/timer" element={<TimerPage />} />
+                    <Route path="/signup" element={<SignUpPage />} />
                     <Route path="/world-clock" element={<WorldClockPage />} />
                 </Routes>
                 <Footer /> {/* Add the Footer component here */}
