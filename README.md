@@ -94,3 +94,10 @@ For more detailed guidelines on contributing, please refer to the [Contributing.
 ## 📄 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Our Valuable Contributors ❤️✨
+
+[![Contributors](https://contrib.rocks/image?repo=param-code/counter-app)](https://github.com/param-code/counter-app/graphs/contributors)
+
+---
+
