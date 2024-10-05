@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { Button } from "./ui/button"
-import { Github, Moon, Sun, Globe } from "lucide-react"
-import logo from "../assets/logo.png"
+import { Button } from "./ui/button";
+import { Github, Moon, Sun, Globe } from "lucide-react";
+import logo from "../assets/logo.png";
 
 const Navbar = ({ theme, toggleTheme }) => {
   const navigate = useNavigate();
@@ -48,12 +48,20 @@ const Navbar = ({ theme, toggleTheme }) => {
               >
                 {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
               </Button>
+
+              {/* Sign-Up Link */}
+              <Link 
+                to="/signup" 
+                className="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 ml-4 inline-flex items-center"
+              >
+                Sign Up
+              </Link>
             </div>
           </div>
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

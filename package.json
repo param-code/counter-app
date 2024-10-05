@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "start": "vite",       
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -41,6 +42,6 @@
     "globals": "^15.9.0",
     "postcss": "^8.4.45",
     "tailwindcss": "^3.4.10",
-    "vite": "^5.4.1"
+    "vite": "^5.4.8"
   }
 }
