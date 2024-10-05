@@ -1,16 +1,16 @@
 "use client";
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
+import { useNavigate } from "react-router-dom"; 
 import Timer from "../components/timer";
 import Controls from "../components/controls";
 import LapList from "../components/laplist";
 import Navbar from "../components/navbar";
 import LapAnalysis from "../components/LapAnalysis";
 import LapVisualization from "../components/LapVisualization";
-import SwitchTab from "../components/SwitchTab"; // Correct import
+import SwitchTab from "../components/SwitchTab"; 
 
 const AutoCounterPage = () => {
-  const navigate = useNavigate(); // Initialize the navigate function
+  const navigate = useNavigate(); 
   const [count, setCount] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [laps, setLaps] = useState([]);
@@ -104,7 +104,7 @@ const AutoCounterPage = () => {
                 <LapVisualization laps={laps} formatTime={formatTime} />
                 <LapAnalysis laps={laps} formatTime={formatTime} />
                 <button
-                  className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition duration-300 ease-in-out"
+                  className="mt-4 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition duration-300 ease-in-out"
                   onClick={() => setShowAnalysis(false)}
                 >
                   Close Analysis
@@ -133,7 +133,7 @@ const AutoCounterPage = () => {
     </div>
   )
   const handleSwitchToTimer = () => {
-    navigate("/timer"); // Navigate to the Timer page
+    navigate("/timer");
   };
 
   return (
