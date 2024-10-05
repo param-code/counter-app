@@ -107,8 +107,11 @@ const WorldClockPage = () => {
           </select>
 
           <div className="flex justify-center">
-            <Clock value={currentTime} />
+            <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)', padding: '1px', borderRadius: '50%', display: 'inline-block' }}>
+              <Clock value={currentTime} />
+            </div>
           </div>
+
 
           <div className="mt-6 text-center text-gray-600 dark:text-gray-300">
             {selectedCountry}: {moment(currentTime).format('YYYY-MM-DD HH:mm:ss')}
