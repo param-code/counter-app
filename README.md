@@ -1,7 +1,7 @@
 
-# ⏱️ Counter App - Stopwatch Application
+# ⏱️ Tick Track App - Stopwatch Application
 
-Welcome to the **Counter App**, a simple stopwatch application built using **React** and **Vite**. This app allows users to measure time intervals with features for starting, pausing, and resetting the stopwatch.
+Welcome to the **TicK Track**, a simple stopwatch application built using **React** and **Vite**. This app allows users to measure time intervals with features for starting, pausing, and resetting the stopwatch.
 
 <p align="center">
   <img src="https://img.shields.io/badge/React-17.0.2-blue?style=for-the-badge&logo=react"/>
