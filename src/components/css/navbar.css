@@ -1,0 +1,32 @@
+.butt{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.page{
+    transition: all 0.2s ease-in-out;
+}
+.page:hover{
+    transform: scaleX(1.1);
+}
+.pages{
+    transition: all 0.2s ease-in-out;
+}
+.pages:hover{
+    /* transform: scale(1.1); */
+    animation: jump-shaking 0.83s infinite;
+}
+
+/* span.rise-shake {
+    animation: jump-shaking 0.83s infinite;
+} */
+
+  @keyframes jump-shaking {
+    0% { transform: translateX(0) }
+    25% { transform: translateY(-5px) }
+    35% { transform: translateY(-5px) rotate(17deg) }
+    55% { transform: translateY(-5px) rotate(-17deg) }
+    65% { transform: translateY(-5px) rotate(17deg) }
+    75% { transform: translateY(-5px) rotate(-17deg) }
+    100% { transform: translateY(0) rotate(0) }
+  }
