@@ -1,136 +1,186 @@
 /* General Styles */
 body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #4facfe, #00f2fe);
-    color: #333;
-  }
-  
-  /* Container */
-  .timer-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    padding: 20px;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  /* Timer Display */
-  .timer-display {
-    font-size: 48px;
-    font-weight: bold;
-    color: #ffffff;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Input Field */
-  input[type="number"] {
-    width: 100%;
-    max-width: 300px; /* Max width for better layout */
-    padding: 10px;
-    margin-bottom: 2px;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s ease;
-  }
-  
-  input[type="number"]:focus {
-    outline: none;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-  }
-  
-  /* Start Div Container */
-  .start-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9); /* Light background */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
-  }
-  
-  /* Button Container */
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: #333;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Dark Mode Support */
+body.dark-mode {
+  background: linear-gradient(to right, #333, #555);
+  color: #f0f0f0;
+}
+
+/* Container */
+.timer-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Timer Display */
+.timer-display {
+  font-size: 48px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.timer-display:hover {
+  transform: scale(1.05); /* Slight scaling on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Input Field */
+input[type="number"] {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  margin-bottom: 2px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  transform: scale(1.05);
+}
+
+/* Start Div Container */
+.start-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.start-div:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+/* Button Container */
 .button-container {
-    display: flex;                  /* Use flexbox for layout */
-    justify-content: space-between; /* Space buttons evenly */
-    margin-top: 20px;              /* Space above the button container */
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Common Button Styles */
+button {
+  background-color: #6200ea;
+  color: white;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  flex: 1;
+  margin: 0 5px;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  transform: scale(1.05);
+}
+
+/* Individual Button Styles */
+.start-button {
+  background-color: #4caf50;
+}
+
+.start-button:hover,
+.start-button:focus {
+  background-color: #388e3c;
+}
+
+.pause-button {
+  background-color: #ff9800;
+}
+
+.pause-button:hover,
+.pause-button:focus {
+  background-color: #f57c00;
+}
+
+.reset-button {
+  background-color: #f44336;
+}
+
+.reset-button:hover,
+.reset-button:focus {
+  background-color: #d32f2f;
+}
+
+button:active {
+  transform: scale(0.98); /* Button presses feel more tactile */
+}
+
+/* Preset Buttons */
+.preset-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 15px;
+}
+
+.preset-buttons button {
+  flex: 1;
+  margin: 0 5px;
+}
+
+/* Animations for Elements */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
-  
-  /* Common Button Styles */
+  50% {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+}
+
+button:hover {
+  animation: pulse 1s infinite; /* Pulse effect on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .timer-display {
+    font-size: 36px;
+  }
+
   button {
-    background-color: #6200ea; /* Default button color */
-    color: white;              /* Text color */
-    padding: 15px 25px;       /* Padding for buttons */
-    border: none;              /* Remove default border */
-    border-radius: 5px;       /* Rounded corners */
-    font-size: 16px;           /* Base font size */
-    cursor: pointer;           /* Pointer on hover */
-    flex: 1;                   /* Allow buttons to grow */
-    margin: 0 5px;             /* Horizontal spacing between buttons */
-    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition */
+    padding: 10px 15px;
+    font-size: 14px;
   }
-  
-  /* Individual Button Styles */
-  .start-button {
-    background-color: #4caf50; /* Green for Start button */
+
+  input[type="number"] {
+    max-width: 100%;
   }
-  
-  .start-button:hover {
-    background-color: #388e3c; /* Darker green on hover */
-  }
-  
-  .pause-button {
-    background-color: #ff9800; /* Orange for Pause button */
-  }
-  
-  .pause-button:hover {
-    background-color: #f57c00; /* Darker orange on hover */
-  }
-  
-  .reset-button {
-    background-color: #f44336; /* Red for Reset button */
-  }
-  
-  .reset-button:hover {
-    background-color: #d32f2f; /* Darker red on hover */
-  }
-  
-  .preset-buttons {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 400px;
-    margin-top: 15px; /* Max width for better layout */
-  }
-  
-  .preset-buttons button {
-    flex: 1; /* Allow buttons to share space evenly */
-    margin: 0 5px; /* Horizontal spacing */
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 600px) {
-    .timer-display {
-      font-size: 36px; /* Smaller font size on small screens */
-    }
-  
-    button {
-      padding: 10px 15px; /* Smaller padding for buttons */
-      font-size: 14px; /* Smaller font size for buttons */
-    }
-  
-    input[type="number"] {
-      max-width: 100%; /* Allow input to be full width on small screens */
-    }
-  }
-  
+}
+
