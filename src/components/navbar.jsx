@@ -22,7 +22,7 @@ const Navbar = ({ theme, toggleTheme }) => {
           <div>
             <div className="ml-4 flex items-center md:ml-6">
               <Button
-                onClick={() => window.open('https://www.github.com/')}
+                onClick={() => window.open('https://github.com/param-code/counter-app')}
                 variant="ghost"
                 size="icon"
                 className="rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 mr-2"
