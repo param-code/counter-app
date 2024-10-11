@@ -7,8 +7,11 @@ import LapList from "../components/laplist";
 import Navbar from "../components/navbar";
 import LapAnalysis from "../components/LapAnalysis";
 import LapVisualization from "../components/LapVisualization";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim"; // Slim version for smaller bundle
 import SwitchTab from "../components/SwitchTab"; // Correct import
 import Footer from "../components/Footer"; // Import Footer component
+
 
 const AutoCounterPage = () => {
   const navigate = useNavigate(); // Initialize the navigate function
@@ -18,7 +21,18 @@ const AutoCounterPage = () => {
   const lapsEndRef = useRef(null);
   const [theme, setTheme] = useState("light");
   const [showAnalysis, setShowAnalysis] = useState(false);
+  const [init, setInit] = useState(false);
 
+  // Load particle engine only once
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine);
+    }).then(() => {
+      setInit(true);
+    });
+  }, []);
+
+  // Load theme from local storage
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme) {
@@ -26,6 +40,7 @@ const AutoCounterPage = () => {
     }
   }, []);
 
+  // Apply theme changes to body and local storage
   useEffect(() => {
     document.body.className = theme;
     localStorage.setItem("theme", theme);
@@ -84,21 +99,76 @@ const AutoCounterPage = () => {
     setShowAnalysis(true);
   };
 
+  const particlesLoaded = (container) => {
+    console.log(container);
+  };
+
   return (
-    <div className={`min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 flex flex-col`}>
+    <div className={`min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 ${theme === 'dark' ? 'dark:bg-gray-900' : 'bg-white'}`}>
+      {init && (
+        <Particles
+          id="tsparticles"
+          particlesLoaded={particlesLoaded}
+          options={{
+            fpsLimit: 120,
+            interactivity: {
+              events: {
+                onClick: { enable: true, mode: "push" },
+                onHover: { enable: true, mode: "repulse" },
+                resize: true,
+              },
+              modes: {
+                push: { quantity: 4 },
+                repulse: { distance: 200, duration: 0.4 },
+              },
+            },
+            particles: {
+              color: {
+                value: theme === "dark" ? "#ffffff" : "#000000",
+              },
+              links: {
+                color: theme === "dark" ? "#ffffff" : "#000000",
+                distance: 150,
+                enable: true,
+                opacity: 0.5,
+                width: 1,
+              },
+              move: {
+                direction: "none",
+                enable: true,
+                outModes: { default: "bounce" },
+                random: false,
+                speed: 3,
+                straight: false,
+              },
+              number: {
+                density: { enable: true, area: 800 },
+                value: 80,
+              },
+              opacity: { value: 0.5 },
+              shape: { type: "circle" },
+              size: { value: { min: 1, max: 5 } },
+            },
+            detectRetina: true,
+          }}
+        />
+      )}
       <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <div className="container mx-auto px-2 py-4 max-w-xl flex-grow">
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-          <div className="p-4 sm:p-6">
-            <Timer formattedTime={formatTime(count)} />
-            <Controls
-              isRunning={isRunning}
-              handleStartStop={handleStartStop}
-              handleLap={handleLap}
-              handleReset={handleReset}
-            />
+      <div className="container mx-auto px-2 py-4 max-w-xl">
+        <div className="mt-16 inset-0 bg-slate-400 bg-opacity-10 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden">
+          <div className="relative p-4 sm:p-6">
+            <div className=" rounded-lg"></div> {/* Blurred background */}
+            <div className="relative z-10"> {/* Ensure content is above blurred background */}
+              <Timer formattedTime={formatTime(count)} />
+              <Controls
+                isRunning={isRunning}
+                handleStartStop={handleStartStop}
+                handleLap={handleLap}
+                handleReset={handleReset}
+              />
+            </div>
           </div>
-          <div className="bg-gray-50 dark:bg-gray-700 p-4 sm:p-6">
+          <div className="p-4 sm:p-6 z-10">
             {showAnalysis ? (
               <div className="space-y-6">
                 <LapVisualization laps={laps} formatTime={formatTime} />
@@ -133,6 +203,7 @@ const AutoCounterPage = () => {
       <Footer />
     </div>
   );
+  
 };
 
 export default AutoCounterPage;

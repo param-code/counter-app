@@ -1,10 +1,13 @@
+"use client";
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import Navbar from "../components/navbar"; // Ensure you have this component
-// import Timer from "../components/timer"; // You can use the same Timer component
-// import Controls from "../components/controls"; // Adjust based on your needs
-import SwitchTab from "../components/SwitchTab"; // Import SwitchTab
-import './TimerPage.css'
+import { useNavigate } from "react-router-dom"; 
+import Navbar from "../components/navbar"; 
+import SwitchTab from "../components/SwitchTab"; 
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim"; // Slim version for smaller bundle
+import './TimerPage.css';
 import Footer from "../components/Footer";
+
 
 const TimerPage = () => {
   const [secondsLeft, setSecondsLeft] = useState(0);
@@ -13,7 +16,18 @@ const TimerPage = () => {
   const [customTime, setCustomTime] = useState(0);
   const timerRef = useRef(null);
   const [theme, setTheme] = useState("light");
+  const [init, setInit] = useState(false);
 
+  // Load particle engine only once
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine);
+    }).then(() => {
+      setInit(true);
+    });
+  }, []);
+
+  // Load theme from local storage
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme) {
@@ -21,6 +35,7 @@ const TimerPage = () => {
     }
   }, []);
 
+  // Apply theme changes to body and local storage
   useEffect(() => {
     document.body.className = theme;
     localStorage.setItem("theme", theme);
@@ -69,11 +84,63 @@ const TimerPage = () => {
     return `${minutes}:${remainderSeconds < 10 ? "0" : ""}${remainderSeconds}`;
   };
 
+  const particlesLoaded = (container) => {
+    console.log(container);
+  };
+
   return (
-    <div className={`min-h-screen flex flex-col bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-305`}>
+    <div className={`h-svh bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 ${theme === 'dark' ? 'dark:bg-gray-900' : 'bg-white'}`}>
+      {init && (
+        <Particles
+          id="tsparticles"
+          particlesLoaded={particlesLoaded}
+          options={{
+            fpsLimit: 120,
+            interactivity: {
+              events: {
+                onClick: { enable: true, mode: "push" },
+                onHover: { enable: true, mode: "repulse" },
+                resize: true,
+              },
+              modes: {
+                push: { quantity: 4 },
+                repulse: { distance: 200, duration: 0.4 },
+              },
+            },
+            particles: {
+              color: {
+                value: theme === "dark" ? "#ffffff" : "#000000",
+              },
+              links: {
+                color: theme === "dark" ? "#ffffff" : "#000000",
+                distance: 150,
+                enable: true,
+                opacity: 0.5,
+                width: 1,
+              },
+              move: {
+                direction: "none",
+                enable: true,
+                outModes: { default: "bounce" },
+                random: false,
+                speed: 3,
+                straight: false,
+              },
+              number: {
+                density: { enable: true, area: 800 },
+                value: 80,
+              },
+              opacity: { value: 0.5 },
+              shape: { type: "circle" },
+              size: { value: { min: 1, max: 5 } },
+            },
+            detectRetina: true,
+          }}
+        />
+      )}
       <Navbar theme={theme} toggleTheme={() => setTheme((prev) => (prev === "dark" ? "light" : "dark"))} />
-      <div className="flex flex-col items-center justify-center flex-grow p-4 sm:p-6 md:p-8">
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 sm:p-8 w-full max-w-sm sm:max-w-md md:max-w-lg transition-all duration-300 ease-in-out">
+      <div className="flex flex-col items-center justify-center h-[84vh] p-4 sm:p-6 md:p-8">
+        <div className="bg-slate-400bg-opacity-10 backdrop-blur-sm dark:bg-gray-800 rounded-lg shadow-xl p-6 sm:p-8 w-full max-w-sm sm:max-w-md md:max-w-lg transition-all duration-300 ease-in-out">
           <h1>Timer</h1>
           <div className="timer-display">{formatTime(secondsLeft)}</div>
           <div>
