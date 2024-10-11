@@ -69,6 +69,14 @@ const Navbar = ({ theme, toggleTheme }) => {
                   <Moon className="h-5 w-5 transition-all duration-300 ease-in-out hover:text-indigo-500" />
                 }
               </Button>
+
+              {/* Sign-Up Link */}
+              <Link 
+                to="/signup" 
+                className="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 ml-4 inline-flex items-center"
+              >
+                Sign Up
+              </Link>
             </div>
           </div>
         </div>
