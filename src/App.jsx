@@ -22,7 +22,6 @@ const App = () => {
                     <Route path="/world-clock" element={<WorldClockPage />} />
                     <Route path="/counter" element={<Counter />}/>
                 </Routes>
-                <Footer /> {/* Add the Footer component here */}
             </div>
         </Router>
     );
