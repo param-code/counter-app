@@ -93,7 +93,6 @@ const WorldClockPage = () => {
       setTheme(storedTheme);
     }
   }, []);
-  const [theme, setTheme] = useState(ty);
 
   useEffect(() => {
     document.body.className = theme;
