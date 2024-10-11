@@ -89,6 +89,15 @@ Contributions are welcome! If you would like to make any changes, feel free to f
 4. Push to the branch: `git push origin feature-branch`
 5. Submit a pull request
 
+For more detailed guidelines on contributing, please refer to the [Contributing.md](Contributing.md) file.
+
 ## 📄 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Our Valuable Contributors ❤️✨
+
+[![Contributors](https://contrib.rocks/image?repo=param-code/counter-app)](https://github.com/param-code/counter-app/graphs/contributors)
+
+---
+
