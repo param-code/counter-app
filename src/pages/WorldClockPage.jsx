@@ -3,10 +3,14 @@ import Clock from "react-clock";
 import "react-clock/dist/Clock.css";
 import moment from "moment-timezone";
 import Navbar from "../components/navbar";
+import morningImage from "../assets/morningBackground.png";
+import nightImage from "../assets/nightBackground.png";
+import afternoonImage from "../assets/afternoonBackground.png";  // Fix: Renamed to match usage
 
 const WorldClockPage = () => {
   const [selectedCountry, setSelectedCountry] = useState("UTC");
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [backgroundImage, setBackgroundImage] = useState(morningImage);
 
   const countryTimezones = {
     "United States": "America/New_York",
@@ -33,12 +37,11 @@ const WorldClockPage = () => {
 
   useEffect(() => {
     const timezone = countryTimezones[selectedCountry] || "UTC";
-    
+
     const updateTime = () => {
       const now = moment();
       const time = now.tz(timezone);
-      
-     
+
       const newDate = new Date(
         time.year(),
         time.month(),
@@ -47,14 +50,21 @@ const WorldClockPage = () => {
         time.minute(),
         time.second()
       );
-      
       setCurrentTime(newDate);
+
+      // Set the background image based on the current hour
+      const currentHour = time.hour();
+      if (currentHour >= 6 && currentHour < 12) {
+        setBackgroundImage(morningImage);
+      } else if (currentHour >= 12 && currentHour < 18) {
+        setBackgroundImage(afternoonImage);  // Fix: Use correct variable name and range
+      } else {
+        setBackgroundImage(nightImage);
+      }
     };
 
-   
     updateTime();
 
-   
     const timer = setInterval(updateTime, 1000);
 
     return () => clearInterval(timer);
@@ -63,30 +73,16 @@ const WorldClockPage = () => {
   const handleCountryChange = (e) => {
     setSelectedCountry(e.target.value);
   };
-  // const [theme, setTheme] = useState("");
-  // const [theme, setTheme] = useState("");
-  let ty="";
-  useEffect(() => {
-    const storedTheme = localStorage.getItem("theme");
-    if (storedTheme) {
-      ty=storedTheme
-      setTheme(storedTheme);
-    }
-  }, []);
-  const [theme, setTheme] = useState(ty);
-  // let ty="";
-  useEffect(() => {
-    document.body.className = theme;
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
-  };
 
   return (
-    <div className="h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+    <div
+      className="h-screen transition-colors duration-300"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+      }}
+    >
+      <Navbar />
       <div className="flex flex-col items-center justify-center h-[calc(100vh-4rem)] p-4 sm:p-6 md:p-8">
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 sm:p-8 w-full max-w-sm sm:max-w-md md:max-w-lg transition-all duration-300 ease-in-out">
           <h1 className="text-3xl font-bold mb-6 text-center text-gray-800 dark:text-white">
@@ -107,11 +103,14 @@ const WorldClockPage = () => {
           </select>
 
           <div className="flex justify-center">
-            <Clock value={currentTime} />
+            <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)', padding: '1px', borderRadius: '50%', display: 'inline-block' }}>
+              <Clock value={currentTime} />
+            </div>
           </div>
 
+
           <div className="mt-6 text-center text-gray-600 dark:text-gray-300">
-            {selectedCountry}: {moment(currentTime).format('YYYY-MM-DD HH:mm:ss')}
+            {selectedCountry}: {moment(currentTime).format("YYYY-MM-DD HH:mm:ss")}
           </div>
         </div>
       </div>
