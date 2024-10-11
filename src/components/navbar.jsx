@@ -2,6 +2,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from "./ui/button"
 import { Github, Moon, Sun, Globe } from "lucide-react"
 import logo from "../assets/logo.png"
+import timer from "../assets/timer1.png";
+import worldClock from "../assets/clock.png";
+import "./css/navbar.css"
 
 const Navbar = ({ theme, toggleTheme }) => {
   const navigate = useNavigate();
@@ -18,6 +21,20 @@ const Navbar = ({ theme, toggleTheme }) => {
                 className="h-9 w-55 transition-transform duration-300 hover:scale-105"
               />
             </Link>
+            <Link to="/timer" className="pages font-bold text-xl text-blue-600 dark:text-blue-400 mr-8">
+              <img
+                src={timer}
+                alt="Timer"
+                className="h-9 w-55"
+              />
+            </Link>
+            <Link to="/world-clock" className="pages font-bold text-xl text-blue-600 dark:text-blue-400">
+              <img
+                src={worldClock}
+                alt="World Clock"
+                className="h-9 w-55"
+              />
+            </Link>
           </div>
           <div>
             <div className="ml-4 flex items-center md:ml-6 space-x-4">
@@ -30,6 +47,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                 <Github className='h-5 w-5 transition-all duration-300 ease-in-out hover:text-blue-500' />
               </Button>
 
+              {/* World Clock button */}
               <Button
                 onClick={() => navigate('/world-clock')}
                 variant="ghost"
