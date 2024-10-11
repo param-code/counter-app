@@ -154,7 +154,7 @@ const AutoCounterPage = () => {
       )}
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <div className="container mx-auto px-2 py-4 max-w-xl">
-        <div className="mt-16 inset-0 bg-slate-400 bg-opacity-10 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden">
+        <div className="mt-8 inset-0 bg-slate-400 bg-opacity-10 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden">
           <div className="relative p-4 sm:p-6">
             <div className=" rounded-lg"></div> {/* Blurred background */}
             <div className="relative z-10"> {/* Ensure content is above blurred background */}
