@@ -5,12 +5,17 @@ import moment from "moment-timezone";
 import Navbar from "../components/navbar";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim"; // Slim version for smaller bundle
+import Footer from "../components/Footer";
+import morningImage from "../assets/morningBackground.png";
+import nightImage from "../assets/nightBackground.png";
+import afternoonImage from "../assets/afternoonBackground.png";  // Fix: Renamed to match usage
 
 const WorldClockPage = () => {
   const [selectedCountry, setSelectedCountry] = useState("UTC");
   const [currentTime, setCurrentTime] = useState(new Date());
   const [theme, setTheme] = useState("light");
   const [init, setInit] = useState(false); // Track if particles are initialized
+  const [backgroundImage, setBackgroundImage] = useState(morningImage);
 
   const countryTimezones = {
     "United States": "America/New_York",
@@ -59,6 +64,16 @@ const WorldClockPage = () => {
         time.second()
       );
       setCurrentTime(newDate);
+
+      // Set the background image based on the current hour
+      const currentHour = time.hour();
+      if (currentHour >= 6 && currentHour < 12) {
+        setBackgroundImage(morningImage);
+      } else if (currentHour >= 12 && currentHour < 18) {
+        setBackgroundImage(afternoonImage);  // Fix: Use correct variable name and range
+      } else {
+        setBackgroundImage(nightImage);
+      }
     };
 
     updateTime();
@@ -67,12 +82,18 @@ const WorldClockPage = () => {
     return () => clearInterval(timer);
   }, [selectedCountry]);
 
+  const handleCountryChange = (e) => {
+    setSelectedCountry(e.target.value);
+  };
+  let ty = "";
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme) {
+      ty = storedTheme;
       setTheme(storedTheme);
     }
   }, []);
+  const [theme, setTheme] = useState(ty);
 
   useEffect(() => {
     document.body.className = theme;
@@ -84,7 +105,10 @@ const WorldClockPage = () => {
   };
 
   return (
-    <div className={`h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300`}>
+    <div className={`h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300`} style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+      }}>
       {init && (
         <Particles
           id="tsparticles"
@@ -153,14 +177,18 @@ const WorldClockPage = () => {
           </select>
 
           <div className="flex justify-center">
-            <Clock value={currentTime} />
+            <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)', padding: '1px', borderRadius: '50%', display: 'inline-block' }}>
+              <Clock value={currentTime} />
+            </div>
           </div>
 
+
           <div className="mt-6 text-center text-gray-600 dark:text-gray-300">
-            {selectedCountry}: {moment(currentTime).format('YYYY-MM-DD HH:mm:ss')}
+            {selectedCountry}: {moment(currentTime).format("YYYY-MM-DD HH:mm:ss")}
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

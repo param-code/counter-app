@@ -9,6 +9,9 @@ import LapAnalysis from "../components/LapAnalysis";
 import LapVisualization from "../components/LapVisualization";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim"; // Slim version for smaller bundle
+import SwitchTab from "../components/SwitchTab"; // Correct import
+import Footer from "../components/Footer"; // Import Footer component
+
 
 const AutoCounterPage = () => {
   const navigate = useNavigate(); // Initialize the navigate function
@@ -197,6 +200,7 @@ const AutoCounterPage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
   

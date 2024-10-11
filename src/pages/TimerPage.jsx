@@ -6,6 +6,8 @@ import SwitchTab from "../components/SwitchTab";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim"; // Slim version for smaller bundle
 import './TimerPage.css';
+import Footer from "../components/Footer";
+
 
 const TimerPage = () => {
   const [secondsLeft, setSecondsLeft] = useState(0);
@@ -162,6 +164,7 @@ const TimerPage = () => {
           <SwitchTab /> {/* Include the SwitchTab component here */}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
