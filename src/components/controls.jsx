@@ -47,19 +47,22 @@ const Controls = ({ isRunning, handleStartStop, handleLap, handleReset }) => {
       <Button
         onClick={handleLap}
         disabled={!isRunning}
-        // className="w-full sm:w-auto flex-1 sm:flex-none px-4 py-2 rounded-full bg-blue-500 hover:bg-blue-600 active:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 dark:active:bg-blue-800  font-medium transition-all duration-300 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
-        className="w-full sm:w-auto flex-1 sm:flex-none rounded-full px-4 py-2 bg-blue-500 text-green-400  text-white border-rounded  border-blue-400 border-b-4 font-medium overflow-hidden relative px-4 py-2 hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group dark:hover:bg-blue-700"
+        className={`w-full sm:w-auto flex-1 sm:flex-none px-4 py-2 rounded-full bg-blue-500 text-white font-medium transition-all duration-300 ease-in-out transform
+          ${isRunning 
+            ? 'hover:bg-blue-600 active:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 dark:active:bg-blue-800 hover:scale-105 hover:shadow-lg active:scale-95 hover:rotate-1' 
+            : 'opacity-50 cursor-not-allowed'
+          }`}
       >
-        <Flag className="mr-2 h-4 w-4" />
-        <span className="bg-blue-500 shadow-blue-500 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
+        <Flag className={`mr-2 h-4 w-4 ${isRunning ? 'animate-spin-slow' : ''}`} />
         Lap
       </Button>
 
       <Button
         onClick={handleReset}
-        className="w-full sm:w-auto flex-1 sm:flex-none px-4 py-2 rounded-full bg-gray-500 hover:bg-gray-600 active:bg-gray-700 dark:bg-gray-600 dark:hover:bg-gray-700 dark:active:bg-gray-800 text-white font-medium transition-all duration-300 ease-in-out group"
+        className="w-full sm:w-auto flex-1 sm:flex-none px-4 py-2 rounded-full bg-gray-500 hover:bg-gray-600 active:bg-gray-700 dark:bg-gray-600 dark:hover:bg-gray-700 dark:active:bg-gray-800 text-white font-medium transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg active:scale-95 hover:-rotate-1"
       >
-        <RotateCcw className="mr-2 h-4 w-4 group-hover:-rotate-180 duration-300 " />
+        <RotateCcw className="mr-2 h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
+
         Reset
       </Button>
     </div>
