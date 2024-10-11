@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from "./ui/button"
 import { Github, Moon, Sun, Globe } from "lucide-react"
 import logo from "../assets/logo.png"
+import darkLogo from "../assets/dark.jpg"; // Use an appropriate dark version of the logo
 import timer from "../assets/timer1.png";
 import worldClock from "../assets/clock.png";
 import "./css/navbar.css"
@@ -16,8 +17,8 @@ const Navbar = ({ theme, toggleTheme }) => {
           <div className="flex items-center">
             <Link to="/" className="font-bold text-xl text-blue-600 dark:text-blue-400 transition-colors duration-300 hover:text-blue-800 dark:hover:text-blue-300">
               <img
-                src={logo}
-                alt="Counter"
+                src={theme === 'dark' ? darkLogo : logo} // Conditionally render the logo based on the theme
+                alt={theme === 'dark' ? "Dark Logo" : "Logo"}
                 className="h-9 w-55 transition-transform duration-300 hover:scale-105"
               />
             </Link>
@@ -73,7 +74,7 @@ const Navbar = ({ theme, toggleTheme }) => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
