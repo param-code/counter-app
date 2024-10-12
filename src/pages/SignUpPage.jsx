@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const SignUpPage = () => {
   const [currState, setCurrState] = useState("Sign Up");
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (currState === "Sign Up") {
       console.log('Sign Up Data:', { username, email, password });
+      toast.success("Signup Successfully!");
     } else {
       console.log('Sign In Data:', { email, password });
+      toast.success("Login Successfully!");
     }
+    navigate("/");
   };
 
   return (
@@ -26,8 +32,9 @@ const SignUpPage = () => {
               type="text"
               id="username"
               value={username}
+              placeholder="Enter your name.."
               onChange={(e) => setUsername(e.target.value)}
-              className="mt-1 block w-full p-2 border border-gray-300 rounded dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring focus:ring-blue-500"
+              className="mt-1 block w-full p-2 border-[1px] border-gray-300 rounded dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:outline-none focus:border-blue-500"
               required
             />
           </div>
@@ -37,9 +44,10 @@ const SignUpPage = () => {
           <input
             type="email"
             id="email"
+            placeholder="Enter your email.."
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring focus:ring-blue-500"
+            className="mt-1 block w-full p-2 border-[1px] border-gray-300 rounded dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:outline-none focus:border-blue-500"
             required
           />
         </div>
@@ -48,13 +56,14 @@ const SignUpPage = () => {
           <input
             type="password"
             id="password"
+            placeholder="Enter your password.."
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring focus:ring-blue-500"
+            className="mt-1 block w-full p-2 border-[1px] border-gray-300 rounded dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:outline-none focus:border-blue-500"
             required
           />
         </div>
-        <button type="submit" className="w-full bg-blue-600 text-white font-bold py-2 rounded hover:bg-blue-700 focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50">
+        <button type="submit" className="w-full bg-blue-600 text-white font-bold py-2 rounded hover:bg-blue-700 focus:outline-none focus:border-blue-500">
           {currState === 'Sign Up' ? 'Create Account' : 'Sign In'}
         </button>
         <div className="text-center mt-4 text-gray-700 dark:text-gray-300">
