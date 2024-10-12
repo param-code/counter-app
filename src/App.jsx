@@ -7,6 +7,7 @@ import TimerPage from './pages/TimerPage';
 import AutoCounterPage from './pages/AutoCounterPage';
 import Design from './components/Design'; 
 import Counter from './pages/Counter';
+import Error from './pages/Error';
 // import Footer from './Footer'; // Import the Footer component
 
 const App = () => {
@@ -20,7 +21,8 @@ const App = () => {
                     <Route path="/timer" element={<TimerPage />} />
                     <Route path="/signup" element={<SignUpPage />} />
                     <Route path="/world-clock" element={<WorldClockPage />} />
-                    <Route path="/counter" element={<Counter />}/>
+                    <Route path="/counter" element={<Counter />} />
+                    <Route path='*' element={<Error />} />
                 </Routes>
             </div>
         </Router>
