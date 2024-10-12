@@ -26,6 +26,7 @@ const SignUpPage = () => {
               type="text"
               id="username"
               value={username}
+              placeholder="Enter your name.."
               onChange={(e) => setUsername(e.target.value)}
               className="mt-1 block w-full p-2 border border-gray-300 rounded dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring focus:ring-blue-500"
               required
@@ -37,6 +38,7 @@ const SignUpPage = () => {
           <input
             type="email"
             id="email"
+            placeholder="Enter your email.."
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="mt-1 block w-full p-2 border border-gray-300 rounded dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring focus:ring-blue-500"
@@ -48,6 +50,7 @@ const SignUpPage = () => {
           <input
             type="password"
             id="password"
+            placeholder="Enter your password.."
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="mt-1 block w-full p-2 border border-gray-300 rounded dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring focus:ring-blue-500"
