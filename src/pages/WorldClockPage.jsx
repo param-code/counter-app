@@ -68,10 +68,13 @@ const WorldClockPage = () => {
       // Set the background image based on the current hour
       const currentHour = time.hour();
       if (currentHour >= 6 && currentHour < 12) {
+        setTheme("light") // setting the theme according to selected timeZone
         setBackgroundImage(morningImage);
       } else if (currentHour >= 12 && currentHour < 18) {
+        setTheme("light") // setting the theme according to selected timeZone
         setBackgroundImage(afternoonImage);  // Fix: Use correct variable name and range
       } else {
+        setTheme("dark") // setting the theme according to selected timeZone
         setBackgroundImage(nightImage);
       }
     };
@@ -157,7 +160,7 @@ const WorldClockPage = () => {
       )}
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <div className="flex flex-col items-center justify-center h-[calc(100vh-4rem)] p-4 sm:p-6 md:p-8">
-        <div className="bg-opacity-10 backdrop-blur-sm bg-slate-400 dark:bg-gray-800 rounded-lg shadow-xl p-6 sm:p-8 w-full max-w-sm sm:max-w-md md:max-w-lg transition-all duration-300 ease-in-out">
+        <div className="bg-opacity-10 backdrop-blur-sm bg-slate-400 dark:bg-gray-800 dark:bg-opacity-10 dark:backdrop-blur-sm rounded-lg shadow-xl p-6 sm:p-8 w-full max-w-sm sm:max-w-md md:max-w-lg transition-all duration-300 ease-in-out">
           <h1 className="text-3xl font-bold mb-6 text-center text-gray-800 dark:text-white">
             World Clock
           </h1>
