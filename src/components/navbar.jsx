@@ -1,8 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from "./ui/button"
 import { Github, Moon, Sun, Globe } from "lucide-react"
-import logo from "../assets/logo.png"
-import darkLogo from "../assets/dark.jpg"; // Use an appropriate dark version of the logo
+import logo from "../assets/logo1.png"
+import darkLogo from "../assets/darklogo1.png"; // Use an appropriate dark version of the logo
 import timer from "../assets/timer1.png";
 import worldClock from "../assets/clock.png";
 import "./css/navbar.css"
@@ -22,7 +22,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                 className="h-9 w-55 transition-transform duration-300 hover:scale-105"
               />
             </Link>
-            <Link to="/timer" className="pages font-bold text-xl text-blue-600 dark:text-blue-400 mr-8">
+            <Link to="/timer" className="pages font-bold text-xl text-blue-600 ml-6 dark:text-blue-400 mr-8">
               <img
                 src={timer}
                 alt="Timer"

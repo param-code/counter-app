@@ -68,10 +68,13 @@ const WorldClockPage = () => {
       // Set the background image based on the current hour
       const currentHour = time.hour();
       if (currentHour >= 6 && currentHour < 12) {
+        setTheme("light") // setting the theme according to selected timeZone
         setBackgroundImage(morningImage);
       } else if (currentHour >= 12 && currentHour < 18) {
+        setTheme("light") // setting the theme according to selected timeZone
         setBackgroundImage(afternoonImage);  // Fix: Use correct variable name and range
       } else {
+        setTheme("dark") // setting the theme according to selected timeZone
         setBackgroundImage(nightImage);
       }
     };

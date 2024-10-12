@@ -84,10 +84,11 @@ https://github.com/user-attachments/assets/2a8209c3-8b5b-4275-9fda-f2033a4fa03d
 Contributions are welcome! If you would like to make any changes, feel free to fork the repository and submit a pull request.
 
 1. Fork the repository
-2. Create a new branch for your feature: `git checkout -b feature-branch`
-3. Commit your changes: `git commit -m 'Add new feature'`
-4. Push to the branch: `git push origin feature-branch`
-5. Submit a pull request
+2. Clone the forked repository `git clone https://github.com/yourusername/counter-app.git`
+3. Create a new branch for your feature: `git checkout -b feature-branch`
+4. Commit your changes: `git commit -m 'Add new feature'`
+5. Push to the branch: `git push origin feature-branch`
+6. Submit a pull request
 
 For more detailed guidelines on contributing, please refer to the [Contributing.md](Contributing.md) file.
 
