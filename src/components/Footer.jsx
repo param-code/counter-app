@@ -2,6 +2,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faXTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import GoogleTranslate from './GoogleTranslate';
 
 const Footer = () => {
     return (
@@ -31,7 +32,19 @@ const Footer = () => {
                 <div className="footer-bottom mt-4 text-center">
                     <p className="text-sm hover:text-gray-400 transition-colors duration-300">© 2024 Counter Timer. All Rights Reserved.</p>
                 </div>
+
             </div>
+            <div className="flex items-center justify-center mt-4">
+                <img
+                    src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Google_Translate_logo.svg/2048px-Google_Translate_logo.svg.png'
+                    alt="Google Translate"
+                    className="w-[2rem] h-[2rem] mr-2"
+                /></div>
+            <div className="flex items-center justify-center ml-[5rem]">
+                <GoogleTranslate />
+            </div>
+
+
         </footer>
     );
 };
