@@ -7,12 +7,18 @@ const SignUpPage = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [cpassword, setCPassword] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (currState === "Sign Up") {
-      console.log('Sign Up Data:', { username, email, password });
+      if (cpassword !== password) {
+        toast.error("Password not match");
+        navigate("/signup");
+        return;
+      }
+      console.log('Sign Up Data:', { username, email, password, cpassword });
       toast.success("Signup Successfully!");
     } else {
       console.log('Sign In Data:', { email, password });
@@ -63,6 +69,24 @@ const SignUpPage = () => {
             required
           />
         </div>
+
+        {
+          currState === "Sign Up" && (
+            <div className="mb-4">
+              <label className="block text-gray-700 dark:text-gray-300" htmlFor="password">Confirm Password</label>
+              <input
+                type="password"
+                id="password"
+                value={cpassword}
+                placeholder="Confirm password.."
+                onChange={(e) => setCPassword(e.target.value)}
+                className="mt-1 block w-full p-2 border-[1px] border-gray-300 rounded dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:outline-none focus:border-blue-500"
+                required
+              />
+            </div>
+          )
+        }
+
         <button type="submit" className="w-full bg-blue-600 text-white font-bold py-2 rounded hover:bg-blue-700 focus:outline-none focus:border-blue-500">
           {currState === 'Sign Up' ? 'Create Account' : 'Sign In'}
         </button>
