@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const SignUpPage = () => {
   const [currState, setCurrState] = useState("Sign Up");
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (currState === "Sign Up") {
       console.log('Sign Up Data:', { username, email, password });
+      toast.success("Signup Successfully!");
     } else {
       console.log('Sign In Data:', { email, password });
+      toast.success("Login Successfully!");
     }
+    navigate("/");
   };
 
   return (
