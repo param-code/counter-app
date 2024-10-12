@@ -17,11 +17,12 @@ const App = () => {
                 <Design /> 
                 <Routes>
                     <Route path="/" element={<AutoCounterPage />} />
-                    <Route path="/timer" element={<TimerPage />} />
+                    <Route path="/Timer" element={<TimerPage />} />
                     <Route path="/signup" element={<SignUpPage />} />
-                    <Route path="/world-clock" element={<WorldClockPage />} />
+                    <Route path="/WorldClock" element={<WorldClockPage />} />
                     <Route path="/counter" element={<Counter />}/>
                 </Routes>
+                <Footer/>
             </div>
         </Router>
     );

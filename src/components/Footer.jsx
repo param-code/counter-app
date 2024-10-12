@@ -14,8 +14,8 @@ const Footer = () => {
                     </div>
                     <div className="footer-links mb-4 md:mb-0">
                         <a href="/" className="text-gray-300 hover:text-white mx-2 transition-all duration-300 hover:underline transform hover:scale-110 inline-block">Home</a>
-                        <a href="/timer" className="text-gray-300 hover:text-white mx-2 transition-all duration-300 hover:underline transform hover:scale-110 inline-block">Timer</a>
-                        <a href="/world-clock" className="text-gray-300 hover:text-white mx-2 transition-all duration-300 hover:underline transform hover:scale-110 inline-block">World Clock</a>
+                        <a href="/Timer" className="text-gray-300 hover:text-white mx-2 transition-all duration-300 hover:underline transform hover:scale-110 inline-block">Timer</a>
+                        <a href="/WorldClock" className="text-gray-300 hover:text-white mx-2 transition-all duration-300 hover:underline transform hover:scale-110 inline-block">World Clock</a>
                     </div>
                     <div className="footer-socials flex">
                         <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-500 mx-2 transition-all duration-300 transform hover:scale-125">
