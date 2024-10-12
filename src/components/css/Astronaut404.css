@@ -1,0 +1,85 @@
+/* Full screen background gradient */
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background: linear-gradient(90deg, rgba(47,54,64,1) 23%, rgba(24,27,32,1) 100%);
+}
+/* Moon styles */
+.moon {
+  background: linear-gradient(90deg, rgba(208,208,208,1) 48%, rgba(145,145,145,1) 100%);
+  position: absolute;
+  top: -100px;
+  left: -300px;
+  width: 900px;
+  height: 900px;
+  border-radius: 100%;
+  box-shadow: 0px 0px 30px -4px rgba(0,0,0,0.5);
+}
+
+.moon__crater {
+  position: absolute;
+  background: linear-gradient(90deg, rgba(122,122,122,1) 38%, rgba(195,195,195,1) 100%);
+  border-radius: 100%;
+  opacity: 0.6;
+}
+
+.moon__crater1 { top: 250px; left: 500px; width: 60px; height: 180px; }
+.moon__crater2 { top: 650px; left: 340px; width: 40px; height: 80px; transform: rotate(55deg); }
+.moon__crater3 { top: -20px; left: 40px; width: 65px; height: 120px; transform: rotate(250deg); }
+
+/* Star animations */
+.star {
+  background: grey;
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  opacity: 0.4;
+  animation: shimmer 1.5s infinite alternate;
+}
+
+@keyframes shimmer {
+  from { opacity: 0; }
+  to { opacity: 0.7; }
+}
+
+.star1 { top: 40%; left: 50%; animation-delay: 1s; }
+.star2 { top: 60%; left: 90%; animation-delay: 3s; }
+.star3 { top: 10%; left: 70%; animation-delay: 2s; }
+.star4 { top: 90%; left: 40%; }
+.star5 { top: 20%; left: 30%; animation-delay: 0.5s; }
+
+/* Error text */
+.error {
+  position: absolute;
+  left: 100px;
+  top: 400px;
+  transform: translateY(-60%);
+  font-family: 'Righteous', cursive;
+  color: #363e49;
+}
+
+.error__title { font-size: 10em; }
+.error__subtitle { font-size: 2em; }
+.error__description { opacity: 0.5; }
+
+.error__button {
+  min-width: 7em;
+  margin-top: 3em;
+  margin-right: 0.5em;
+  padding: 0.5em 2em;
+  outline: none;
+  border: 2px solid #2f3640;
+  background-color: transparent;
+  border-radius: 8em;
+  color: #576375;
+  cursor: pointer;
+  transition-duration: 0.2s;
+  font-size: 0.75em;
+  font-family: 'Righteous', cursive;
+}
+
+.error__button:hover {
+  color: #21252c;
+}
