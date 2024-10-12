@@ -13,6 +13,10 @@ const SignUpPage = () => {
       const userData = { username, email, password };
       localStorage.setItem(email, JSON.stringify(userData)); // Use email as key for storage
       console.log("Sign Up Data:", userData);
+      // Show success alert
+      alert("Signed up successfully!");
+      // Redirect to home page
+      window.location.href = "/";
       // Reset fields after successful sign-up
       setUsername("");
       setEmail("");
@@ -111,8 +115,7 @@ const SignUpPage = () => {
             </p>
           ) : (
             <p>
-              {" "}
-              Dont have an account?{" "}
+              Don't have an account?{" "}
               <span
                 className="text-blue-600 cursor-pointer"
                 onClick={() => setCurrState("Sign Up")}
