@@ -90,7 +90,7 @@ const Footer = () => {
             </li>
             <li className="mb-1">
               <a
-                href="/timer"
+                href="/Timer"
                 className="text-gray-400 hover:text-white text-sm transition-colors duration-300"
               >
                 Timer
@@ -98,7 +98,7 @@ const Footer = () => {
             </li>
             <li className="mb-1">
               <a
-                href="/world-clock"
+                href="/WorldClock"
                 className="text-gray-400 hover:text-white text-sm transition-colors duration-300"
               >
                 World Clock
