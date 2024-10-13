@@ -32,7 +32,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                 className="h-9 w-55"
               />
             </Link>
-            <Link to="/World-Clock" className="pages font-bold text-xl text-blue-600 dark:text-blue-400">
+            <Link to="/WorldClock" className="pages font-bold text-xl text-blue-600 dark:text-blue-400">
               <img
                 src={worldClock}
                 alt="World Clock"
@@ -53,7 +53,7 @@ const Navbar = ({ theme, toggleTheme }) => {
 
               {/* World Clock button */}
               <Button
-                onClick={() => navigate('/World-Clock')}
+                onClick={() => navigate('/WorldClock')}
                 variant="ghost"
                 size="icon"
                 className="rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out transform hover:scale-110 hover:-rotate-12 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
