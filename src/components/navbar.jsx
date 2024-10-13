@@ -1,8 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from "./ui/button"
 import { Github, Moon, Sun, Globe } from "lucide-react"
-import logo from "../assets/logo.png"
-import darkLogo from "../assets/dark.jpg"; // Use an appropriate dark version of the logo
+import logo from "../assets/logo2.png"
+import darkLogo from "../assets/logo3.png"; // Use an appropriate dark version of the logo
 import timer from "../assets/timer1.png";
 import worldClock from "../assets/clock.png";
 import "./css/navbar.css"
@@ -19,7 +19,7 @@ const Navbar = ({ theme, toggleTheme }) => {
               <img
                 src={theme === 'dark' ? darkLogo : logo} // Conditionally render the logo based on the theme
                 alt={theme === 'dark' ? "Dark Logo" : "Logo"}
-                className="h-9 w-55 transition-transform duration-300 hover:scale-105"
+                className="h-22 w-60 transition-transform duration-300 hover:scale-105"
               />
             </Link>
             <Link to="/timer" className="pages font-bold text-xl text-blue-600 dark:text-blue-400 mr-8">
