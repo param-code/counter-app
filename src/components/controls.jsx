@@ -207,12 +207,12 @@ const Controls = ({ isRunning, handleStartStop, handleLap, handleReset }) => {
           {isRunning ? (
             <>
               <Pause className="z-10 mr-2 h-4 w-4" />
-              <span className="z-10">Stop</span>
+              <span className="mr-2 z-10">Stop</span>
             </>
           ) : (
             <>
               <Play className="z-10 mr-2 h-4 w-4" />
-              <span className="z-10">Start</span>
+              <span className="mr-2 z-10">Start</span>
             </>
           )}
         </Button>

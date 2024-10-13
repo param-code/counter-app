@@ -5,7 +5,6 @@ import moment from "moment-timezone";
 import Navbar from "../components/navbar";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim"; // Slim version for smaller bundle
-import Footer from "../components/Footer";
 import morningImage from "../assets/morningBackground.png";
 import nightImage from "../assets/nightBackground.png";
 import afternoonImage from "../assets/afternoonBackground.png";  // Fix: Renamed to match usage
@@ -13,9 +12,9 @@ import afternoonImage from "../assets/afternoonBackground.png";  // Fix: Renamed
 const WorldClockPage = () => {
   const [selectedCountry, setSelectedCountry] = useState("UTC");
   const [currentTime, setCurrentTime] = useState(new Date());
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("light"); // Updated theme management
   const [init, setInit] = useState(false); // Track if particles are initialized
-  const [backgroundImage, setBackgroundImage] = useState(morningImage);
+  const [backgroundImage, setBackgroundImage] = useState(morningImage); // Static based on time logic removed
 
   const countryTimezones = {
     "United States": "America/New_York",
@@ -64,19 +63,6 @@ const WorldClockPage = () => {
         time.second()
       );
       setCurrentTime(newDate);
-
-      // Set the background image based on the current hour
-      const currentHour = time.hour();
-      if (currentHour >= 6 && currentHour < 12) {
-        setTheme("light") // setting the theme according to selected timeZone
-        setBackgroundImage(morningImage);
-      } else if (currentHour >= 12 && currentHour < 18) {
-        setTheme("light") // setting the theme according to selected timeZone
-        setBackgroundImage(afternoonImage);  // Fix: Use correct variable name and range
-      } else {
-        setTheme("dark") // setting the theme according to selected timeZone
-        setBackgroundImage(nightImage);
-      }
     };
 
     updateTime();
@@ -85,14 +71,10 @@ const WorldClockPage = () => {
     return () => clearInterval(timer);
   }, [selectedCountry]);
 
-  const handleCountryChange = (e) => {
-    setSelectedCountry(e.target.value);
-  };
-  let ty = "";
+  // Updated theme management similar to TimerPage
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme) {
-      ty = storedTheme;
       setTheme(storedTheme);
     }
   }, []);
@@ -190,7 +172,7 @@ const WorldClockPage = () => {
           </div>
         </div>
       </div>
-      <Footer />
+
     </div>
   );
 };
