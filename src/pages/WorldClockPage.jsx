@@ -5,7 +5,6 @@ import moment from "moment-timezone";
 import Navbar from "../components/navbar";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim"; // Slim version for smaller bundle
-import Footer from "../components/Footer";
 import morningImage from "../assets/morningBackground.png";
 import nightImage from "../assets/nightBackground.png";
 import afternoonImage from "../assets/afternoonBackground.png";  // Fix: Renamed to match usage
@@ -190,7 +189,7 @@ const WorldClockPage = () => {
           </div>
         </div>
       </div>
-      <Footer />
+
     </div>
   );
 };
