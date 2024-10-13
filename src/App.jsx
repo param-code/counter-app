@@ -31,7 +31,7 @@ const App = () => {
                     <Route path='/signup' element={<Template formType={"signup"} />} />
                     <Route path='/login' element={<Template formType={"login"} />} /> 
                 </Routes>
-                </Footer>
+                <Footer/>
             </div>
         </Router>
     );
