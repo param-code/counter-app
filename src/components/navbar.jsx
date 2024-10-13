@@ -50,7 +50,7 @@ const Navbar = ({ theme, toggleTheme }) => {
 
               {/* World Clock button */}
               <Button
-                onClick={() => navigate('/world-clock')}
+                onClick={() => navigate('/WorldClock')}
                 variant="ghost"
                 size="icon"
                 className="rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out transform hover:scale-110 hover:-rotate-12 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
