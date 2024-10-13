@@ -9,7 +9,7 @@ import AutoCounterPage from './pages/AutoCounterPage';
 import Design from './components/Design'; 
 import Counter from './pages/Counter';
 import Contributors from "./pages/Contributors";
-import Footer from "./pages/Footer";
+import Footer from "./componenets/Footer";
 
 // import Footer from './Footer'; // Import the Footer component
 import Template from "./components/Auth/Template";
