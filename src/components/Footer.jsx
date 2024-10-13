@@ -12,11 +12,18 @@ import GoogleTranslate from "./GoogleTranslate";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-2"> {/* Reduced overall padding */}
+    <footer className="bg-gray-900 text-white py-2">
+      {" "}
+      {/* Reduced overall padding */}
       {/* Social Media and Language */}
-      <div className="bg-teal-600 py-2"> {/* Reduced padding */}
+      <div className="bg-teal-600 py-2">
+        {" "}
+        {/* Reduced padding */}
         <div className="container mx-auto px-4 flex justify-between items-center">
-          <p className="text-sm ml-20">Get connected with us on social networks:</p> {/* Adjusted margin */}
+          <p className="text-sm ml-20">
+            Get connected with us on social networks:
+          </p>{" "}
+          {/* Adjusted margin */}
           <div className="social-icons flex space-x-4">
             <a
               href="https://www.facebook.com"
@@ -66,15 +73,13 @@ const Footer = () => {
         </div>
       </div>
       {/* Footer Content */}
-      <div className="container mx-auto px-4 py-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-center"> {/* Reduced padding */}
+      <div className="container mx-auto px-4 py-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+        {" "}
+        {/* Reduced padding */}
         {/* Company Info (Center aligned) */}
         <div className="flex flex-col items-center">
           <h2 className="font-bold text-2xl mb-2">Counter Timer</h2>
-          <img
-            src={Clock}
-            alt="Clock"
-            className="h-15 w-24 -mb-2"
-          />
+          <img src={Clock} alt="Clock" className="h-15 w-24 -mb-2" />
         </div>
         {/* Useful Links (Center aligned) */}
         <div className="flex flex-col items-center">
@@ -104,6 +109,14 @@ const Footer = () => {
                 World Clock
               </a>
             </li>
+            <li className="mb-1">
+              <a
+                href="/Contributors"
+                className="text-gray-400 hover:text-white text-sm transition-colors duration-300"
+              >
+                Contributors
+              </a>
+            </li>
           </ul>
         </div>
         {/* Contact Info (Center aligned) */}
@@ -126,7 +139,9 @@ const Footer = () => {
         </div>
       </div>
       {/* Footer Bottom */}
-      <div className="bg-gray-900 py-1 text-center"> {/* Reduced padding */}
+      <div className="bg-gray-900 py-1 text-center">
+        {" "}
+        {/* Reduced padding */}
         <p className="text-xs text-gray-500 hover:text-white cursor-pointer">
           © 2024 Counter Timer. All Rights Reserved.
         </p>
