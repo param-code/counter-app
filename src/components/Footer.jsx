@@ -111,6 +111,14 @@ const Footer = () => {
             </li>
             <li className="mb-1">
               <a
+                href="/counter"
+                className="text-gray-400 hover:text-white text-sm transition-colors duration-300"
+              >
+                Stopwatch
+              </a>
+            </li>
+            <li className="mb-1">
+              <a
                 href="/Contributors"
                 className="text-gray-400 hover:text-white text-sm transition-colors duration-300"
               >
