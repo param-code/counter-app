@@ -5,7 +5,6 @@ import moment from "moment-timezone";
 import Navbar from "../components/navbar";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim"; // Slim version for smaller bundle
-import Footer from "../components/Footer";
 import morningImage from "../assets/morningBackground.png";
 import nightImage from "../assets/nightBackground.png";
 import afternoonImage from "../assets/afternoonBackground.png";  // Fix: Renamed to match usage
@@ -13,9 +12,9 @@ import afternoonImage from "../assets/afternoonBackground.png";  // Fix: Renamed
 const WorldClockPage = () => {
   const [selectedCountry, setSelectedCountry] = useState("UTC");
   const [currentTime, setCurrentTime] = useState(new Date());
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("light"); // Updated theme management
   const [init, setInit] = useState(false); // Track if particles are initialized
-  const [backgroundImage, setBackgroundImage] = useState(morningImage);
+  const [backgroundImage, setBackgroundImage] = useState(morningImage); // Static based on time logic removed
 
   const countryTimezones = {
     "United States": "America/New_York",
@@ -64,16 +63,6 @@ const WorldClockPage = () => {
         time.second()
       );
       setCurrentTime(newDate);
-
-      // Set the background image based on the current hour
-      const currentHour = time.hour();
-      if (currentHour >= 6 && currentHour < 12) {
-        setBackgroundImage(morningImage);
-      } else if (currentHour >= 12 && currentHour < 18) {
-        setBackgroundImage(afternoonImage);  // Fix: Use correct variable name and range
-      } else {
-        setBackgroundImage(nightImage);
-      }
     };
 
     updateTime();
@@ -82,14 +71,10 @@ const WorldClockPage = () => {
     return () => clearInterval(timer);
   }, [selectedCountry]);
 
-  const handleCountryChange = (e) => {
-    setSelectedCountry(e.target.value);
-  };
-  let ty = "";
+  // Updated theme management similar to TimerPage
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme) {
-      ty = storedTheme;
       setTheme(storedTheme);
     }
   }, []);
@@ -157,7 +142,7 @@ const WorldClockPage = () => {
       )}
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <div className="flex flex-col items-center justify-center h-[calc(100vh-4rem)] p-4 sm:p-6 md:p-8">
-        <div className="bg-opacity-10 backdrop-blur-sm bg-slate-400 dark:bg-gray-800 rounded-lg shadow-xl p-6 sm:p-8 w-full max-w-sm sm:max-w-md md:max-w-lg transition-all duration-300 ease-in-out">
+        <div className="bg-opacity-10 backdrop-blur-sm bg-slate-400 dark:bg-gray-800 dark:bg-opacity-10 dark:backdrop-blur-sm rounded-lg shadow-xl p-6 sm:p-8 w-full max-w-sm sm:max-w-md md:max-w-lg transition-all duration-300 ease-in-out">
           <h1 className="text-3xl font-bold mb-6 text-center text-gray-800 dark:text-white">
             World Clock
           </h1>
@@ -187,7 +172,7 @@ const WorldClockPage = () => {
           </div>
         </div>
       </div>
-      <Footer />
+
     </div>
   );
 };
