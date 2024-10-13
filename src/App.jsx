@@ -25,7 +25,7 @@ const App = () => {
                     <Route path="/" element={<AutoCounterPage />} />
                     <Route path="/timer" element={<TimerPage />} />
                     {/* <Route path="/signup" element={<SignUpPage />} /> */}
-                    <Route path="/world-clock" element={<WorldClockPage />} />
+                    <Route path="/worldclock" element={<WorldClockPage />} />
                     <Route path="/counter" element={<Counter />} />
                       <Route path="/Contributors" element={<Contributors />} />
                     <Route path='/signup' element={<Template formType={"signup"} />} />
