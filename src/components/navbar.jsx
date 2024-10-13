@@ -32,7 +32,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                 className="h-9 w-55"
               />
             </Link>
-            <Link to="/WorldClock" className="pages font-bold text-xl text-blue-600 dark:text-blue-400">
+            <Link to="/World-Clock" className="pages font-bold text-xl text-blue-600 dark:text-blue-400">
               <img
                 src={worldClock}
                 alt="World Clock"
