@@ -146,7 +146,8 @@ const TimerPage = () => {
               type="number"
               placeholder="Enter time in seconds"
               value={customTime}
-              onChange={(e) => setCustomTime(e.target.value)}
+              min={0}
+              onChange={(e) => setCustomTime(e.target.value < 0? 0: e.target.value)}
               className="text-black"
             />
           </div>
