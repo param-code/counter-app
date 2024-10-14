@@ -8,6 +8,7 @@ import Design from './components/Design';
 import Counter from './pages/Counter';
 import Contributors from "./pages/Contributors";
 import Footer from "./components/Footer.jsx";
+import SpotifyPlayer from './components/SpotifyPlayer';
 
 // import Footer from './Footer'; // Import the Footer component
 import Template from "./components/Auth/Template";
@@ -19,6 +20,7 @@ const App = () => {
             <div>
                 {/* Particles design will be displayed globally */}
                 <Design /> 
+                <SpotifyPlayer />
                 <Routes>
                     <Route path="/" element={<AutoCounterPage />} />
                     <Route path="/timer" element={<TimerPage />} />
