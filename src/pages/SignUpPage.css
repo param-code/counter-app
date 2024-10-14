@@ -1,39 +1,57 @@
-/* src/pages/SignUpPage.css */
-.sign-up-container {
-    max-width: 400px;
-    margin: auto;
-    padding: 2rem;
-    background-color: #f4f4f4;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #4facfe, #00f2fe); /* Gradient background */
+  color: #333;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Form Container with Glass Effect */
+.form-container {
+  background: rgba(255, 255, 255, 0.1); /* Light white background with transparency */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  backdrop-filter: blur(15px); /* Increase blur effect for glass look */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Optional: border to enhance the glass effect */
+  padding: 2rem; /* Padding inside the form */
+}
+
+/* Input Styles */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  background-color: rgba(255, 255, 255, 0.2); /* Slightly opaque for input fields */
+  border: 1px solid rgba(200, 200, 200, 0.5); /* Light border for inputs */
+  border-radius: 5px; /* Rounded input corners */
+  padding: 10px; /* Padding inside inputs */
+  transition: box-shadow 0.3s ease; /* Transition for input focus */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 10px rgba(0, 0, 255, 0.5); /* Focus effect */
+}
+
+/* Button Styles */
+button {
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transition for buttons */
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .form-container {
+    width: 90%; /* Responsive width */
   }
-  
-  .sign-up-form div {
-    margin-bottom: 1rem;
-  }
-  
-  .sign-up-form label {
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-  
-  .sign-up-form input {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  button {
-    padding: 0.7rem 1.5rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
+}
+
+/* Additional styles for the glass effect on the whole page */
+h1 {
+  color: rgba(255, 255, 255, 0.9); /* Adjust heading color for better visibility */
+}
+
+.text-center {
+  color: rgba(255, 255, 255, 0.8); /* Adjust text color for better visibility */
+}
