@@ -1,13 +1,10 @@
-/** @format */
-/** @format */
-
 // Import the required modules
+require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
-require("dotenv").config();
 
 // Route for user login
 router.post("/login", async (req, res) => {
