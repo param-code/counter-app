@@ -6,10 +6,13 @@ import darkLogo from "../assets/darklogo1.png"; // Use an appropriate dark versi
 import timer from "../assets/timer1.png";
 import worldClock from "../assets/clock.png";
 import "./css/navbar.css"
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../services/operations/authAPI';
 
 const Navbar = ({ theme, toggleTheme }) => {
   const navigate = useNavigate();
-
+  const { user } = useSelector((state) => state.profile);
+  const dispatch = useDispatch();
   return (
     <nav className="bg-white dark:bg-gray-800 shadow-md transition-colors duration-300 sticky top-0 z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -29,7 +32,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                 className="h-9 w-55"
               />
             </Link>
-            <Link to="/world-clock" className="pages font-bold text-xl text-blue-600 dark:text-blue-400">
+            <Link to="/WorldClock" className="pages font-bold text-xl text-blue-600 dark:text-blue-400">
               <img
                 src={worldClock}
                 alt="World Clock"
@@ -50,7 +53,7 @@ const Navbar = ({ theme, toggleTheme }) => {
 
               {/* World Clock button */}
               <Button
-                onClick={() => navigate('/world-clock')}
+                onClick={() => navigate('/WorldClock')}
                 variant="ghost"
                 size="icon"
                 className="rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out transform hover:scale-110 hover:-rotate-12 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
@@ -71,12 +74,20 @@ const Navbar = ({ theme, toggleTheme }) => {
               </Button>
 
               {/* Sign-Up Link */}
-              <Link 
-                to="/signup" 
-                className="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 ml-4 inline-flex items-center"
-              >
-                Sign Up
-              </Link>
+              {
+                user? (<button
+                        className="px-4 text-center py-3 mx-auto rounded-lg border-[1px] border-blue-800 hover:bg-blue-600 text-black hover:text-white"
+                        onClick={() => dispatch(logout(navigate))}>
+                        LogOut
+                      </button>) :
+                      (<Link 
+                        to="/signup" 
+                        className="px-4 text-center rounded-lg mx-auto py-3 border-[1px] border-blue-800 hover:bg-blue-600 text-black hover:text-white"
+                      >
+                        Sign Up
+                      </Link>)
+              }
+              
             </div>
           </div>
         </div>

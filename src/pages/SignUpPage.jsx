@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import icons
 
 const SignUpPage = () => {
   const [currState, setCurrState] = useState('Sign Up');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false); // State for toggling password visibility
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -63,7 +65,6 @@ const SignUpPage = () => {
               type="text"
               id="username"
               value={username}
-              placeholder="Enter your name.."
               onChange={(e) => setUsername(e.target.value)}
               className="mt-1 block w-full p-2 border border-gray-300 rounded dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:outline-none focus:border-blue-500"
               required
@@ -78,7 +79,6 @@ const SignUpPage = () => {
           <input
             type="email"
             id="email"
-            placeholder="Enter your email.."
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="mt-1 block w-full p-2 border border-gray-300 rounded dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:outline-none focus:border-blue-500"
@@ -91,16 +91,19 @@ const SignUpPage = () => {
             Password
           </label>
           <input
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             id="password"
-            placeholder="Enter your password.."
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="mt-1 block w-full p-2 border border-gray-300 rounded dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:outline-none focus:border-blue-500"
-            required
-          />
+          {/* Icon for toggling password visibility */}
+          <span
+            onClick={togglePasswordVisibility}
+            className="absolute right-3 top-9 cursor-pointer text-gray-600 dark:text-gray-400"
+          >
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
+          </span>
         </div>
-
         <button
           type="submit"
           className="w-full bg-blue-600 text-white font-bold py-2 rounded hover:bg-blue-700 focus:outline-none focus:border-blue-500"
