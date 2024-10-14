@@ -20,7 +20,7 @@ const Footer = () => {
         {" "}
         {/* Reduced padding */}
         <div className="container mx-auto px-4 flex justify-between items-center">
-          <p className="text-sm ml-20">
+          <p className="text-sm mr-4">
             Get connected with us on social networks:
           </p>{" "}
           {/* Adjusted margin */}
@@ -67,7 +67,7 @@ const Footer = () => {
             </a>
           </div>
           {/* Google Translate (Language selection) */}
-          <div className="ml-4">
+          <div className="ml-4 googletranslate">
             <GoogleTranslate />
           </div>
         </div>
