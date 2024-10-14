@@ -10,6 +10,7 @@ Welcome to the **Counter App**, a simple stopwatch application built using **Rea
   <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge"/>
 </p>
 
+### Backend is available at https://counter-app-backend.vercel.app/
 
 ## 📋 Table of Contents
 
