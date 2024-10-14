@@ -3,6 +3,7 @@
   height: 100%;
   padding-top: 2rem;
   overflow: hidden;
+  transition: background 0.3s ease-in-out; /* Add transition for smooth background change */
 }
 
 .github-icon {
@@ -51,15 +52,13 @@
 }
 
 .contributor-card:hover p {
-  text-shadow: 1px 1px 2px rgb(0, 225, 255), 0 0 0.2em rgb(0, 191, 255),
-    0 0 0.8em rgb(135, 206, 235);
+  text-shadow: 1px 1px 2px rgb(0, 225, 255), 0 0 0.2em rgb(0, 191, 255), 0 0 0.8em rgb(135, 206, 235);
   color: rgb(0, 0, 0);
   font-weight: 500;
 }
 
 .contributor-card:hover h2 {
-  text-shadow: 1px 1px 2px rgba(237, 9, 176, 0.926), 0 0 0.2em rgb(0, 191, 255),
-    0 0 0.8em rgb(135, 206, 235);
+  text-shadow: 1px 1px 2px rgba(237, 9, 176, 0.926), 0 0 0.2em rgb(0, 191, 255), 0 0 0.8em rgb(135, 206, 235);
   color: white;
   font-size: 1.04rem;
   font-weight: 600;
@@ -69,8 +68,8 @@
 .contributor-card:hover .contributor-avatar {
   border: 3.5px solid #89e6f0;
   width: 5.2rem;
-  box-shadow: -2px 4px 10px 1px rgba(1, 41, 218, 0.75);
   height: 5.2rem;
+  box-shadow: -2px 4px 10px 1px rgba(1, 41, 218, 0.75);
 }
 
 .contributor-card::before {
@@ -103,8 +102,7 @@
   object-fit: cover;
   margin-bottom: 1rem;
   border: 2px solid #00b4d8;
-  transition: border 0.4s ease-in-out, height 0.4s ease-in-out,
-    width 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: border 0.4s ease-in-out, height 0.4s ease-in-out, width 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .contributor-name {
@@ -112,8 +110,7 @@
   font-weight: 600;
   color: #f3f4f6;
   margin-bottom: 0.5rem;
-  transition: text-shadow 0.4s ease-in-out, font-size 0.5s ease-in-out,
-    text-decoration 0.4s ease-in-out;
+  transition: text-shadow 0.4s ease-in-out, font-size 0.5s ease-in-out, text-decoration 0.4s ease-in-out;
 }
 
 .contributor-contributions {
@@ -121,7 +118,6 @@
   transition: text-shadow 0.4s ease-in-out;
 }
 
-/* Media Queries for Responsiveness */
 @media (max-width: 1200px) {
   .contributor-card {
     max-width: 33.333%;
@@ -138,4 +134,14 @@
   .contributor-card {
     max-width: 97%;
   }
+}
+
+/* Dark Mode Support */
+.contributors-container.dark-mode {
+  background: linear-gradient(to right, #333, #555); /* Change background for dark mode */
+}
+
+/* Dark mode body background */
+body.dark {
+  background-color: #121212; /* Dark background for the body */
 }
