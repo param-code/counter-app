@@ -12,7 +12,7 @@ import GoogleTranslate from "./GoogleTranslate";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-2">
+    <footer className="bg-gray-900  dark:bg-indigo-200 text-white py-2">
       {" "}
       {/* Reduced overall padding */}
       {/* Social Media and Language */}
@@ -78,17 +78,17 @@ const Footer = () => {
         {/* Reduced padding */}
         {/* Company Info (Center aligned) */}
         <div className="flex flex-col items-center">
-          <h2 className="font-bold text-2xl mb-2">Counter Timer</h2>
+          <h2 className="font-bold text-2xl dark:text-black dark:hover:text-black hover:text-white mb-2">Counter Timer</h2>
           <img src={Clock} alt="Clock" className="h-15 w-24 -mb-2" />
         </div>
         {/* Useful Links (Center aligned) */}
         <div className="flex flex-col items-center">
-          <h2 className="font-bold text-2xl mb-2">Useful Links</h2>
+          <h2 className="font-bold text-2xl dark:text-black dark:hover:text-black hover:text-white mb-2">Useful Links</h2>
           <ul>
             <li className="mb-1">
               <a
                 href="/"
-                className="text-gray-400 hover:text-white text-sm transition-colors duration-300"
+                className="text-gray-400 hover:text-white text-sm transition-colors duration-300 dark:text-black dark:hover:text-black "
               >
                 Home
               </a>
@@ -96,7 +96,7 @@ const Footer = () => {
             <li className="mb-1">
               <a
                 href="/Timer"
-                className="text-gray-400 hover:text-white text-sm transition-colors duration-300"
+                className="text-gray-400 dark:text-black dark:hover:text-black hover:text-white text-sm transition-colors duration-300 "
               >
                 Timer
               </a>
@@ -104,7 +104,7 @@ const Footer = () => {
             <li className="mb-1">
               <a
                 href="/WorldClock"
-                className="text-gray-400 hover:text-white text-sm transition-colors duration-300"
+                className="text-gray-400 dark:text-black dark:hover:text-black hover:text-white text-sm transition-colors duration-300"
               >
                 World Clock
               </a>
@@ -112,7 +112,7 @@ const Footer = () => {
             <li className="mb-1">
               <a
                 href="/counter"
-                className="text-gray-400 hover:text-white text-sm transition-colors duration-300"
+                className="text-gray-400 text-sm transition-colors duration-300 dark:text-black dark:hover:text-black hover:text-white"
               >
                 Stopwatch
               </a>
@@ -120,7 +120,7 @@ const Footer = () => {
             <li className="mb-1">
               <a
                 href="/Contributors"
-                className="text-gray-400 hover:text-white text-sm transition-colors duration-300"
+                className="text-gray-400 hover:text-white dark:text-black dark:hover:text-black text-sm transition-colors duration-300"
               >
                 Contributors
               </a>
@@ -128,7 +128,7 @@ const Footer = () => {
           </ul>
         </div>
         {/* Contact Info (Center aligned) */}
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center dark:text-black dark:hover:text-black hover:text-white">
           <h2 className="font-bold text-2xl mb-2">Contact</h2>
           <ul className="text-gray-400 text-sm">
             <li className="mb-1">
@@ -147,10 +147,10 @@ const Footer = () => {
         </div>
       </div>
       {/* Footer Bottom */}
-      <div className="bg-gray-900 py-1 text-center">
+      <div className="bg-gray-900 dark:bg-indigo-200 py-1 text-center">
         {" "}
         {/* Reduced padding */}
-        <p className="text-xs text-gray-500 hover:text-white cursor-pointer">
+        <p className="text-xs text-gray-500 dark:text-black dark:hover:text-black hover:text-white cursor-pointer">
           © 2024 Counter Timer. All Rights Reserved.
         </p>
       </div>
