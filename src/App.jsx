@@ -8,6 +8,7 @@ import Design from './components/Design';
 import Counter from './pages/Counter';
 import Contributors from "./pages/Contributors";
 import Footer from "./components/Footer.jsx";
+import About from './components/About';
 
 // import Footer from './Footer'; // Import the Footer component
 import Template from "./components/Auth/Template";
@@ -28,6 +29,8 @@ const App = () => {
                       <Route path="/Contributors" element={<Contributors />} />
                     <Route path='/signup' element={<Template formType={"signup"} />} />
                     <Route path='/login' element={<Template formType={"login"} />} /> 
+                    <Route path='/about' element={<About/>}/>
+
                 </Routes>
                 <Footer/>
             </div>
