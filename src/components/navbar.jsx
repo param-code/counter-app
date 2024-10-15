@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from "./ui/button"
-import { Github, Moon, Sun, Globe,Info} from "lucide-react"
+import { Github, Moon, Sun, Globe, Info } from "lucide-react"
 import logo from "../assets/logo1.png"
 import darkLogo from "../assets/darklogo1.png"; // Use an appropriate dark version of the logo
 import timer from "../assets/timer1.png";
@@ -62,13 +62,12 @@ const Navbar = ({ theme, toggleTheme }) => {
               </Button>
 
               <Button
-               onClick={()=>navigate('/about')}
-               variant="ghost"
-               size="icon"
-               className="rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out transform hover:scale-110 hover:-rotate-12 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                onClick={() => navigate('/about')}
+                variant="ghost"
+                size="icon"
+                className="rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out transform hover:scale-110 hover:-rotate-12 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
-                <Info className="h-5 w-5 transition-all duration-300 ease-in-out"/>
-
+                <Info className="h-5 w-5 transition-all duration-300 ease-in-out" />
               </Button>
 
               <Button
@@ -77,27 +76,29 @@ const Navbar = ({ theme, toggleTheme }) => {
                 size="icon"
                 className="rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out transform hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
-                {theme === 'dark' ? 
-                  <Sun className="h-5 w-5 transition-all duration-300 ease-in-out hover:text-yellow-500" /> : 
+                {theme === 'dark' ?
+                  <Sun className="h-5 w-5 transition-all duration-300 ease-in-out hover:text-yellow-500" /> :
                   <Moon className="h-5 w-5 transition-all duration-300 ease-in-out hover:text-indigo-500" />
                 }
               </Button>
 
               {/* Sign-Up Link */}
               {
-                user? (<button
-                        className="px-4 text-center py-3 mx-auto rounded-lg border-[1px] border-blue-800 hover:bg-blue-600 text-black hover:text-white"
-                        onClick={() => dispatch(logout(navigate))}>
-                        LogOut
-                      </button>) :
-                      (<Link 
-                        to="/signup" 
-                        className="px-4 text-center rounded-lg mx-auto py-3 border-[1px] border-blue-800 hover:bg-blue-600 text-black hover:text-white"
-                      >
-                        Sign Up
-                      </Link>)
+                user ? (<button
+                  className="px-4 text-center py-3 mx-auto rounded-lg border-[1px] border-blue-800 hover:bg-blue-600 text-black hover:text-white"
+                  onClick={() => dispatch(logout(navigate))}>
+                  LogOut
+                </button>) :
+                  (<Link
+                    to="/signup"
+                    className={`px-4 text-center rounded-lg mx-auto py-3 border-[1px] border-blue-800 hover:bg-blue-600 ${
+                      theme === 'dark' ? 'text-white' : 'text-black'
+                    } hover:text-white transition-colors duration-300`}
+                  >
+                    Sign Up
+                  </Link>)
               }
-              
+
             </div>
           </div>
         </div>
