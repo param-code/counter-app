@@ -1,19 +1,23 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Footer from './components/Footer';
 import WorldClockPage from './pages/WorldClockPage';
-import SignUpPage from "./pages/SignUpPage";
+// import SignUpPage from "./pages/SignUpPage";
 import TimerPage from './pages/TimerPage';
 import AutoCounterPage from './pages/AutoCounterPage';
 import Design from './components/Design'; 
 import Counter from './pages/Counter';
-import AboutPage from './pages/AboutPage';    // Import About page
+import Contributors from "./pages/Contributors";
+import Footer from "./components/Footer.jsx";
+import About from './components/About';
+// import AboutPage from './pages/AboutPage';    // Import About page
 import HistoryPage from './pages/HistoryPage'; // Import History page
 import SettingsPage from './pages/SettingsPage'; // Import Settings page
 import ThemesPage from './pages/ThemesPage';   // Import Themes page
 // import Footer from './Footer'; // Import the Footer component
+import Template from "./components/Auth/Template";
 
 const App = () => {
+
     return (
         <Router>
             <div>
@@ -22,17 +26,23 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<AutoCounterPage />} />
                     <Route path="/timer" element={<TimerPage />} />
-                    <Route path="/signup" element={<SignUpPage />} />
-                    <Route path="/world-clock" element={<WorldClockPage />} />
-                    <Route path="/counter" element={<Counter />}/>
-                    <Route path="/about" element={<AboutPage />} />  {/* New Route for About */}
+                    {/* <Route path="/signup" element={<SignUpPage />} /> */}
+                    <Route path="/WorldClock" element={<WorldClockPage />} />
+                    <Route path="/counter" element={<Counter />} />
+                      <Route path="/Contributors" element={<Contributors />} />
+                    <Route path='/signup' element={<Template formType={"signup"} />} />
+                    <Route path='/login' element={<Template formType={"login"} />} /> 
+                    <Route path='/about' element={<About/>}/>
+//                       <Route path="/about" element={<AboutPage />} />  {/* New Route for About */}
                     <Route path="/history" element={<HistoryPage />} /> {/* New Route for History */}
                     <Route path="/settings" element={<SettingsPage />} /> {/* New Route for Settings */}
                     <Route path="/themes" element={<ThemesPage />} /> {/* New Route for Themes */}
                 </Routes>
+                <Footer/>
             </div>
         </Router>
     );
+
 };
 
 // Define the new sections at the bottom of App.jsx

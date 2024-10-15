@@ -166,6 +166,44 @@ button:active {
 button:hover {
   animation: pulse 1s infinite; /* Pulse effect on hover */
 }
+@keyframes fall{
+  from{
+    top: -90px;
+    opacity: 0;
+  }
+  to{
+    top: 50px;
+    opacity: 1;
+  }
+}
+@keyframes hide {
+  to {
+    opacity: 0;
+  }
+} 
+
+@keyframes hide {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+
+.popup {
+  position: fixed;
+  top: -90px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(14, 72, 129, 0.7);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 5px;
+  animation: fall 0.5s ease forwards, hide 5s 2s forwards;
+}
+
+
 
 /* Responsive Styles */
 @media (max-width: 600px) {

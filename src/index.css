@@ -95,3 +95,26 @@ body {
   @apply bg-background text-foreground;
   }
 }
+@media screen and (max-width: 778px) {
+  .container {
+    flex-direction: column;
+    align-items: center; /* Center the items vertically */
+    text-align: center;  /* Center align text */
+  }
+
+  .googletranslate {
+    width: 100%;
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+    margin-top: 8px;
+  }
+
+  .text-sm {
+    margin: 0;
+  }
+}

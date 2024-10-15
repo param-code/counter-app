@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import Navbar from "../components/navbar"; 
-import SwitchTab from "../components/SwitchTab"; 
+import Navbar from "../components/navbar";
+import SwitchTab from "../components/SwitchTab";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim"; // Slim version for smaller bundle
-import './TimerPage.css';
-import Footer from "../components/Footer";
-
+import "./TimerPage.css";
 
 const TimerPage = () => {
   const [secondsLeft, setSecondsLeft] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [customTime, setCustomTime] = useState(0);
+  //for pop-ups
+  const [message, setMessage] = useState("");
   const timerRef = useRef(null);
   const [theme, setTheme] = useState("light");
   const [init, setInit] = useState(false);
@@ -53,21 +53,31 @@ const TimerPage = () => {
     return () => clearInterval(timerRef.current);
   }, [isRunning, isPaused, secondsLeft]);
 
+  const showMessage = (msg) => {
+    setMessage(msg);
+    setTimeout(() => setMessage(""), 3000); // Message disappears after 2 seconds
+  };
+
   const handleStart = () => {
-    setSecondsLeft(customTime);
-    setIsRunning(true);
-    setIsPaused(false);
+    if (customTime > 0) {
+      setSecondsLeft(customTime);
+      setIsRunning(true);
+      setIsPaused(false);
+      showMessage("Timer started!");
+    }
   };
 
   const handlePause = () => {
     setIsPaused(!isPaused);
     clearInterval(timerRef.current);
+    showMessage(isPaused ? "Timer Resumed!" : "Timer Paused!");
   };
 
   const handleReset = () => {
     setIsRunning(false);
     setSecondsLeft(0);
     clearInterval(timerRef.current);
+    showMessage("Timer reset!");
   };
 
   const handlePreset = (time) => {
@@ -87,7 +97,11 @@ const TimerPage = () => {
   };
 
   return (
-    <div className={`h-svh bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 ${theme === 'dark' ? 'dark:bg-gray-900' : 'bg-white'}`}>
+    <div
+      className={`h-svh bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 ${
+        theme === "dark" ? "dark:bg-gray-900" : "bg-white"
+      }`}
+    >
       {init && (
         <Particles
           id="tsparticles"
@@ -136,24 +150,47 @@ const TimerPage = () => {
           }}
         />
       )}
-      <Navbar theme={theme} toggleTheme={() => setTheme((prev) => (prev === "dark" ? "light" : "dark"))} />
+      <Navbar
+        theme={theme}
+        toggleTheme={() =>
+          setTheme((prev) => (prev === "dark" ? "light" : "dark"))
+        }
+      />
       <div className="flex flex-col items-center justify-center h-[84vh] p-4 sm:p-6 md:p-8">
         <div className="bg-slate-400bg-opacity-10 backdrop-blur-sm dark:bg-gray-800 rounded-lg shadow-xl p-6 sm:p-8 w-full max-w-sm sm:max-w-md md:max-w-lg transition-all duration-300 ease-in-out">
           <h1>Timer</h1>
           <div className="timer-display">{formatTime(secondsLeft)}</div>
           <div>
+            {message && (
+              <div
+                className="popup"
+                style={{
+                  animation: "fall 0.5s ease forwards, hide 0.5s ease forwards",
+                  animationDelay: "2s",
+                }}
+              >
+                {message}
+              </div>
+            )}
+
             <input
               type="number"
               placeholder="Enter time in seconds"
               value={customTime}
-              onChange={(e) => setCustomTime(e.target.value)}
+              onChange={(e) => setCustomTime(Math.max(0, e.target.value))}
               className="text-black"
             />
           </div>
           <div className="button-container space-x-2">
-            <button className="start-button p-2" onClick={handleStart}>Start</button>
-            <button className="pause-button p-2" onClick={handlePause}>{isPaused ? "Resume" : "Pause"}</button>
-            <button className="reset-button p-2" onClick={handleReset}>Reset</button>
+            <button className="start-button p-2" onClick={handleStart}>
+              Start
+            </button>
+            <button className="pause-button p-2" onClick={handlePause}>
+              {isPaused ? "Resume" : "Pause"}
+            </button>
+            <button className="reset-button p-2" onClick={handleReset}>
+              Reset
+            </button>
           </div>
           <div className="preset-buttons">
             <button onClick={() => handlePreset(60)}>1 Min</button>
@@ -163,10 +200,8 @@ const TimerPage = () => {
           <SwitchTab /> {/* Include the SwitchTab component here */}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
 
 export default TimerPage;
-
