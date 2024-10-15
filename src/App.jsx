@@ -10,9 +10,9 @@ import Contributors from "./pages/Contributors";
 import Footer from "./components/Footer.jsx";
 import About from './components/About';
 // import AboutPage from './pages/AboutPage';    // Import About page
-import HistoryPage from './pages/HistoryPage'; // Import History page
-import SettingsPage from './pages/SettingsPage'; // Import Settings page
-import ThemesPage from './pages/ThemesPage';   // Import Themes page
+// import HistoryPage from './pages/HistoryPage'; // Import History page
+// import SettingsPage from './pages/SettingsPage'; // Import Settings page
+// import ThemesPage from './pages/ThemesPage';   // Import Themes page
 // import Footer from './Footer'; // Import the Footer component
 import Template from "./components/Auth/Template";
 
@@ -33,10 +33,6 @@ const App = () => {
                     <Route path='/signup' element={<Template formType={"signup"} />} />
                     <Route path='/login' element={<Template formType={"login"} />} /> 
                     <Route path='/about' element={<About/>}/>
-//                       <Route path="/about" element={<AboutPage />} />  {/* New Route for About */}
-                    <Route path="/history" element={<HistoryPage />} /> {/* New Route for History */}
-                    <Route path="/settings" element={<SettingsPage />} /> {/* New Route for Settings */}
-                    <Route path="/themes" element={<ThemesPage />} /> {/* New Route for Themes */}
                 </Routes>
                 <Footer/>
             </div>
