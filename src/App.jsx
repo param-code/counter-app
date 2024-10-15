@@ -8,6 +8,7 @@ import Design from './components/Design';
 import Counter from './pages/Counter';
 import Contributors from "./pages/Contributors";
 import Footer from "./components/Footer.jsx";
+import SpotifyPlayer from './components/SpotifyPlayer';
 import About from './components/About';
 // import AboutPage from './pages/AboutPage';    // Import About page
 // import HistoryPage from './pages/HistoryPage'; // Import History page
@@ -23,6 +24,7 @@ const App = () => {
             <div>
                 {/* Particles design will be displayed globally */}
                 <Design /> 
+                <SpotifyPlayer />
                 <Routes>
                     <Route path="/" element={<AutoCounterPage />} />
                     <Route path="/timer" element={<TimerPage />} />
