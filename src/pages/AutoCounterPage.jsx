@@ -11,7 +11,7 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim"; // Slim version for smaller bundle
 import SwitchTab from "../components/SwitchTab"; // Correct import
 import Footer from "../components/Footer"; // Import Footer component
-import BarChartLapTimes from "../components/BarChartLapTimes";
+import BarChartLapTimes from "../components/LapBarChart";
 import CumulativeTimeChart from "@/components/CumulativeTimeChart";
 import LapTimePieChart from "@/components/LapPieChart";
 const AutoCounterPage = () => {
