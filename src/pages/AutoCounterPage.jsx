@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import Timer from "../components/timer";
 import Controls from "../components/controls";
 import LapList from "../components/laplist";
@@ -11,9 +11,10 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim"; // Slim version for smaller bundle
 import SwitchTab from "../components/SwitchTab"; // Correct import
 import Footer from "../components/Footer"; // Import Footer component
+import { Link } from 'react-router-dom';
 
 const AutoCounterPage = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [count, setCount] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [laps, setLaps] = useState([]);
@@ -166,8 +167,19 @@ const AutoCounterPage = () => {
                 handleReset={handleReset}
               />
             </div>
+            <h3 className="font-bold text-center" style={{ fontSize: "1.4rem" }}>
+              Track your time with WorkTracker
+            </h3>
+            <div className="flex justify-center p-4">
+  <Link to="/worktracker">
+    <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+      Go to WorkTracker
+    </button>
+  </Link>
+</div>
           </div>
           <div className="p-4 sm:p-6 z-10">
+
             {showAnalysis ? (
               <div className="space-y-6">
                 <LapVisualization laps={laps} formatTime={formatTime} />
@@ -217,11 +229,12 @@ const AutoCounterPage = () => {
             Switch to Timer Tab
           </button>
         </div>
+
       </div>
       <Footer />
     </div>
   );
-  
+
 };
 
 export default AutoCounterPage;
