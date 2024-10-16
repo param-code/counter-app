@@ -11,7 +11,9 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim"; // Slim version for smaller bundle
 import SwitchTab from "../components/SwitchTab"; // Correct import
 import Footer from "../components/Footer"; // Import Footer component
-
+import BarChartLapTimes from "../components/BarChartLapTimes";
+import CumulativeTimeChart from "@/components/CumulativeTimeChart";
+import LapTimePieChart from "@/components/LapPieChart";
 const AutoCounterPage = () => {
   const navigate = useNavigate(); 
   const [count, setCount] = useState(0);
@@ -67,7 +69,7 @@ const AutoCounterPage = () => {
     lapsEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [laps]);
 
-  const formatTime = useCallback((time) => {
+   const formatTime = useCallback((time) => {
     const minutes = Math.floor(time / 6000);
     const seconds = Math.floor((time % 6000) / 100);
     const centiseconds = time % 100;
@@ -75,6 +77,7 @@ const AutoCounterPage = () => {
       .toString()
       .padStart(2, "0")}.${centiseconds.toString().padStart(2, "0")}`;
   }, []);
+
 
   const handleStartStop = () => {
     if (!isRunning && showAnalysis) {
@@ -171,7 +174,16 @@ const AutoCounterPage = () => {
             {showAnalysis ? (
               <div className="space-y-6">
                 <LapVisualization laps={laps} formatTime={formatTime} />
+                <div className="mt-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                <h3 className="text-lg font-semibold mb-2 text-black dark:text-white">Lap Analysis</h3>
                 <LapAnalysis laps={laps} formatTime={formatTime} />
+                <h3 className="text-m font-semibold mx-2 my-5 text-blue-600 dark:text-white underline">Bar Chart</h3>
+                <BarChartLapTimes laps={laps} formatTime={formatTime} />
+                <h3 className="text-m font-semibold mx-2 my-5 text-blue-600 dark:text-white underline">Line Graph</h3>
+                <CumulativeTimeChart laps={laps} formatTime={formatTime} /> 
+                <h3 className="text-m font-semibold mx-2 my-5 text-blue-600 dark:text-white underline">Pie Chart</h3>
+                <LapTimePieChart laps={laps} formatTime={formatTime} />
+                </div>
                 <button
                   className="mt-4 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition duration-300 ease-in-out"
                   onClick={() => setShowAnalysis(false)}
