@@ -96,14 +96,16 @@ const SignUpPage = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="mt-1 block w-full p-2 border border-gray-300 rounded dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:outline-none focus:border-blue-500"
+          />
           {/* Icon for toggling password visibility */}
           <span
-            onClick={togglePasswordVisibility}
+            onClick={() => setShowPassword(!showPassword)}
             className="absolute right-3 top-9 cursor-pointer text-gray-600 dark:text-gray-400"
           >
             {showPassword ? <FaEyeSlash /> : <FaEye />}
           </span>
         </div>
+        
         <button
           type="submit"
           className="w-full bg-blue-600 text-white font-bold py-2 rounded hover:bg-blue-700 focus:outline-none focus:border-blue-500"
@@ -139,3 +141,4 @@ const SignUpPage = () => {
 };
 
 export default SignUpPage;
+``

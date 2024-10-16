@@ -5,6 +5,12 @@ function Counter() {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
+  const [theme, setTheme] = useState("light"); // State for theme
+
+  // Function to toggle theme
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  };
 
   const handleMinutesChange = (e) => {
     setMinutes(Math.max(0, Math.min(59, parseInt(e.target.value))));
@@ -59,16 +65,15 @@ function Counter() {
 
   return (
     <div
-      className={`h-svh bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-305`}
+      className={`h-svh bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-305 ${
+        theme === "dark" ? "dark" : ""
+      }`}
     >
-      <Navbar
-        toggleTheme={() =>
-          setTheme((prev) => (prev === "dark" ? "light" : "dark"))
-        }
-      />
-      <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
-        <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
-          <h1 className="text-3xl font-bold text-center mb-6">
+      {/* Navbar with toggleTheme function passed as a prop */}
+      <Navbar toggleTheme={toggleTheme} />
+      <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex flex-col items-center justify-center p-4">
+        <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-8 w-full max-w-md">
+          <h1 className="text-3xl font-bold text-center mb-6 text-gray-700 dark:text-gray-200">
             Countdown Timer
           </h1>
 
@@ -76,35 +81,39 @@ function Counter() {
           <div className="flex justify-center space-x-4 mb-6">
             {/* Minutes Input */}
             <div className="flex flex-col">
-              <label className="mb-2 text-gray-700 font-medium">Minutes</label>
+              <label className="mb-2 text-gray-700 dark:text-gray-200 font-medium">
+                Minutes
+              </label>
               <input
                 type="number"
                 min="0"
                 max="59"
                 value={minutes}
                 onChange={handleMinutesChange}
-                className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="00"
               />
             </div>
 
             {/* Seconds Input */}
             <div className="flex flex-col">
-              <label className="mb-2 text-gray-700 font-medium">Seconds</label>
+              <label className="mb-2 text-gray-700 dark:text-gray-200 font-medium">
+                Seconds
+              </label>
               <input
                 type="number"
                 min="0"
                 max="59"
                 value={seconds}
                 onChange={handleSecondsChange}
-                className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="00"
               />
             </div>
           </div>
 
           {/* Timer Display */}
-          <div className="text-5xl font-mono text-center mb-6">
+          <div className="text-5xl font-mono text-center mb-6 text-gray-900 dark:text-gray-100">
             {formatTime()}
           </div>
 
