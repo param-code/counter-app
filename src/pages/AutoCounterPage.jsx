@@ -176,14 +176,18 @@ const AutoCounterPage = () => {
                 <LapVisualization laps={laps} formatTime={formatTime} />
                 <div className="mt-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
                 <h3 className="text-lg font-semibold mb-2 text-black dark:text-white">Lap Analysis</h3>
+
                 <LapAnalysis laps={laps} formatTime={formatTime} />
-                <h3 className="text-m font-semibold mx-2 my-5 text-blue-600 dark:text-white underline">Bar Chart</h3>
+
+                
                 <BarChartLapTimes laps={laps} formatTime={formatTime} />
-                <h3 className="text-m font-semibold mx-2 my-5 text-blue-600 dark:text-white underline">Line Graph</h3>
+
+                
                 <CumulativeTimeChart laps={laps} formatTime={formatTime} /> 
-                <h3 className="text-m font-semibold mx-2 my-5 text-blue-600 dark:text-white underline">Pie Chart</h3>
+
+
                 <LapTimePieChart laps={laps} formatTime={formatTime} />
-                </div>
+              </div>
                 <button
                   className="mt-4 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition duration-300 ease-in-out"
                   onClick={() => setShowAnalysis(false)}

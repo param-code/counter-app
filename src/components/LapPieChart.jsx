@@ -13,7 +13,8 @@ const LapTimePieChart = ({ laps, formatTime }) => {
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF5555'];
 
   return (
-    <div>
+    <div className="mt-4 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md">
+                <h3 className="text-m text-center font-semibold mx-2 my-5 text-blue-600 dark:text-white underline">Pie Chart</h3>
       <PieChart width={400} height={400}>
         <Pie
           data={data}

@@ -25,6 +25,8 @@ const BarChartLapTimes = ({ laps, formatTime }) => {
   }));
 
   return (
+    <div className="mt-4 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md">
+                <h3 className="text-m text-center font-semibold mx-2 my-5 text-blue-600 dark:text-white underline">Bar Graph</h3>
     <ResponsiveContainer width="100%" height={350}>
       <BarChart data={formattedData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
         <CartesianGrid strokeDasharray="3 3" />
@@ -38,6 +40,7 @@ const BarChartLapTimes = ({ laps, formatTime }) => {
         </Bar>
       </BarChart>
     </ResponsiveContainer>
+    </div>
   );
 };
 
