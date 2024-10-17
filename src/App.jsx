@@ -16,7 +16,7 @@ import About from './components/About';
 // import ThemesPage from './pages/ThemesPage';   // Import Themes page
 // import Footer from './Footer'; // Import the Footer component
 import Template from "./components/Auth/Template";
-
+import WorkTracker from "./pages/WorkTracker";
 const App = () => {
 
     return (
@@ -35,6 +35,7 @@ const App = () => {
                     <Route path='/signup' element={<Template formType={"signup"} />} />
                     <Route path='/login' element={<Template formType={"login"} />} /> 
                     <Route path='/about' element={<About/>}/>
+                    <Route path='/WorkTracker' element={<WorkTracker/>}/>
                 </Routes>
                 <Footer/>
             </div>
