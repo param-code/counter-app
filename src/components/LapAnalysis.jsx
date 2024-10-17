@@ -12,8 +12,7 @@ const LapAnalysis = ({ laps, formatTime }) => {
   const slowestLap = Math.max(...lapTimes);
 
   return (
-    <div className="mt-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
-      <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">Lap Analysis</h3>
+
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="bg-yellow-100 dark:bg-yellow-900 p-3 rounded-lg">
           <p className="text-sm text-yellow-800 dark:text-yellow-200">Average Lap Time</p>
@@ -28,7 +27,7 @@ const LapAnalysis = ({ laps, formatTime }) => {
           <p className="font-mono text-lg text-red-600 dark:text-red-300">{formatTime(slowestLap)}</p>
         </div>
       </div>
-    </div>
+
   );
 };
 
