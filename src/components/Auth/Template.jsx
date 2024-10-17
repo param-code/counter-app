@@ -15,7 +15,7 @@ function Template({ formType }) {
 
 	return (
 		<div>
-			<div className="grid h-[100vh]  place-items-center bg-slate-100">
+			<div className="grid h-auto place-items-center bg-slate-100">
 				{loading ? (
 					<div className="spinner"></div>
 				) : (
@@ -28,7 +28,7 @@ function Template({ formType }) {
 								onClick={() => navigate("/")}
 							/>
 						</div>
-						<div className="mx-auto flex md:mt-12 mt-4 sm:mt-8  max-w-maxContent flex-col-reverse justify-between gap-y-12 py-12 md:flex-row md:gap-y-0 md:gap-x-12 w-[80vw] text-black">
+						<div className="mx-auto flex md:mt-12 mt-4 sm:mt-8  max-w-maxContent flex-col-reverse justify-between gap-y-12 py-12 md:flex-row md:gap-y-0 md:gap-x-12 w-[90vw] text-black">
 							<div className="mx-auto w-11/12 max-w-[450px] md:mx-0">
 								<h1 className="text-[30px] text-center font-semibold leading-[2.375rem] text-richblack-5">
 									{formType === "signup" ? "Signup Page" : "Login Page"}
