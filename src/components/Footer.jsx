@@ -148,9 +148,10 @@ const Footer = () => {
       </div>
       {/* Footer Bottom */}
       <div className="bg-gray-900 py-1 text-center">
-        {" "}
+      <a href="/terms" className="text-xs text-gray-500 hover:text-white">Terms and Conditions</a>
+      
         {/* Reduced padding */}
-        <p className="text-xs text-gray-500 hover:text-white cursor-pointer">
+        <p className="text-xs text-gray-500">
           © 2024 Counter Timer. All Rights Reserved.
         </p>
       </div>

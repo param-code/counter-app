@@ -17,6 +17,8 @@ import About from './components/About';
 // import Footer from './Footer'; // Import the Footer component
 import Template from "./components/Auth/Template";
 import WorkTracker from "./pages/WorkTracker";
+import TermsPage from './pages/TermsPage';
+
 const App = () => {
 
     return (
@@ -28,6 +30,7 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<AutoCounterPage />} />
                     <Route path="/timer" element={<TimerPage />} />
+                    <Route path="/terms" element={<TermsPage />} />
                     {/* <Route path="/signup" element={<SignUpPage />} /> */}
                     <Route path="/WorldClock" element={<WorldClockPage />} />
                     <Route path="/counter" element={<Counter />} />
