@@ -95,8 +95,12 @@ const AutoCounterPage = () => {
   };
 
   const handleLap = () => {
-    setLaps((prevLaps) => [...prevLaps, count]);
+    setLaps((prevLaps) => {
+      const lastLap = prevLaps.length > 0 ? prevLaps[prevLaps.length - 1] : 0;
+      return [...prevLaps, count - lastLap];
+    });
   };
+  
 
   const handleShowAnalysis = () => {
     setShowAnalysis(true);
@@ -108,7 +112,7 @@ const AutoCounterPage = () => {
 
   return (
     <div className={`min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 ${theme === 'dark' ? 'dark:bg-gray-900' : 'bg-white'}`}>
-      {init && (
+      {/* {init && (
         <Particles
           id="tsparticles"
           particlesLoaded={particlesLoaded}
@@ -155,7 +159,7 @@ const AutoCounterPage = () => {
             detectRetina: true,
           }}
         />
-      )}
+      )} */}
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <div className="container mx-auto px-2 py-4 max-w-xl">
         <div className="mt-16 inset-0 bg-slate-400 bg-opacity-10 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden">
@@ -229,27 +233,6 @@ const AutoCounterPage = () => {
       </div>
     </div>
   )
-  const handleSwitchToTimer = () => {
-    navigate("/timer");
-  };
-
-  return (
-    <div className={`h-svh bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-305`}>
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <div className="flex flex-col items-center justify-center h-[84vh] p-4 sm:p-6 md:p-8">
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 sm:p-8 w-full max-w-sm sm:max-w-md md:max-w-lg transition-all duration-300 ease-in-out">
-          <Timer formattedTime={formatTime(count)} />
-          <Controls isRunning={isRunning} handleStartStop={handleStartStop} handleLap={handleLap} handleReset={handleReset} />
-          <LapList laps={laps} formatTime={formatTime} lapsEndRef={lapsEndRef} />
-          <button onClick={handleSwitchToTimer} className="mt-4 bg-indigo-500 text-white py-2 px-4 rounded hover:bg-indigo-600 transition">
-            Switch to Timer Tab
-          </button>
-        </div>
-
-      </div>
-      <Footer />
-    </div>
-  );
 
 };
 
