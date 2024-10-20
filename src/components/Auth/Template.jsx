@@ -4,9 +4,11 @@ import { useSelector } from "react-redux";
 
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
-import LoginImg from "../../assets/login.png";
+// import LoginImg from "../../assets/login.png";
+import LoginImg from "../../assets/login.webp"
 import { FaArrowCircleLeft } from "react-icons/fa";
-import SignupImg from "../../assets/signup.png";
+// import SignupImg from "../../assets/signup.png";
+import SignupImg from "../../assets/signup.webp";
 import { useNavigate } from "react-router-dom";
 
 function Template({ formType }) {
