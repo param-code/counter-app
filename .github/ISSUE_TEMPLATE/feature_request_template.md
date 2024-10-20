@@ -19,6 +19,7 @@ by adding more options for playing music
 
 ### 🎯 Use Cases
 <!-- If applicable, provide use cases that illustrate the need for the feature. -->
+As thisa app has only one music videos so by adding more apps will give will more options and will add more feature to it.
 
 ### 📦 Suggested Implementation
 <!-- If you have suggestions on how to implement this feature, describe them here. -->
