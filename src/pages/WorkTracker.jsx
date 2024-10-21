@@ -176,7 +176,7 @@ const WorkTracker = () => {
                         {/* Timer Inputs */}
                         <div className="flex justify-center space-x-4 mb-6">
                             <div className="flex flex-col">
-                                <label className="mb-2 text-gray-700 dark: text-gray-200 font-medium">Set Time (Minutes)</label>
+                                <label className="mb-2 text-gray-700 dark:text-gray-200 font-medium">Set Time (Minutes)</label>
                                 <input
                                     type="number"
                                     min="0"
@@ -191,7 +191,7 @@ const WorkTracker = () => {
                                 />
                             </div>
                             <div className="flex flex-col">
-                                <label className="mb-2 text-gray-700 dark: text-gray-200 font-medium">Set Time (Seconds)</label>
+                                <label className="mb-2 text-gray-700 dark:text-gray-200 font-medium">Set Time (Seconds)</label>
                                 <input
                                     type="number"
                                     min="0"
