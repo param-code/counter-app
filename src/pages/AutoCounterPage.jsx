@@ -68,10 +68,6 @@ const AutoCounterPage = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [laps]);
-  useEffect(() => {
-    lapsEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [laps]);
-
    const formatTime = useCallback((time) => {
     const minutes = Math.floor(time / 6000);
     const seconds = Math.floor((time % 6000) / 100);
