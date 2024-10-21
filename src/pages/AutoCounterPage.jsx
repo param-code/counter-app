@@ -65,7 +65,9 @@ const AutoCounterPage = () => {
       if (interval) clearInterval(interval);
     };
   }, [isRunning]);
-
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [laps]);
   useEffect(() => {
     lapsEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [laps]);
