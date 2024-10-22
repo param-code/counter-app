@@ -95,6 +95,10 @@ const Footer = () => {
               </a>
             </li>
             <li className="mb-1">
+              <a href="/Privacy-Policy" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
+              Privacy & Policy
+              </a>
+              <li className="mb-1"></li>
               <a
                 href="/Timer"
                 className="text-gray-400 hover:text-white text-sm transition-colors duration-300"
