@@ -1,9 +1,14 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Button } from "./ui/button";
-import { Github, Moon, Sun, Globe, Info } from "lucide-react";
-import logo from "../assets/logo1.webp";
-import darkLogo from "../assets/darklogo1.webp";
+import { Button } from "./ui/button"
+import { Github, Moon, Sun, Globe, Info, Users } from "lucide-react"
+// import logo from "../assets/logo1.png"
+// import darkLogo from "../assets/darklogo1.png"; // Use an appropriate dark version of the logo
+// import timer from "../assets/timer1.png";
+// import worldClock from "../assets/clock.png";
+
+import logo from "../assets/logo1.webp"
+import darkLogo from "../assets/darklogo1.webp"; // Use an appropriate dark version of the logo
 import timer from "../assets/timer1.webp";
 import worldClock from "../assets/clock.webp";
 import "./css/navbar.css";
@@ -84,6 +89,15 @@ const Navbar = ({ theme, toggleTheme }) => {
                 className="rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out transform hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
                 <Info className="h-5 w-5 transition-all duration-300 ease-in-out" />
+              </Button>
+
+              <Button
+                onClick={() => navigate('/Contributors')}
+                variant="ghost"
+                size="icon"
+                className="rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out transform hover:scale-110 hover:-rotate-12 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                <Users className="h-5 w-5 transition-all duration-300 ease-in-out hover:text-red-500" />
               </Button>
 
               <Button
