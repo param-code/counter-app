@@ -38,6 +38,9 @@ function LoginForm() {
 
     dispatch(login(email, password, navigate));
   };
+  const handlePasswordRecovery = () => {
+    navigate("/password-recovery");
+  };
 
   return (
     <div className=''>
@@ -93,6 +96,13 @@ function LoginForm() {
           className='mt-6 font-semibold py-[8px] px-[12px] p-2 text-white bg-red-600 hover:bg-red-700  rounded-md border-[2px] border-red-800'
         >
           Sign In
+        </button>
+        <button
+          type='button'
+          className='mt-2 font-semibold py-[8px] px-[12px] p-2 text-white bg-blue-600 hover:bg-blue-700  rounded-md border-[2px] border-blue-800'
+          onClick={handlePasswordRecovery}
+        >
+          Forgot Password?
         </button>
 
         <div className='flex gap-2 flex-col mt-2'>
