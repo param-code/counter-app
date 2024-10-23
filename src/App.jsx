@@ -7,6 +7,7 @@ import AutoCounterPage from "./pages/AutoCounterPage";
 import Design from "./components/Design";
 import Counter from "./pages/Counter";
 import Contributors from "./pages/Contributors";
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import Footer from "./components/Footer.jsx";
 import SpotifyPlayer from "./components/SpotifyPlayer";
 import About from "./components/About";
@@ -18,6 +19,7 @@ import About from "./components/About";
 import Template from "./components/Auth/Template";
 import WorkTracker from "./pages/WorkTracker";
 import TermsPage from "./pages/TermsPage";
+import Error404 from "./pages/Error404";
 import PasswordRecovery from "./components/Auth/PasswordRecovery";
 
 const App = () => {
@@ -46,6 +48,8 @@ const App = () => {
           {/* Add NotFoundPage route */}
           <Route path='/about' element={<About />} />
           <Route path='/WorkTracker' element={<WorkTracker />} />
+          <Route path='/Privacy-Policy' element={<PrivacyPolicy/>}/>
+          <Route path='*' element={<Error404/>}/>
         </Routes>
         <Footer />
       </div>

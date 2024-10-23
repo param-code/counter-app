@@ -79,7 +79,7 @@ function LoginForm() {
           />
           <span
             onClick={() => setShowPassword((prev) => !prev)}
-            className='absolute right-3 top-[26px] z-[10] cursor-pointer'
+            className='absolute right-3 top-[35px] z-[10] cursor-pointer'
           >
             {showPassword ? (
               <AiOutlineEyeInvisible fontSize={24} fill='#000000' />
