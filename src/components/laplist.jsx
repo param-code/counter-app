@@ -14,7 +14,7 @@ const LapList = ({ laps, formatTime, lapsEndRef }) => {
 
   return (
     <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
-      <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400 text-center">Laps</h3>
+      <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400 text-center"></h3>
       
       <ScrollArea className="h-40 rounded-md border border-gray-200 dark:border-gray-700 p-4">
         <AnimatePresence initial={false}>
