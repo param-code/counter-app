@@ -19,7 +19,7 @@ import About from './components/About';
 import Template from "./components/Auth/Template";
 import WorkTracker from "./pages/WorkTracker";
 import TermsPage from './pages/TermsPage';
-
+import Error404 from "./pages/Error404";
 const App = () => {
 
     return (
@@ -41,6 +41,7 @@ const App = () => {
                     <Route path='/about' element={<About/>}/>
                     <Route path='/WorkTracker' element={<WorkTracker/>}/>
                     <Route path='/Privacy-Policy' element={<PrivacyPolicy/>}/>
+                    <Route path='*' element={<Error404/>}/>
                 </Routes>
                 <Footer/>
             </div>
