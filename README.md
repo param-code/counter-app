@@ -102,5 +102,26 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 [![Contributors](https://contrib.rocks/image?repo=param-code/counter-app)](https://github.com/param-code/counter-app/graphs/contributors)
 
----
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+
+
+## Stargazers ❤️
+
+<div align='left'>
+
+[![Stargazers repo roster for @param-code/counter-app](https://reporoster.com/stars/dark/param-code/counter-app)](https://github.com/param-code/counter-app/stargazers)
+
+
+</div>
+
+## Forkers ❤️
+
+[![Forkers repo roster for @param-code/counter-app](https://reporoster.com/forks/dark/param-code/counter-app)](https://github.com/param-code/counter-app/network/members)
+
+
+
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
 
