@@ -20,6 +20,7 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@radix-ui/react-scroll-area": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
+    "@react-oauth/google": "^0.12.1",
     "@reduxjs/toolkit": "^2.2.8",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.5.0",
