@@ -10,7 +10,7 @@ const Review = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setVisible(true);
-    }, 1000);
+    }, 15000);
     return () => clearTimeout(timer);
   }, []);
 
