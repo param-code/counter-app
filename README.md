@@ -12,6 +12,11 @@ Welcome to the **Counter App**, a simple stopwatch application built using **Rea
 
 ### Backend is available at https://counter-app-backend.vercel.app/
 
+## 📈 GitHub Repository Stats
+| 🌟 **Stars** | 🍴 **Forks** | 🐛 **Issues** | 🔔 **Open PRs** | 🔕 **Closed PRs** | 🛠️ **Languages** | ✅ **Contributors** |
+|--------------|--------------|---------------|-----------------|------------------|------------------|------------------|
+| ![GitHub stars](https://img.shields.io/github/stars/param-code/counter-app) | ![forks](https://img.shields.io/github/forks/param-code/counter-app) | ![issues](https://img.shields.io/github/issues/param-code/counter-app?color=32CD32) | ![pull requests](https://img.shields.io/github/issues-pr/param-code/counter-app?color=FFFF8F) | ![Closed PRs](https://img.shields.io/github/issues-pr-closed/param-code/counter-app?color=20B2AA) | ![Languages](https://img.shields.io/github/languages/count/param-code/counter-app?color=20B2AA) | ![Contributors](https://img.shields.io/github/contributors/param-code/counter-app?color=00FA9A) |
+
 ## 📋 Table of Contents
 
 - [Introduction](#introduction)
