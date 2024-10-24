@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import rootReducer from "./reducer";
 import { configureStore } from "@reduxjs/toolkit";
 import { Toaster } from 'react-hot-toast';
+import Review from './components/Auth/Review.jsx';
 
 const store = configureStore({
 	reducer: rootReducer,
@@ -19,6 +20,7 @@ createRoot(document.getElementById("root")).render(
       <App />
       <Toaster />
 		</Provider>
+	<Review />
 	</StrictMode>
 );
 
