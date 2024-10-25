@@ -13,9 +13,15 @@ const WorkTracker = () => {
     const [showStopModal, setShowStopModal] = useState(false); // Popup for stop confirmation
     const [presetTime, setPresetTime] = useState({ minutes: 0, seconds: 0 }); // Preset time storage
     const [isTimeSet, setIsTimeSet] = useState(false); // Check if time has been set
+    const [theme, setTheme] = useState("light"); // State for theme
 
     // Handles subject name change
     const handleSubjectChange = (e) => setSubject(e.target.value);
+
+// Function to toggle theme
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  };
 
     const calculateMostAndLeastTimeSpent = () => {
         if (subjects.length === 0) return { mostTimeSpent: {}, leastTimeSpent: {} };
@@ -144,21 +150,20 @@ const WorkTracker = () => {
     const { mostTimeSpent, leastTimeSpent } = calculateMostAndLeastTimeSpent();
 
     return (
-        <div className=" min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-305 ">
-            <Navbar />
-            <div>
-                <div className="text-center font-bold p-4" style={{fontSize:"2rem"}}>
-                    <h2>"Manage Your Time: <br></br>Effortless Task Tracking for Every Activity"</h2>
-                </div>
-                <div className=" bg-gray-100 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-20 p-7">
-
-
-                    <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
-                        <h1 className="text-3xl font-bold text-center mb-6">Study/Work Tracker</h1>
+        <div
+        className={`h-svh bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-305 ${
+            theme === "dark" ? "dark" : ""
+          }`}
+    >
+        <Navbar toggleTheme={toggleTheme} />
+        <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex flex-col items-center justify-center p-4">
+                <div className=" bg-gray-100 dark:bg-gray-900 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-20 p-7">
+                    <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-8 w-full max-w-md">
+                        <h1 className="text-3xl font-bold text-center mb-6 text-gray-700 dark:text-gray-200">Study/Work Tracker</h1>
 
                         {/* Subject Input */}
                         <div className="mb-6">
-                            <label className="mb-2 text-gray-700 font-medium">Subject</label>
+                            <label className="mb-2 text-gray-700 dark: text-gray-200 font-medium">Subject</label>
                             <input
                                 type="text"
                                 value={subject}
@@ -171,7 +176,7 @@ const WorkTracker = () => {
                         {/* Timer Inputs */}
                         <div className="flex justify-center space-x-4 mb-6">
                             <div className="flex flex-col">
-                                <label className="mb-2 text-gray-700 font-medium">Set Time (Minutes)</label>
+                                <label className="mb-2 text-gray-700 dark:text-gray-200 font-medium">Set Time (Minutes)</label>
                                 <input
                                     type="number"
                                     min="0"
@@ -186,7 +191,7 @@ const WorkTracker = () => {
                                 />
                             </div>
                             <div className="flex flex-col">
-                                <label className="mb-2 text-gray-700 font-medium">Set Time (Seconds)</label>
+                                <label className="mb-2 text-gray-700 dark:text-gray-200 font-medium">Set Time (Seconds)</label>
                                 <input
                                     type="number"
                                     min="0"
@@ -217,7 +222,7 @@ const WorkTracker = () => {
                         )}
 
                         {/* Timer Display */}
-                        <div className="text-5xl font-mono text-center mb-6">
+                        <div className="text-5xl font-mono dark: text-gray-200 text-center mb-6">
                             {String(currentTime.minutes).padStart(2, "0")}:{String(currentTime.seconds).padStart(2, "0")}
                         </div>
 
@@ -248,15 +253,16 @@ const WorkTracker = () => {
                         </div>
                     </div>
 
-                    <div className="bg-white shadow-md rounded-lg p-8 mt-6 w-full max-w-md">
+                    <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-8 mt-6 w-full max-w-md">
                         {/* Tracked Subjects List */}
-                        <h2 className="text-xl font-bold text-center mb-4">Tracked Subjects</h2>
+                        <h2 className="text-xl font-bold text-center dark:text-gray-200 mb-4">Tracked Subjects</h2>
                         {subjects.length === 0 ? (
-                            <p className="text-center">No subjects logged yet.</p>
+                            //<p className="text-center ">No subjects logged yet.</p>
+                            <h2 className="text-xs font-bold text-center dark:text-gray-200 mb-">No subjects logged yet</h2>
                         ) : (
                             <ul className="space-y-2">
                                 {subjects.map((sub, index) => (
-                                    <li key={index} className="text-center font-semibold">
+                                    <li key={index} className="text-center font-semibold dark: text-gray-200">
                                         {sub.subject}: {sub.minutes} min {sub.seconds} sec
                                     </li>
                                 ))}
@@ -275,18 +281,18 @@ const WorkTracker = () => {
                         </div>
 
                         {showAnalysis && (
-                            <div className="mt-8 w-full max-w-4xl bg-white shadow-md rounded-lg p-8">
-                                <h2 className="text-2xl font-bold text-center mb-4">Analysis</h2>
+                            <div className="mt-8 w-full max-w-4xl bg-white dark:bg-gray-800 shadow-md rounded-lg p-8">
+                                <h2 className="text-2xl font-bold text-center dark:text-gray-200 mb-4">Analysis</h2>
 
 
 
                                 {/* Most and Least time spent subjects */}
                                 <div className="mt-4">
-                                    <h3 className="text-xl font-semibold">Most Time Spent on:</h3>
+                                    <h3 className="text-xl dark:text-gray-200 font-semibold">Most Time Spent on:</h3>
                                     <p>{mostTimeSpent.subject || "N/A"} - {mostTimeSpent.minutes} minutes {mostTimeSpent.seconds} seconds</p>
 
-                                    <h3 className="text-xl font-semibold mt-4">Least Time Spent on:</h3>
-                                    <p>{leastTimeSpent.subject || "N/A"} - {leastTimeSpent.minutes} minutes {leastTimeSpent.seconds} seconds</p>
+                                    <h3 className="text-xl font-semibold dark:text-gray-200 mt-4">Least Time Spent on:</h3>
+                                    <p>{leastTimeSpent.subject || "N/A "} - {leastTimeSpent.minutes} minutes {leastTimeSpent.seconds} seconds</p>
                                 </div>
                             </div>
                         )}
@@ -294,8 +300,8 @@ const WorkTracker = () => {
                         {/* Time's Up Popup */}
                         {showPopup && (
                             <div className="fixed inset-0 bg-gray-900 bg-opacity-75 flex justify-center items-center">
-                                <div className="bg-white p-6 rounded-lg shadow-lg">
-                                    <h3 className="text-2xl font-bold mb-4">Time's Up!</h3>
+                                <div className="bg-white p-6 dark:bg-gray-800 rounded-lg shadow-lg">
+                                    <h3 className="text-2xl font-bold dark:text-gray-200     mb-4 ">Time's Up!</h3>
                                     <button
                                         onClick={() => {
                                             setShowPopup(false);
@@ -343,3 +349,4 @@ const WorkTracker = () => {
 };
 
 export default WorkTracker;
+

@@ -1,15 +1,31 @@
-import { Button } from "./ui/button"
+import { Button } from './ui/button'
 import { Clock, BarChart, Users, Mail, Globe, Shield, Zap, Timer, BarChart2, Layers } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
-import Navbar from "./navbar"
+import  Navbar from "./navbar"
 import {delay, motion} from 'framer-motion'
-import { useState } from "react"
+import React, { useState, useEffect, useCallback, useRef } from "react"
 
 
 const About= ()=>{
+    const [theme, setTheme] = useState("light");
+    useEffect(() => {
+        const storedTheme = localStorage.getItem("theme");
+        if (storedTheme) {
+          setTheme(storedTheme);
+        }
+      }, []);
+    
+      useEffect(() => {
+        document.body.className = theme;
+        localStorage.setItem("theme", theme);
+      }, [theme]);
+    
+      const toggleTheme = () => {
+        setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
+      };
 
     const [isOpen,setIsOpen]= useState(false)
-
+    
     const transition = {
         duration: 1.5
       };
@@ -30,9 +46,12 @@ const About= ()=>{
 
       const summary=` Counter Clock is not just a timekeeping application; it's a revolution in how we perceive and manage our most valuable resource - time. Born from the need for precision and efficiency in our fast-paced world, Counter Clock has quickly become the cornerstone of productivity for individuals and teams across the globe.`
       const long = `${summary}\nSince our inception in 2023, we've been on a mission to transform time management from a mundane task into an empowering experience. Our state-of-the-art technology, coupled with an intuitive interface, ensures that every second counts towards your success.`;
-       return(
+       
+      
+      
+      return(
         <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-            <Navbar/>
+            <Navbar theme={theme} toggleTheme={toggleTheme} />
             <header className="bg-gradient-to-r from-blue-500 to-indigo-600 dark:from-blue-700 dark:to-indigo-800 text-white py-20">
                 <div className="container mx-auto px-4">
                     <div className="flex flex-col lg:flex-row items-center justify-between">

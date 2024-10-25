@@ -2,6 +2,9 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 
 const TranslateContainer = styled.div`
+  /* added z-index here*/
+  position:relative;
+  z-index:1000;
   .goog-te-combo {
     display: inline-block;
     background-color: #e0f2ff;

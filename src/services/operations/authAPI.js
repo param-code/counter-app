@@ -7,7 +7,7 @@ import { setUser } from "../../slices/profileSlice";
 import { apiConnector } from "../apiConnector";
 import { endpoints } from "../apis";
 
-const { SIGNUP_API, LOGIN_API } = endpoints;
+const { SIGNUP_API, LOGIN_API, PASSWORD_RECOVERY_API } = endpoints;
 
 export function signUp(
 	firstName,
@@ -92,4 +92,28 @@ export function logout(navigate) {
 		toast.success("Logged Out");
 		navigate("/");
 	};
+}
+export function passwordRecovery(email) {
+    return async (dispatch) => {
+        const toastId = toast.loading("Loading...");
+        dispatch(setLoading(true));
+        try {
+            const response = await apiConnector("POST", PASSWORD_RECOVERY_API, {
+                email,
+            });
+
+            console.log("PASSWORD RECOVERY API RESPONSE............", response);
+
+            if (!response.data.success) {
+                throw new Error(response.data.message);
+            }
+
+            toast.success("Password recovery instructions have been sent to your email.");
+        } catch (error) {
+            console.log("PASSWORD RECOVERY API ERROR............", error);
+            toast.error("Error sending password recovery instructions.");
+        }
+        dispatch(setLoading(false));
+        toast.dismiss(toastId);
+    };
 }
