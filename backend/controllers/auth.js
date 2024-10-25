@@ -114,6 +114,7 @@ function isLoggedIn(req, res, next) {
 router.get('/profile', isLoggedIn, (req, res) => {
     res.send(`Welcome ${req.user.name}!`);
 });
+// const { verifyJWT } = require("backend/middlewares/auth.middleware");
 
 // Route for user login (with email/password)
 router.post("/login", async (req, res) => {
@@ -233,6 +234,32 @@ router.post("/signup", async (req, res) => {
             message: "User cannot be registered, Please try again!",
         });
     }
+router.post("/logout", verifyJWT, async (req, res) => {
+  try {
+    await User.findByIdAndUpdate(
+      req.user._id,
+      {
+        $unset: {
+          token: 1,
+        },
+      },
+      {
+        new: true,
+      }
+    );
+
+    const options = {
+      httpOnly: true,
+      secure: true,
+    };
+
+    res
+      .status(200)
+      .clearCookie("token", options)
+      .json({ message: "User logged out successfully" });
+  } catch (error) {
+    res.status(500).json({ error: "An error occurred during logout" });
+  }
 });
 
 module.exports = router;

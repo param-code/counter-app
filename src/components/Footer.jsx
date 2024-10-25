@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Clock from "../assets/clock_img.png";
+// import Clock from "../assets/clock_img.png";
+import Clock from "../assets/clock_img.webp";
 import {
   faFacebook,
   faXTwitter,
@@ -9,6 +10,7 @@ import {
   faGithub,
 } from "@fortawesome/free-brands-svg-icons";
 import GoogleTranslate from "./GoogleTranslate";
+import "./css/Footer.css";
 
 const Footer = () => {
   return (
@@ -78,12 +80,15 @@ const Footer = () => {
         {/* Reduced padding */}
         {/* Company Info (Center aligned) */}
         <div className="flex flex-col items-center">
-          <h2 className="font-bold text-2xl mb-2">Counter Timer</h2>
-          <img src={Clock} alt="Clock" className="h-15 w-24 -mb-2" />
+          <h2  className="font-bold text-2xl mb-2 transition-all duration-300 ease-in-out hover:text-teal-500 hover:scale-105 hover:shadow-lg">Counter Timer</h2>
+          <img src={Clock} alt="Clock" className="clock-icon" />
         </div>
         {/* Useful Links (Center aligned) */}
         <div className="flex flex-col items-center">
-          <h2 className="font-bold text-2xl mb-2">Useful Links</h2>
+          <h2 className="font-bold text-2xl mb-2 transition-all duration-300 ease-in-out hover:text-teal-500 hover:scale-105 hover:shadow-lg">
+            Useful Links
+          </h2>
+
           <ul>
             <li className="mb-1">
               <a
@@ -94,6 +99,10 @@ const Footer = () => {
               </a>
             </li>
             <li className="mb-1">
+              <a href="/Privacy-Policy" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
+              Privacy & Policy
+              </a>
+              <li className="mb-1"></li>
               <a
                 href="/Timer"
                 className="text-gray-400 hover:text-white text-sm transition-colors duration-300"
@@ -129,7 +138,7 @@ const Footer = () => {
         </div>
         {/* Contact Info (Center aligned) */}
         <div className="flex flex-col items-center">
-          <h2 className="font-bold text-2xl mb-2">Contact</h2>
+          <h2  className="font-bold text-2xl mb-2 transition-all duration-300 ease-in-out hover:text-teal-500 hover:scale-105 hover:shadow-lg">Contact</h2>
           <ul className="text-gray-400 text-sm">
             <li className="mb-1">
               <i className="fa fa-home mr-2"></i> India
@@ -148,8 +157,10 @@ const Footer = () => {
       </div>
       {/* Footer Bottom */}
       <div className="bg-gray-900 py-1 text-center">
-      <a href="/terms" className="text-xs text-gray-500 hover:text-white">Terms and Conditions</a>
-      
+        <a href="/terms" className="text-xs text-gray-500 hover:text-white">
+          Terms and Conditions
+        </a>
+
         {/* Reduced padding */}
         <p className="text-xs text-gray-500">
           © 2024 Counter Timer. All Rights Reserved.

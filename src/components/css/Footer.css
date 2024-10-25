@@ -1,0 +1,38 @@
+.clock-icon {
+    width: 96px;  /* Adjusting based on w-24 */
+    height: 100px; /* Adjusting based on h-15 */
+    margin-bottom: -8px; /* For -mb-2 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Initial shadow */
+}
+
+.clock-icon:hover {
+    transform: translateY(-10px) rotateX(15deg) rotateY(15deg); /* 3D effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increased shadow for depth */
+}
+ul li a {
+    position: relative;
+    text-decoration: none;
+    color: #gray-400  ; /* Default text color */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Distance from the text */
+    width: 0;
+    height: 2px; /* Thickness of the underline */
+    background-color: white; /* Color of the underline */
+    transition: width 0.3s ease; /* Smooth width transition */
+}
+
+ul li a:hover::after {
+    width: 100%; /* Expand underline on hover */
+}
+
+ul li a:hover {
+    color: white; /* Change text color on hover */
+}
+ 
