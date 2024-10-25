@@ -24,7 +24,6 @@ function LoginForm() {
         { abortEarly: false }
       );
       setErrors({});
-      // console.log("Form Submitted", formData);
     } catch (error) {
       const newErrors = {};
 
@@ -38,6 +37,7 @@ function LoginForm() {
 
     dispatch(login(email, password, navigate));
   };
+
   const handlePasswordRecovery = () => {
     navigate("/password-recovery");
   };
@@ -122,8 +122,8 @@ function LoginForm() {
               Create New Account
             </button>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 }

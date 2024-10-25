@@ -7,6 +7,8 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { signUp } from "../../services/operations/authAPI";
 import { registerValidation } from "@/validations/validation";
+import { FcGoogle } from "react-icons/fc";
+import { FaApple } from "react-icons/fa";
 
 function SignupForm() {
   const navigate = useNavigate();
@@ -44,14 +46,11 @@ function SignupForm() {
         { abortEarly: false }
       );
       setErrors({});
-      // console.log("Form Submitted", formData);
     } catch (error) {
       const newErrors = {};
-
       error.inner.forEach((err) => {
         newErrors[err.path] = err.message;
       });
-
       setErrors(newErrors);
       return;
     }
@@ -61,12 +60,12 @@ function SignupForm() {
       return;
     }
 
-    // Send data to backend for create account
+    // Send data to backend for account creation
     dispatch(
       signUp(firstName, lastName, email, password, confirmPassword, navigate)
     );
 
-    // Reset
+    // Reset form
     setFormData({
       firstName: "",
       lastName: "",
@@ -195,6 +194,16 @@ function SignupForm() {
         >
           Create Account
         </button>
+        <div className="flex flex-col items-center space-y-3 mt-3">
+            <button className="w-full flex items-center justify-center gap-2 p-2 border rounded-md border-gray-300 hover:bg-gray-100 transition">
+              <FcGoogle fontSize={18} />
+              <span>Sign up with Google</span>
+            </button>
+            <button className="w-full flex items-center justify-center gap-2 p-2 border rounded-md border-gray-300 hover:bg-gray-100 transition">
+              <FaApple fontSize={18} />
+              <span>Sign up with Apple</span>
+            </button>
+          </div>
         <div className="flex gap-2 flex-col mt-2">
           <div className="flex gap-2 justify-center items-center">
             <span className="h-[1px] bg-black w-[70%]"></span>
@@ -212,8 +221,8 @@ function SignupForm() {
               Sign in
             </button>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 }
