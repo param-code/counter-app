@@ -318,6 +318,9 @@ Add the correct display in Chrome and Safari.
 
 summary {
   display: list-item;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: larger;
+  font-style: italic;
 }
 
 /*
