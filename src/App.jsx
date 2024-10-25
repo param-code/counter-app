@@ -1,15 +1,16 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import WorldClockPage from './pages/WorldClockPage';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import WorldClockPage from "./pages/WorldClockPage";
 // import SignUpPage from "./pages/SignUpPage";
-import TimerPage from './pages/TimerPage';
-import AutoCounterPage from './pages/AutoCounterPage';
-import Design from './components/Design'; 
-import Counter from './pages/Counter';
+import TimerPage from "./pages/TimerPage";
+import AutoCounterPage from "./pages/AutoCounterPage";
+import Design from "./components/Design";
+import Counter from "./pages/Counter";
 import Contributors from "./pages/Contributors";
+import Feedback from "./pages/Feedback";
 import Footer from "./components/Footer.jsx";
-import SpotifyPlayer from './components/SpotifyPlayer';
-import About from './components/About';
+import SpotifyPlayer from "./components/SpotifyPlayer";
+import About from "./components/About";
 // import AboutPage from './pages/AboutPage';    // Import About page
 // import HistoryPage from './pages/HistoryPage'; // Import History page
 // import SettingsPage from './pages/SettingsPage'; // Import Settings page
@@ -18,30 +19,29 @@ import About from './components/About';
 import Template from "./components/Auth/Template";
 import WorkTracker from "./pages/WorkTracker";
 const App = () => {
-
-    return (
-        <Router>
-            <div>
-                {/* Particles design will be displayed globally */}
-                <Design /> 
-                <SpotifyPlayer />
-                <Routes>
-                    <Route path="/" element={<AutoCounterPage />} />
-                    <Route path="/timer" element={<TimerPage />} />
-                    {/* <Route path="/signup" element={<SignUpPage />} /> */}
-                    <Route path="/WorldClock" element={<WorldClockPage />} />
-                    <Route path="/counter" element={<Counter />} />
-                      <Route path="/Contributors" element={<Contributors />} />
-                    <Route path='/signup' element={<Template formType={"signup"} />} />
-                    <Route path='/login' element={<Template formType={"login"} />} /> 
-                    <Route path='/about' element={<About/>}/>
-                    <Route path='/WorkTracker' element={<WorkTracker/>}/>
-                </Routes>
-                <Footer/>
-            </div>
-        </Router>
-    );
-
+  return (
+    <Router>
+      <div>
+        {/* Particles design will be displayed globally */}
+        <Design />
+        <SpotifyPlayer />
+        <Routes>
+          <Route path="/" element={<AutoCounterPage />} />
+          <Route path="/timer" element={<TimerPage />} />
+          {/* <Route path="/signup" element={<SignUpPage />} /> */}
+          <Route path="/WorldClock" element={<WorldClockPage />} />
+          <Route path="/counter" element={<Counter />} />
+          <Route path="/Contributors" element={<Contributors />} />
+          <Route path="/Feedback" element={<Feedback />} />
+          <Route path="/signup" element={<Template formType={"signup"} />} />
+          <Route path="/login" element={<Template formType={"login"} />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/WorkTracker" element={<WorkTracker />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
+  );
 };
 
 // Define the new sections at the bottom of App.jsx
@@ -84,13 +84,13 @@ const App = () => {
 
 // Define the NotFoundPage component to display when no routes match
 const NotFoundPage = () => {
-    return (
-        <div>
-            <h1>404 - Page Not Found</h1>
-            <p>Oops! The page you're looking for doesn't exist.</p>
-        </div>
-    );
+  return (
+    <div>
+      <h1>404 - Page Not Found</h1>
+      <p>Oops! The page you're looking for doesn't exist.</p>
+    </div>
+  );
 };
-<Route path="*" element={<NotFoundPage />} />
+<Route path="*" element={<NotFoundPage />} />;
 
 export default App;
