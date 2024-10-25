@@ -43,87 +43,80 @@ function LoginForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-start justify-center bg-gradient-to-r from-gray-100 to-blue-50 pt-16">
-      {/* Centered Form */}
-      <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-2xl rounded-lg">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">
-          Sign In to Your Account
-        </h2>
-
-        <form noValidate onSubmit={handleOnSubmit} className="space-y-6">
-          {/* Email Input */}
-          <label className="block">
-            <span className="text-gray-700 font-semibold">Email Address</span>
-            <input
-              required
-              type="email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
-              className="w-full mt-1 p-3 border rounded-md bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            {errors.email && (
-              <div className="text-red-600 text-sm mt-1">{errors.email}</div>
-            )}
-          </label>
-
-          {/* Password Input */}
-          <label className="block relative">
-            <span className="text-gray-700 font-semibold">Password</span>
-            <input
-              required
-              type={showPassword ? "text" : "password"}
-              name="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter your password"
-              className="w-full mt-1 p-3 border rounded-md bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <span
-              onClick={() => setShowPassword((prev) => !prev)}
-              className="absolute right-4 top-[38px] cursor-pointer"
-            >
-              {showPassword ? (
-                <AiOutlineEyeInvisible fontSize={24} />
-              ) : (
-                <AiOutlineEye fontSize={24} />
-              )}
-            </span>
-            {errors.password && (
-              <div className="text-red-600 text-sm mt-1">{errors.password}</div>
-            )}
-          </label>
-
-          {/* Sign In Button */}
-          <button
-            type="submit"
-            className="w-full py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition duration-300"
+    <div className="">
+      <form
+        noValidate
+        onSubmit={handleOnSubmit}
+        className="flex w-full font-semibold flex-col gap-y-6 shadow-xl shadow-blue-200 p-6 rounded-2xl"
+      >
+        <label className="w-full">
+          <p className="mb-1 text-[1rem] leading-[1.375rem] font-semibold text-richblack-5">
+            Email Address
+          </p>
+          <input
+            required
+            type="text"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter email address"
+            className="form-style  w-full font-semibold p-2 rounded-lg bg-white shadow-md text-black border-[1px] border-transparent hover:border-blue-500 hover:border-[1px]"
+          />
+          {errors.email && <div className="text-red-600">{errors.email}</div>}
+        </label>
+        <label className="relative">
+          <p className="mb-1 text-[1rem] leading-[1.375rem] font-semibold text-richblack-5">
+            Password
+          </p>
+          <input
+            required
+            type={showPassword ? "text" : "password"}
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter Password"
+            className="form-style w-full font-semibold !pr-10 p-2 shadow-md bg-white rounded-lg  text-black border-[1px] border-transparent hover:border-blue-500 hover:border-[1px]"
+          />
+          <span
+            onClick={() => setShowPassword((prev) => !prev)}
+            className="absolute right-3 top-[35px] z-[10] cursor-pointer"
           >
-            Sign In
-          </button>
+            {showPassword ? (
+              <AiOutlineEyeInvisible fontSize={24} fill="#000000" />
+            ) : (
+              <AiOutlineEye fontSize={24} fill="#000000" />
+            )}
+          </span>
+          {errors.password && (
+            <div className="text-red-600">{errors.password}</div>
+          )}
+        </label>
+        <button
+          type="submit"
+          className="mt-6 font-semibold py-[8px] px-[12px] p-2 text-white bg-red-600 hover:bg-red-700  rounded-lg border-[2px] border-red-800"
+        >
+          Sign In
+        </button>
+        <button
+          type="button"
+          className="mt-2 font-semibold py-[8px] px-[12px] p-2 text-white bg-blue-600 hover:bg-blue-700  rounded-lg border-[2px] border-blue-800"
+          onClick={handlePasswordRecovery}
+        >
+          Forgot Password?
+        </button>
 
-          {/* Forgot Password Button */}
-          <button
-            type="button"
-            className="w-full text-blue-600 font-semibold mt-4 hover:underline"
-            onClick={handlePasswordRecovery}
-          >
-            Forgot Password?
-          </button>
-
-          {/* Divider */}
-          <div className="flex items-center justify-between mt-6">
-            <span className="border-b w-[40%] border-gray-300"></span>
-            <span className="text-gray-500">OR</span>
-            <span className="border-b w-[40%] border-gray-300"></span>
+        <div className="flex gap-2 flex-col mt-2">
+          <div className="flex gap-2 justify-center items-center">
+            <span className="h-[1px] bg-black w-[70%]"></span>
+            <span>OR</span>
+            <span className="h-[1px] bg-black w-[70%]"></span>
           </div>
-
-          {/* Signup Link */}
-          <div className="text-center">
-            <span className="text-gray-600">Don't have an account?</span>
+          <div className="flex flex-row gap-4 mx-auto justify-center items-center">
+            <div className=" font-normal select-none">
+              Don't have an account?
+            </div>
             <button
-              className="text-blue-600 font-semibold hover:underline ml-2"
+              className="text-blue-700 hover:text-blue-950 font-semibold cursor-pointer"
               onClick={() => navigate("/signup")}
             >
               Create New Account
