@@ -7,6 +7,8 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { signUp } from "../../services/operations/authAPI";
 import { registerValidation } from "@/validations/validation";
+import { FcGoogle } from "react-icons/fc";
+import { FaApple } from "react-icons/fa";
 
 function SignupForm() {
   const navigate = useNavigate();
@@ -44,14 +46,11 @@ function SignupForm() {
         { abortEarly: false }
       );
       setErrors({});
-      // console.log("Form Submitted", formData);
     } catch (error) {
       const newErrors = {};
-
       error.inner.forEach((err) => {
         newErrors[err.path] = err.message;
       });
-
       setErrors(newErrors);
       return;
     }
@@ -61,12 +60,12 @@ function SignupForm() {
       return;
     }
 
-    // Send data to backend for create account
+    // Send data to backend for account creation
     dispatch(
       signUp(firstName, lastName, email, password, confirmPassword, navigate)
     );
 
-    // Reset
+    // Reset form
     setFormData({
       firstName: "",
       lastName: "",
@@ -77,143 +76,149 @@ function SignupForm() {
   };
 
   return (
-    <div className='py-2'>
-      {/* Form */}
-      <form
-        noValidate
-        onSubmit={handleOnSubmit}
-        className='flex w-full font-semibold flex-col gap-y-6 text-black border-[2px] border-black p-6 rounded-md'
-      >
-        <div className='flex gap-x-4'>
-          <label>
-            <p className='mb-1 text-[0.95rem] leading-[1.375rem]'>First Name</p>
-            <input
-              required
-              type='text'
-              name='firstName'
-              value={firstName}
-              onChange={handleOnChange}
-              placeholder='Enter first name'
-              className='form-style w-full  p-2 border-[1px] bg-white border-black rounded-md  text-black'
-            />
-            {errors.firstName && (
-              <div className='text-red-600'>{errors.firstName}</div>
-            )}
-          </label>
-          <label>
-            <p className='mb-1 text-[0.95rem] leading-[1.375rem] text-richblack-5'>
-              Last Name
-            </p>
-            <input
-              required
-              type='text'
-              name='lastName'
-              value={lastName}
-              onChange={handleOnChange}
-              placeholder='Enter last name'
-              className='form-style p-2 border-[1px] border-black bg-white rounded-md w-full text-black'
-            />
-            {errors.lastName && (
-              <div className='text-red-600'>{errors.lastName}</div>
-            )}
-          </label>
-        </div>
-        <label className='w-full'>
-          <p className='mb-1 text-[0.95rem] leading-[1.375rem] '>
-            Email Address
-          </p>
-          <input
-            required
-            type='text'
-            name='email'
-            value={email}
-            onChange={handleOnChange}
-            placeholder='Enter email address'
-            className='form-style w-[96%]  p-2 border-[1px] bg-white border-black rounded-md  text-black'
-          />
-          {errors.email && <div className='text-red-600'>{errors.email}</div>}
-        </label>
-        <div className='flex gap-x-4'>
-          <label className='relative'>
-            <p className='mb-1 text-[0.95rem] leading-[1.375rem] text-richblack-5'>
-              Create Password
-            </p>
-            <input
-              required
-              type={showPassword ? "text" : "password"}
-              name='password'
-              value={password}
-              onChange={handleOnChange}
-              placeholder='Enter Password'
-              className='form-style w-full !pr-10  p-2 border-[1px] bg-white border-black rounded-md  text-black'
-            />
-            <span
-              onClick={() => setShowPassword((prev) => !prev)}
-              className='absolute right-3 top-[35px] z-[10] cursor-pointer'
-            >
-              {showPassword ? (
-                <AiOutlineEyeInvisible fontSize={24} fill='#000000' />
-              ) : (
-                <AiOutlineEye fontSize={24} fill='#000000' />
+    <div className="flex justify-center items-start min-h-screen bg-gray-50 py-10">
+      {/* Form Container */}
+      <div className="bg-white shadow-lg p-8 rounded-xl w-[360px]">
+        <h2 className="text-xl font-bold text-center text-gray-800 mb-4">
+          Create an Account
+        </h2>
+
+        {/* Form */}
+        <form noValidate onSubmit={handleOnSubmit} className="space-y-4">
+          <div className="flex gap-3">
+            <label className="w-full">
+              <p className="text-sm text-gray-700">First Name</p>
+              <input
+                required
+                type="text"
+                name="firstName"
+                value={firstName}
+                onChange={handleOnChange}
+                placeholder="John"
+                className="mt-1 p-2 w-full border rounded-md border-gray-300 focus:ring focus:ring-blue-500 focus:border-blue-500"
+              />
+              {errors.firstName && (
+                <p className="text-red-600 text-xs">{errors.firstName}</p>
               )}
-            </span>
-            {errors.password && (
-              <div className='text-red-600'>{errors.password}</div>
-            )}
-          </label>
-          <label className='relative'>
-            <p className='mb-1 text-[0.95rem] leading-[1.375rem] text-richblack-5'>
-              Confirm Password
-            </p>
-            <input
-              required
-              type={showConfirmPassword ? "text" : "password"}
-              name='confirmPassword'
-              value={confirmPassword}
-              onChange={handleOnChange}
-              placeholder='Confirm Password'
-              className='form-style w-full !pr-10 border-black  p-2 border-[1px] bg-white rounded-md  text-black'
-            />
-            <span
-              onClick={() => setShowConfirmPassword((prev) => !prev)}
-              className='absolute right-3 top-[35px] z-[10] cursor-pointer text-black'
-            >
-              {showConfirmPassword ? (
-                <AiOutlineEyeInvisible fontSize={24} fill='#000000' />
-              ) : (
-                <AiOutlineEye fontSize={24} fill='#000000' />
+            </label>
+            <label className="w-full">
+              <p className="text-sm text-gray-700">Last Name</p>
+              <input
+                required
+                type="text"
+                name="lastName"
+                value={lastName}
+                onChange={handleOnChange}
+                placeholder="Doe"
+                className="mt-1 p-2 w-full border rounded-md border-gray-300 focus:ring focus:ring-blue-500 focus:border-blue-500"
+              />
+              {errors.lastName && (
+                <p className="text-red-600 text-xs">{errors.lastName}</p>
               )}
-            </span>
-            {errors.confirmPassword && (
-              <div className='text-red-600'>{errors.confirmPassword}</div>
-            )}
-          </label>
-        </div>
-        <button
-          type='submit'
-          className='mt-6 font-semibold py-[8px] px-[12px] text-white p-2 border-[1px] rounded-md  bg-red-600 hover:bg-red-700 border-red-800'
-        >
-          Create Account
-        </button>
-        <div className='flex gap-2 flex-col mt-2'>
-          <div className='flex gap-2 justify-center items-center'>
-            <span className='h-[1px] bg-black w-[70%]'></span>
-            <span>OR</span>
-            <span className='h-[1px] bg-black w-[70%]'></span>
+            </label>
           </div>
-          <div className='flex flex-row mx-auto gap-4 justify-center items-center'>
-            <div className=' font-normal text-black select-none'>
-              Have an account?
-            </div>
+
+          <label>
+            <p className="text-sm text-gray-700">Email Address</p>
+            <input
+              required
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleOnChange}
+              placeholder="john.doe@example.com"
+              className="mt-1 p-2 w-full border rounded-md border-gray-300 focus:ring focus:ring-blue-500 focus:border-blue-500"
+            />
+            {errors.email && (
+              <p className="text-red-600 text-xs">{errors.email}</p>
+            )}
+          </label>
+
+          <div className="flex gap-3">
+            <label className="relative w-full">
+              <p className="text-sm text-gray-700">Password</p>
+              <input
+                required
+                type={showPassword ? "text" : "password"}
+                name="password"
+                value={password}
+                onChange={handleOnChange}
+                placeholder="••••••••"
+                className="mt-1 p-2 w-full border rounded-md border-gray-300 focus:ring focus:ring-blue-500 focus:border-blue-500"
+              />
+              <span
+                onClick={() => setShowPassword((prev) => !prev)}
+                className="absolute right-3 top-[32px] cursor-pointer"
+              >
+                {showPassword ? (
+                  <AiOutlineEyeInvisible fontSize={18} />
+                ) : (
+                  <AiOutlineEye fontSize={18} />
+                )}
+              </span>
+              {errors.password && (
+                <p className="text-red-600 text-xs">{errors.password}</p>
+              )}
+            </label>
+
+            <label className="relative w-full">
+              <p className="text-sm text-gray-700">Confirm Password</p>
+              <input
+                required
+                type={showConfirmPassword ? "text" : "password"}
+                name="confirmPassword"
+                value={confirmPassword}
+                onChange={handleOnChange}
+                placeholder="••••••••"
+                className="mt-1 p-2 w-full border rounded-md border-gray-300 focus:ring focus:ring-blue-500 focus:border-blue-500"
+              />
+              <span
+                onClick={() => setShowConfirmPassword((prev) => !prev)}
+                className="absolute right-3 top-[32px] cursor-pointer"
+              >
+                {showConfirmPassword ? (
+                  <AiOutlineEyeInvisible fontSize={18} />
+                ) : (
+                  <AiOutlineEye fontSize={18} />
+                )}
+              </span>
+              {errors.confirmPassword && (
+                <p className="text-red-600 text-xs">
+                  {errors.confirmPassword}
+                </p>
+              )}
+            </label>
+          </div>
+
+          <button
+            type="submit"
+            className="w-full p-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition"
+          >
+            Create Account
+          </button>
+
+          <div className="flex flex-col items-center space-y-3 mt-3">
+            <button className="w-full flex items-center justify-center gap-2 p-2 border rounded-md border-gray-300 hover:bg-gray-100 transition">
+              <FcGoogle fontSize={18} />
+              <span>Sign up with Google</span>
+            </button>
+            <button className="w-full flex items-center justify-center gap-2 p-2 border rounded-md border-gray-300 hover:bg-gray-100 transition">
+              <FaApple fontSize={18} />
+              <span>Sign up with Apple</span>
+            </button>
+          </div>
+
+          <div className="flex justify-center items-center mt-3">
+            <span className="text-sm text-gray-600">Already have an account?</span>
             <button
-              className='text-blue-700 hover:text-blue-950 font-semibold cursor-pointer'
+              className="text-blue-600 ml-1 hover:underline"
               onClick={() => navigate("/login")}
             >
               Sign in
             </button>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 }
