@@ -12,6 +12,8 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Footer from "./components/Footer.jsx";
 import SpotifyPlayer from "./components/SpotifyPlayer";
 import About from "./components/About";
+import './App.css';
+
 // import AboutPage from './pages/AboutPage';    // Import About page
 // import HistoryPage from './pages/HistoryPage'; // Import History page
 // import SettingsPage from './pages/SettingsPage'; // Import Settings page
