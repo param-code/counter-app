@@ -7,7 +7,8 @@ import AutoCounterPage from "./pages/AutoCounterPage";
 import Design from "./components/Design";
 import Counter from "./pages/Counter";
 import Contributors from "./pages/Contributors";
-import PrivacyPolicy from './pages/PrivacyPolicy';
+import Feedback from "./pages/Feedback";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Footer from "./components/Footer.jsx";
 import SpotifyPlayer from "./components/SpotifyPlayer";
 import About from "./components/About";
@@ -32,26 +33,37 @@ const App = () => {
         <Design />
         <SpotifyPlayer />
         <Routes>
-          <Route path='/' element={<AutoCounterPage />} />
-          <Route path='/timer' element={<TimerPage />} />
-          <Route path='/terms' element={<TermsPage />} />
+          <Route path="/" element={<AutoCounterPage />} />
+          <Route path="/timer" element={<TimerPage />} />
           {/* <Route path="/signup" element={<SignUpPage />} /> */}
-          <Route path='/WorldClock' element={<WorldClockPage />} />
-          <Route path='/counter' element={<Counter />} />
-          <Route path='/Contributors' element={<Contributors />} />
-          <Route path='/signup' element={<Template formType={"signup"} />} />
-          <Route path='/login' element={<Template formType={"login"} />} />
+          <Route path="/WorldClock" element={<WorldClockPage />} />
+          <Route path="/counter" element={<Counter />} />
+          <Route path="/Contributors" element={<Contributors />} />
+          <Route path="/Feedback" element={<Feedback />} />
+          <Route path="/signup" element={<Template formType={"signup"} />} />
+          <Route path="/login" element={<Template formType={"login"} />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/WorkTracker" element={<WorkTracker />} />
+          <Route path="/" element={<AutoCounterPage />} />
+          <Route path="/timer" element={<TimerPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          {/* <Route path="/signup" element={<SignUpPage />} /> */}
+          <Route path="/WorldClock" element={<WorldClockPage />} />
+          <Route path="/counter" element={<Counter />} />
+          <Route path="/Contributors" element={<Contributors />} />
+          <Route path="/signup" element={<Template formType={"signup"} />} />
+          <Route path="/login" element={<Template formType={"login"} />} />
           <Route
-            path='/password-recovery'
+            path="/password-recovery"
             element={<PasswordRecovery />}
           />{" "}
           {/* Add PasswordRecovery route */}
-          <Route path='*' element={<NotFoundPage />} />{" "}
+          <Route path="*" element={<NotFoundPage />} />{" "}
           {/* Add NotFoundPage route */}
-          <Route path='/about' element={<About />} />
-          <Route path='/WorkTracker' element={<WorkTracker />} />
-          <Route path='/Privacy-Policy' element={<PrivacyPolicy/>}/>
-          <Route path='*' element={<Error404/>}/>
+          <Route path="/about" element={<About />} />
+          <Route path="/WorkTracker" element={<WorkTracker />} />
+          <Route path="/Privacy-Policy" element={<PrivacyPolicy />} />
+          <Route path="*" element={<Error404 />} />
         </Routes>
         <Footer />
       </div>
@@ -106,6 +118,9 @@ const NotFoundPage = () => {
     </div>
   );
 };
-<Route path='*' element={<NotFoundPage />} />;
+
+<Route path="*" element={<NotFoundPage />} />;
+
+<Route path="*" element={<NotFoundPage />} />;
 
 export default App;
