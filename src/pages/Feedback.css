@@ -120,3 +120,11 @@ textarea {
 .close-popup-button:hover {
   background-color: #58a7db;
 }
+
+@media (max-width: 768px) {
+  .feedback-form-container {
+    width: 100%; /* Set to 100% width on smaller screens */
+    padding: 30px; /* Adjust padding for better fit on small screens */
+    box-sizing: border-box; /* Ensures padding is included in the width */
+  }
+}
