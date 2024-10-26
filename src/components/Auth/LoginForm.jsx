@@ -113,7 +113,7 @@ function LoginForm() {
           </div>
           <div className="flex flex-row gap-4 mx-auto justify-center items-center">
             <div className=" font-normal select-none">
-              Don't have an account?
+              Do not have an account?
             </div>
             <button
               className="text-blue-700 hover:text-blue-950 font-semibold cursor-pointer"
@@ -124,8 +124,10 @@ function LoginForm() {
           </div>
           </div>
         </form>
+
       
     </div>
+
   );
 }
 
