@@ -124,7 +124,7 @@ function LoginForm() {
           </div>
         </form>
       </div>
-    </div>
+{/*     </div> */}
   );
 }
 
