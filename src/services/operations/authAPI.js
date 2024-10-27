@@ -7,6 +7,7 @@ import { apiConnector } from "../apiConnector";
 import { endpoints } from "../apis";
 
 const { SIGNUP_API, LOGIN_API, PASSWORD_RECOVERY_API } = endpoints;
+const DEFAULT_AVATAR_URL = "https://api.dicebear.com/5.x/initials/svg?seed=";
 
 const startLoadingWithToast = (dispatch) => {
 	const toastId = toast.loading("Loading...");
@@ -19,7 +20,6 @@ const stopLoadingWithToast = (dispatch, toastId) => {
 	toast.dismiss(toastId);
 };
 
-// Centralized error handling function
 const handleApiError = (error, defaultMessage) => {
 	console.log(error);
 	toast.error(error.response?.data?.message || defaultMessage);
@@ -68,7 +68,7 @@ export function login(email, password, navigate) {
 
 			const userImage = response.data?.user?.image
 				? response.data.user.image
-				: `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.user.firstName}${response.data.user.lastName}`;
+				: `${DEFAULT_AVATAR_URL}${response.data.user.firstName}${response.data.user.lastName}`;
 
 			dispatch(setUser({ ...response.data.user, image: userImage }));
 			localStorage.setItem("token", JSON.stringify(response.data.token));
