@@ -8,7 +8,6 @@ import { endpoints } from "../apis";
 
 const { SIGNUP_API, LOGIN_API, PASSWORD_RECOVERY_API } = endpoints;
 
-// Helper functions for loading and toast handling
 const startLoadingWithToast = (dispatch) => {
 	const toastId = toast.loading("Loading...");
 	dispatch(setLoading(true));
@@ -18,6 +17,12 @@ const startLoadingWithToast = (dispatch) => {
 const stopLoadingWithToast = (dispatch, toastId) => {
 	dispatch(setLoading(false));
 	toast.dismiss(toastId);
+};
+
+// Centralized error handling function
+const handleApiError = (error, defaultMessage) => {
+	console.log(error);
+	toast.error(error.response?.data?.message || defaultMessage);
 };
 
 export function signUp(firstName, lastName, email, password, confirmPassword, navigate) {
@@ -40,8 +45,7 @@ export function signUp(firstName, lastName, email, password, confirmPassword, na
 			toast.success("Signup Successful");
 			navigate("/login");
 		} catch (error) {
-			console.log("SIGNUP API ERROR:", error);
-			toast.error("Signup Failed");
+			handleApiError(error, "Signup Failed");
 			navigate("/signup");
 		}
 		stopLoadingWithToast(dispatch, toastId);
@@ -71,8 +75,7 @@ export function login(email, password, navigate) {
 			localStorage.setItem("user", JSON.stringify(response.data.user));
 			navigate("/");
 		} catch (error) {
-			console.log("LOGIN API ERROR:", error);
-			toast.error("Login Failed");
+			handleApiError(error, "Login Failed");
 		}
 		stopLoadingWithToast(dispatch, toastId);
 	};
@@ -102,8 +105,7 @@ export function passwordRecovery(email) {
 
 			toast.success("Password recovery instructions have been sent to your email.");
 		} catch (error) {
-			console.log("PASSWORD RECOVERY API ERROR:", error);
-			toast.error("Error sending password recovery instructions.");
+			handleApiError(error, "Error sending password recovery instructions.");
 		}
 		stopLoadingWithToast(dispatch, toastId);
 	};
