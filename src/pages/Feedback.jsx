@@ -8,31 +8,63 @@ const Feedback = () => {
   const [hoverRating, setHoverRating] = useState(0);
   const [feedback, setFeedback] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState("");
 
   const handleRating = (rate) => {
     setRating(rate);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (name && email && rating && feedback) {
-      setIsSubmitted(true);
-      // Here, handle actual submission, such as sending to a backend API
-      console.log({
-        name,
-        email,
-        rating,
-        feedback,
-      });
-      // Reset form after submission
+      try {
+        const response = await fetch("http://localhost:5000/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            rating,
+            message: feedback,
+          }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          setMessage("Your feedback has been successfully submitted.");
+          setMessageType("success");
+          setIsSubmitted(true);
+          resetForm();
+        } else {
+          setMessage(result.message || "An error occurred. Please try again.");
+          setMessageType("error");
+        }
+      } catch (error) {
+        setMessage("Failed to submit feedback. Please try again later.");
+        setMessageType("error");
+      }
+    } else {
+      setMessage("Please fill out all fields.");
+      setMessageType("error");
+    }
+  };
+
+  const resetForm = () => {
+    setTimeout(() => {
       setName("");
       setEmail("");
       setRating(0);
       setFeedback("");
       setHoverRating(0);
-    } else {
-      alert("Please fill out all fields");
-    }
+      setIsSubmitted(false);
+      setMessage("");
+      setMessageType("");
+    }, 10000); // Reset form and message after 10 seconds
   };
 
   const closePopup = () => {
@@ -64,6 +96,15 @@ const Feedback = () => {
           required
         />
 
+         {/* Feedback Textarea */}
+         <textarea
+          className="exp"
+          value={feedback}
+          onChange={(e) => setFeedback(e.target.value)}
+          placeholder="Describe your experience.."
+          required
+        />
+
         {/* Star Rating */}
         <div className="stars">
           {[1, 2, 3, 4, 5].map((star) => (
@@ -81,14 +122,7 @@ const Feedback = () => {
           ))}
         </div>
 
-        {/* Feedback Textarea */}
-        <textarea
-          className="exp"
-          value={feedback}
-          onChange={(e) => setFeedback(e.target.value)}
-          placeholder="Describe your experience.."
-          required
-        />
+       
 
         {/* Submit Button */}
         <button type="submit" className="post-button">
@@ -96,12 +130,25 @@ const Feedback = () => {
         </button>
       </form>
 
+      {/* Success or Error Message */}
+      {message && (
+        <div
+          className="message"
+          style={{
+            color: messageType === "success" ? "green" : "red",
+            marginTop: "10px",
+          }}
+        >
+          {message}
+        </div>
+      )}
+
       {/* Success Pop-up */}
       {isSubmitted && (
         <div className="popup-overlay">
           <div className="popup">
             <h3>Thank You!</h3>
-            <p>Your feedback has been successfully submitted.</p>
+            <p>{message}</p>
             <button onClick={closePopup} className="close-popup-button">
               Close
             </button>
