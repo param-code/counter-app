@@ -35,22 +35,22 @@ const Review = () => {
   return (
     <>
       {visible && (
-        <div className="fixed inset-0 flex justify-center items-center z-50">
+        <div className="fixed inset-0 flex flex-col justify-end lg:justify-center items-center z-50">
           {/* Background overlay */}
           <div className="absolute inset-0 bg-black bg-opacity-50 z-40"></div>
 
           {/* Popup content */}
-          <div className="relative bg-white p-6 rounded-lg shadow-2xl w-full max-w-md text-gray-800 z-50">
+          <div className="relative bg-white p-6 rounded-lg shadow-2xl w-full max-w-md text-gray-800 z-50 mb-4">
             {/* Close button */}
             <button
-  className="absolute top-2 right-2 bg-gray-200 rounded-full h-8 w-8 flex items-center justify-center hover:bg-gray-300 transition duration-200 text-gray-600"
-  onClick={() => setVisible(false)}
-  aria-label="Close"
->
-  ✕
-</button>
+              className="absolute top-2 right-2 bg-gray-200 rounded-full h-8 w-8 flex items-center justify-center hover:bg-gray-300 transition duration-200 text-gray-600"
+              onClick={() => setVisible(false)}
+              aria-label="Close"
+            >
+              ✕
+            </button>
 
-            
+
             <h2 className="text-2xl font-bold mb-4 text-center text-blue-900">RATE US!</h2>
             <p className="text-center text-gray-700 mb-6">Please take a second to review our services!</p>
 
