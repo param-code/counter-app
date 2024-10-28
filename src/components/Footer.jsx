@@ -134,6 +134,14 @@ const Footer = () => {
                 Contributors
               </a>
             </li>
+            <li className="mb-1">
+              <a
+                href="/Feedback"
+                className="text-gray-400 hover:text-white text-sm transition-colors duration-300"
+              >
+                Feedback
+              </a>
+            </li>
           </ul>
         </div>
         {/* Contact Info (Center aligned) */}
