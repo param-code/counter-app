@@ -9,7 +9,7 @@ import { loadSlim } from "@tsparticles/slim"; // Slim version for smaller bundle
 import morningImage from "../assets/morningBackground.webp";
 import nightImage from "../assets/nightBackground.png";
 import afternoonImage from "../assets/afternoonBackground.png";  // Fix: Renamed to match usage
-
+import Cursor from "@/components/Cursor";
 const WorldClockPage = () => {
   const [selectedCountry, setSelectedCountry] = useState("UTC");
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -173,7 +173,7 @@ const WorldClockPage = () => {
           </div>
         </div>
       </div>
-
+<Cursor/>
     </div>
   );
 };

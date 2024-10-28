@@ -221,8 +221,9 @@ function SignupForm() {
               Sign in
             </button>
           </div>
+          </div>
         </form>
-      </div>
+    
     </div>
   );
 }

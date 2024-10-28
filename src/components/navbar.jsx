@@ -6,7 +6,7 @@ import { Github, Moon, Sun, Globe, Info, Users } from "lucide-react"
 // import darkLogo from "../assets/darklogo1.png"; // Use an appropriate dark version of the logo
 // import timer from "../assets/timer1.png";
 // import worldClock from "../assets/clock.png";
-
+import Cursor from './Cursor';
 import logo from "../assets/logo1.webp"
 import darkLogo from "../assets/darklogo1.webp"; // Use an appropriate dark version of the logo
 import timer from "../assets/timer1.webp";
@@ -208,6 +208,7 @@ const Navbar = ({ theme, toggleTheme }) => {
           </div>
         )}
       </div>
+      <Cursor/>
     </nav>
   );
 };
