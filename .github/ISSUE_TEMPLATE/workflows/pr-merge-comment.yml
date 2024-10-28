@@ -1,0 +1,23 @@
+name: PR Merge Comment
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comment on PR Merge
+        if: github.event.pull_request.merged == true
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+
+            await github.issues.createComment({
+              issue_number: pr.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Thank you for your contribution! Your PR has been merged.',
+            });

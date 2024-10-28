@@ -1,0 +1,32 @@
+name: Issue Comment
+
+on:
+  issues:
+    types: [opened, closed]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comment on Issue
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const action = context.payload.action;
+
+            if (action === 'opened') {
+              await github.issues.createComment({
+                issue_number: issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: 'Thank you for opening this issue! We will look into it soon.',
+              });
+            } else if (action === 'closed') {
+              await github.issues.createComment({
+                issue_number: issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: 'This issue has been closed. If you have any more questions, feel free to ask!',
+              });
+            }
