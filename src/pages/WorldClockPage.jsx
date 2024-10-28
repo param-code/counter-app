@@ -5,7 +5,8 @@ import moment from "moment-timezone";
 import Navbar from "../components/navbar";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim"; // Slim version for smaller bundle
-import morningImage from "../assets/morningBackground.png";
+// import morningImage from "../assets/morningBackground.png";
+import morningImage from "../assets/morningBackground.webp";
 import nightImage from "../assets/nightBackground.png";
 import afternoonImage from "../assets/afternoonBackground.png";  // Fix: Renamed to match usage
 
