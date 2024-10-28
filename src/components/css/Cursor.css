@@ -1,43 +1,21 @@
-body {
-    cursor: none; /* Hide the default cursor */
-  }
-  
-  .custom-cursor {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: rgba(255, 215, 0, 0.8); /* Gold color */
-    border-radius: 50%;
-    pointer-events: none; /* Ignore pointer events */
-    transition: transform 0.1s ease;
-    z-index: 1000; /* Ensure it's on top */
-  }
-  
-  .fairy-dust {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: rgba(255, 215, 0, 0.5); /* Gold color for fairy dust */
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 999;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-  }
-  
-  .custom-cursor:hover + .fairy-dust {
-    opacity: 1; /* Show fairy dust on hover */
-    animation: sparkle 0.5s infinite alternate;
-  }
-  
-  @keyframes sparkle {
-    0% {
-      transform: scale(1);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(1.5);
-      opacity: 0;
-    }
-  }
-  
+.main-cursor,
+.trailing-circle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.main-cursor {
+  background: radial-gradient(circle, rgba(53, 118, 239, 0.8), rgba(116, 218, 255, 0.8));
+  z-index: 800;
+}
+
+.trailing-circle {
+  background: radial-gradient(circle, rgba(53, 118, 239, 0.8), rgba(116, 218, 255, 0.8));
+  z-index: 999;
+  transition: transform 0.07s ease;
+}

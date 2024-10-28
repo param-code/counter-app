@@ -1,53 +1,39 @@
-// src/components/FairyDustCursor.jsx
-import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+// import "./CustomCursor.css";
+// import '../css/Cursor.css';
+import './css/Cursor.css'
 
-const FairyDustCursor = () => {
-  const [particles, setParticles] = useState([]);
+const CustomCursor = () => {
+  const mainCursor = useRef(null);
+  const trailingCircles = useRef([]);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      const newParticle = {
-        id: Date.now(),
-        x: e.clientX,
-        y: e.clientY,
-      };
-      setParticles((prev) => [...prev, newParticle]);
+    const onMouseMove = (e) => {
+      mainCursor.current.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
 
-      // Remove particles after animation duration (e.g., 1s)
-      setTimeout(() => {
-        setParticles((prev) => prev.filter((p) => p.id !== newParticle.id));
-      }, 1000);
+      trailingCircles.current.forEach((circle, index) => {
+        setTimeout(() => {
+          circle.style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(${1 - index * 0.1})`;
+        }, index * 20);
+      });
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
+    window.addEventListener("mousemove", onMouseMove);
+    return () => window.removeEventListener("mousemove", onMouseMove);
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 pointer-events-none z-50">
-      <AnimatePresence>
-        {particles.map((particle) => (
-          <motion.div
-            key={particle.id}
-            initial={{ opacity: 1, scale: 1, x: particle.x, y: particle.y }}
-            animate={{
-              opacity: 0,
-              scale: 2,
-              x: particle.x + (Math.random() * 50 - 25),
-              y: particle.y + (Math.random() * 50 - 25),
-            }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="absolute w-2 h-2 bg-white rounded-full mix-blend-screen"
-          />
-        ))}
-      </AnimatePresence>
-    </div>
+    <>
+      <div ref={mainCursor} className="main-cursor"></div>
+      {[...Array(8)].map((_, i) => (
+        <div
+          key={i}
+          ref={(el) => (trailingCircles.current[i] = el)}
+          className="trailing-circle"
+        ></div>
+      ))}
+    </>
   );
 };
 
-export default FairyDustCursor;
+export default CustomCursor;
