@@ -12,6 +12,11 @@ Welcome to the **Counter App**, a simple stopwatch application built using **Rea
 
 ### Backend is available at https://counter-app-backend.vercel.app/
 
+## 📈 GitHub Repository Stats
+| 🌟 **Stars** | 🍴 **Forks** | 🐛 **Issues** | 🔔 **Open PRs** | 🔕 **Closed PRs** | 🛠️ **Languages** | ✅ **Contributors** |
+|--------------|--------------|---------------|-----------------|------------------|------------------|------------------|
+| ![GitHub stars](https://img.shields.io/github/stars/param-code/counter-app) | ![forks](https://img.shields.io/github/forks/param-code/counter-app) | ![issues](https://img.shields.io/github/issues/param-code/counter-app?color=32CD32) | ![pull requests](https://img.shields.io/github/issues-pr/param-code/counter-app?color=FFFF8F) | ![Closed PRs](https://img.shields.io/github/issues-pr-closed/param-code/counter-app?color=20B2AA) | ![Languages](https://img.shields.io/github/languages/count/param-code/counter-app?color=20B2AA) | ![Contributors](https://img.shields.io/github/contributors/param-code/counter-app?color=00FA9A) |
+
 ## 📋 Table of Contents
 
 - [Introduction](#introduction)
@@ -102,5 +107,31 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 [![Contributors](https://contrib.rocks/image?repo=param-code/counter-app)](https://github.com/param-code/counter-app/graphs/contributors)
 
----
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
+
+
+## Stargazers ❤️
+
+<div align='left'>
+
+[![Stargazers repo roster for @param-code/counter-app](https://reporoster.com/stars/dark/param-code/counter-app)](https://github.com/param-code/counter-app/stargazers)
+
+
+</div>
+
+## Forkers ❤️
+
+[![Forkers repo roster for @param-code/counter-app](https://reporoster.com/forks/dark/param-code/counter-app)](https://github.com/param-code/counter-app/network/members)
+
+
+
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+
+<div align="left">
+    <a href="#top">
+        <img src="https://img.shields.io/badge/Back%20to%20Top-000000?style=for-the-badge&logo=github&logoColor=white" alt="Back to Top">
+    </a>
+</div>

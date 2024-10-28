@@ -7,6 +7,8 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { signUp } from "../../services/operations/authAPI";
 import { registerValidation } from "@/validations/validation";
+import { FcGoogle } from "react-icons/fc";
+import { FaApple } from "react-icons/fa";
 
 function SignupForm() {
   const navigate = useNavigate();
@@ -44,14 +46,11 @@ function SignupForm() {
         { abortEarly: false }
       );
       setErrors({});
-      // console.log("Form Submitted", formData);
     } catch (error) {
       const newErrors = {};
-
       error.inner.forEach((err) => {
         newErrors[err.path] = err.message;
       });
-
       setErrors(newErrors);
       return;
     }
@@ -61,12 +60,12 @@ function SignupForm() {
       return;
     }
 
-    // Send data to backend for create account
+    // Send data to backend for account creation
     dispatch(
       signUp(firstName, lastName, email, password, confirmPassword, navigate)
     );
 
-    // Reset
+    // Reset form
     setFormData({
       firstName: "",
       lastName: "",
@@ -82,7 +81,7 @@ function SignupForm() {
       <form
         noValidate
         onSubmit={handleOnSubmit}
-        className="flex w-full font-semibold flex-col gap-y-6 text-black border-[2px] border-black p-6 rounded-md"
+        className="flex w-full font-semibold flex-col gap-y-6 text-black p-6 rounded-2xl shadow-blue-200 shadow-xl"
       >
         <div className="flex gap-x-4">
           <label>
@@ -94,7 +93,7 @@ function SignupForm() {
               value={firstName}
               onChange={handleOnChange}
               placeholder="Enter first name"
-              className="form-style w-full  p-2 border-[1px] bg-white border-black rounded-md  text-black"
+              className="form-style w-full p-2 shadow-md bg-white rounded-lg text-black border-[1px] border-transparent hover:border-blue-500 hover:border-[1px]"
             />
             {errors.firstName && (
               <div className="text-red-600">{errors.firstName}</div>
@@ -111,7 +110,7 @@ function SignupForm() {
               value={lastName}
               onChange={handleOnChange}
               placeholder="Enter last name"
-              className="form-style p-2 border-[1px] border-black bg-white rounded-md w-full text-black"
+              className="form-style p-2 shadow-md bg-white rounded-lg w-full text-black border-[1px] border-transparent hover:border-blue-500 hover:border-[1px]"
             />
             {errors.lastName && (
               <div className="text-red-600">{errors.lastName}</div>
@@ -129,7 +128,7 @@ function SignupForm() {
             value={email}
             onChange={handleOnChange}
             placeholder="Enter email address"
-            className="form-style w-[96%]  p-2 border-[1px] bg-white border-black rounded-md  text-black"
+            className="form-style w-full p-2 shadow-md bg-white rounded-lg text-black border-[1px] border-transparent hover:border-blue-500 hover:border-[1px]"
           />
           {errors.email && <div className="text-red-600">{errors.email}</div>}
         </label>
@@ -145,11 +144,11 @@ function SignupForm() {
               value={password}
               onChange={handleOnChange}
               placeholder="Enter Password"
-              className="form-style w-full !pr-10  p-2 border-[1px] bg-white border-black rounded-md  text-black"
+              className="form-style w-full !pr-10 p-2 shadow-md bg-white rounded-lg text-black border-[1px] border-transparent hover:border-blue-500 hover:border-[1px]"
             />
             <span
               onClick={() => setShowPassword((prev) => !prev)}
-              className="absolute right-3 top-[26px] z-[10] cursor-pointer"
+              className="absolute right-3 top-[35px] z-[10] cursor-pointer"
             >
               {showPassword ? (
                 <AiOutlineEyeInvisible fontSize={24} fill="#000000" />
@@ -172,11 +171,11 @@ function SignupForm() {
               value={confirmPassword}
               onChange={handleOnChange}
               placeholder="Confirm Password"
-              className="form-style w-full !pr-10 border-black  p-2 border-[1px] bg-white rounded-md  text-black"
+              className="form-style w-full !pr-10 shadow-md p-2 bg-white rounded-lg text-black border-[1px] border-transparent hover:border-blue-500 hover:border-[1px]"
             />
             <span
               onClick={() => setShowConfirmPassword((prev) => !prev)}
-              className="absolute right-3 top-[26px] z-[10] cursor-pointer text-black"
+              className="absolute right-3 top-[35px] z-[10] cursor-pointer text-black"
             >
               {showConfirmPassword ? (
                 <AiOutlineEyeInvisible fontSize={24} fill="#000000" />
@@ -191,10 +190,20 @@ function SignupForm() {
         </div>
         <button
           type="submit"
-          className="mt-6 font-semibold py-[8px] px-[12px] text-white p-2 border-[1px] rounded-md  bg-red-600 hover:bg-red-700 border-red-800"
+          className="mt-6 font-semibold py-[8px] px-[12px] text-white p-2 border-[1px] rounded-lg bg-red-600 hover:bg-red-700 border-red-800"
         >
           Create Account
         </button>
+        <div className="flex flex-col items-center space-y-3 mt-3">
+          <button className="w-full flex items-center justify-center gap-2 p-2 border rounded-md border-gray-300 hover:bg-gray-100 transition">
+            <FcGoogle fontSize={18} />
+            <span>Sign up with Google</span>
+          </button>
+          <button className="w-full flex items-center justify-center gap-2 p-2 border rounded-md border-gray-300 hover:bg-gray-100 transition">
+            <FaApple fontSize={18} />
+            <span>Sign up with Apple</span>
+          </button>
+        </div>
         <div className="flex gap-2 flex-col mt-2">
           <div className="flex gap-2 justify-center items-center">
             <span className="h-[1px] bg-black w-[70%]"></span>
@@ -202,8 +211,8 @@ function SignupForm() {
             <span className="h-[1px] bg-black w-[70%]"></span>
           </div>
           <div className="flex flex-row mx-auto gap-4 justify-center items-center">
-            <div className=" font-normal text-black select-none">
-              Have an account?
+            <div className="font-normal text-black select-none">
+              Already have an account?
             </div>
             <button
               className="text-blue-700 hover:text-blue-950 font-semibold cursor-pointer"
@@ -212,8 +221,11 @@ function SignupForm() {
               Sign in
             </button>
           </div>
-        </div>
-      </form>
+
+          </div>
+        </form>
+
+
     </div>
   );
 }
