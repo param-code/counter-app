@@ -1,69 +1,98 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="https://www.svgrepo.com/show/123948/timer.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="A simple timer application to track time efficiently." />
-    <meta name="keywords" content="timer, stopwatch, time tracking" />
-    <title>Counter App</title>
-  </head>
-  <body>
+    <meta name="description" content="Counter App - A simple stopwatch application to measure time intervals effectively." />
+    <meta name="keywords" content="timer, stopwatch, time tracking, React, Vite" />
+    <title>Counter App - Stopwatch Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        
+        h1 {
+            color: #333;
+        }
+
+        #scrollToTopBtn {
+            background-color: rgba(128, 128, 128, 0.7); /* Semi-transparent grey */
+            color: white;                 
+            border: none;                 
+            border-radius: 50%;           /* Fully rounded */
+            width: 50px;                  /* Equal width and height for a perfect circle */
+            height: 50px;                 /* Equal width and height for a perfect circle */
+            cursor: pointer;              
+            font-size: 20px;              
+            position: fixed;              
+            bottom: 20px;                 
+            right: 20px;                  
+            z-index: 1000;                
+            transition: opacity 0.3s, transform 0.3s;
+            opacity: 0;                   
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #scrollToTopBtn:hover {
+            transform: scale(1.1);        
+            background-color: rgba(96, 96, 96, 0.8); 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Counter App</h1>
+        <p>Welcome to the Counter App, a simple stopwatch application built using React and Vite.</p>
+        <p>Features:</p>
+        <ul>
+            <li>Start, pause, and reset stopwatch functionality</li>
+            <li>Real-time time display</li>
+            <li>Easy-to-use and responsive user interface</li>
+            <li>Fast performance with Vite for development</li>
+            <li><a href="#" target="_blank">Deployed version available</a></li> <!-- Optional link to deployed version -->
+        </ul>
+        <p>How It Works: The app uses React's state management to control the stopwatch functionality, updating the time display in real-time.</p>
+    </header>
+
     <button id="scrollToTopBtn" style="display:none;">
-      &#8593; <!-- Arrow Up -->
+        &#8593; <!-- Arrow Up -->
     </button>
 
-    <style>
-      #scrollToTopBtn {
-        background-color: rgba(128, 128, 128, 0.7); /* Semi-transparent grey */
-        color: white;                 
-        border: none;                 
-        border-radius: 50%;           /* Fully rounded */
-        width: 50px;                  /* Equal width and height for a perfect circle */
-        height: 50px;                 /* Equal width and height for a perfect circle */
-        cursor: pointer;              
-        font-size: 20px;              
-        position: fixed;              
-        bottom: 20px;                 
-        right: 20px;                  
-        z-index: 1000;                
-        transition: opacity 0.3s, transform 0.3s;
-        opacity: 0;                   
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      #scrollToTopBtn:hover {
-        transform: scale(1.1);        
-        background-color: rgba(96, 96, 96, 0.8); 
-      }
-    </style>
-
     <script>
-      const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
-      // Show or hide the button based on scroll position
-      window.onscroll = function () {
-        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-          scrollToTopBtn.style.opacity = "1";   // Make button visible
-          scrollToTopBtn.style.display = "flex"; // Ensure it is displayed
-        } else {
-          scrollToTopBtn.style.opacity = "0";   // Make button hidden
-          setTimeout(() => {
-            scrollToTopBtn.style.display = "none"; // Hide it after fading out
-          }, 300); // Match with CSS transition duration
-        }
-      };
-      
-      // Scroll to the top when the button is clicked
-      scrollToTopBtn.onclick = function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' }); // Smooth scroll to top
-      };
+        // Show or hide the button based on scroll position
+        window.onscroll = function () {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollToTopBtn.style.opacity = "1";   // Make button visible
+                scrollToTopBtn.style.display = "flex"; // Ensure it is displayed
+            } else {
+                scrollToTopBtn.style.opacity = "0";   // Make button hidden
+                setTimeout(() => {
+                    scrollToTopBtn.style.display = "none"; // Hide it after fading out
+                }, 300); // Match with CSS transition duration
+            }
+        };
+
+        // Scroll to the top when the button is clicked
+        scrollToTopBtn.onclick = function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Smooth scroll to top
+        };
     </script>
 
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-  </body>
+</body>
 </html>
