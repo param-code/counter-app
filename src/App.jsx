@@ -24,6 +24,7 @@ import WorkTracker from "./pages/WorkTracker";
 import TermsPage from "./pages/TermsPage";
 import Error404 from "./pages/Error404";
 import PasswordRecovery from "./components/Auth/PasswordRecovery";
+import Todo from "./pages/Todo";
 
 const App = () => {
   return (
@@ -53,6 +54,7 @@ const App = () => {
           <Route path="/Contributors" element={<Contributors />} />
           <Route path="/signup" element={<Template formType={"signup"} />} />
           <Route path="/login" element={<Template formType={"login"} />} />
+          <Route path="/todo" element={<Todo/>}/>
           <Route
             path="/password-recovery"
             element={<PasswordRecovery />}
