@@ -151,7 +151,7 @@ const WorkTracker = () => {
 
     return (
         <div
-        className={`h-svh bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-305 ${
+        className={`h-svh bg-gradient-to-br mb-10 from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-305 ${
             theme === "dark" ? "dark" : ""
           }`}
     >
