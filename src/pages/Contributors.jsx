@@ -6,11 +6,12 @@ import Navbar from "../components/navbar";
 function Contributors() {
   const [contributors, setContributors] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null); // Added error state
-
+  const [error, setError] = useState(null);
   const [theme, setTheme] = useState("light");
 
-  // Load theme from local storage
+  const [currentPage, setCurrentPage] = useState(1); 
+  const contributorsPerPage = 9;
+
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme) {
@@ -18,7 +19,6 @@ function Contributors() {
     }
   }, []);
 
-  // Apply theme changes to body and local storage
   useEffect(() => {
     document.body.className = theme;
     localStorage.setItem("theme", theme);
@@ -45,18 +45,39 @@ function Contributors() {
             break;
           }
           allContributors = [...allContributors, ...data];
-          page++;
-        }
+          page++;       
+        }                 
         setContributors(allContributors);
-      } catch (error) {
+      } catch (error) { 
         console.error("Error fetching contributors:", error.message);
-        setError("Failed to load contributors. Please try again later."); // Set error message
-      } finally {
+        setError("Failed to load contributors. Please try again later.");
+      } finally {       
         setLoading(false);
       }
     }
     fetchContributors();
   }, []);
+
+  const indexOfLastContributor = currentPage * contributorsPerPage;
+  const indexOfFirstContributor = indexOfLastContributor - contributorsPerPage;
+  const currentContributors = contributors.slice(
+    indexOfFirstContributor,
+    indexOfLastContributor
+  );
+
+  const totalPages = Math.ceil(contributors.length / contributorsPerPage);
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage((prevPage) => prevPage + 1);
+    }                     
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage((prevPage) => prevPage - 1);
+    }
+  };
 
   return (
     <div
@@ -74,8 +95,8 @@ function Contributors() {
           <p>Loading contributors...</p>
         ) : error ? (
           <p>{error}</p>
-        ) : contributors.length > 0 ? (
-          contributors.map((contributor) => (
+        ) : currentContributors.length > 0 ? (
+          currentContributors.map((contributor) => (
             <div key={contributor.id} className="contributor-card">
               <a
                 href={contributor.html_url}
@@ -98,6 +119,26 @@ function Contributors() {
         ) : (
           <p>No contributors found.</p>
         )}
+      </div>
+
+      <div className="pagination">
+        <button
+          onClick={handlePrevPage}
+          disabled={currentPage === 1}
+          className="pagination-button"
+        >
+          Previous
+        </button>
+        <span className="page-info">
+          Page {currentPage} of {totalPages}
+        </span>
+        <button
+          onClick={handleNextPage}
+          disabled={currentPage === totalPages}
+          className="pagination-button"
+        >
+          Next
+        </button>
       </div>
     </div>
   );

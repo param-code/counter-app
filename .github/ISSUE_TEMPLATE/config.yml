@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Guidelines
+    url: https://github.com/param-code/counter-app/blob/main/Contributing.md
+    about: Before opening a new issue, please make sure to read CONTRIBUTING.md
+  - name: Questions or need suggestions?
+    url: https://github.com/param-code/counter-app/discussions/new?category=q-a
+    about: You can create a Q&A discussion and ask for clarifications

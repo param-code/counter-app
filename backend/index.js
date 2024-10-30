@@ -7,7 +7,7 @@ const userController = require("./controllers/auth");
 const database = require("./config/database");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-
+const { sendFeedbackEmail } = require("./controllers/othercontrollers");
 // Loading environment variables from .env file
 require("dotenv").config();
 
@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(
 	cors({
-		origin: "*",
+		origin: ["http://localhost:5173"],
 		credentials: true,
 	})
 );
@@ -39,9 +39,13 @@ app.get("/", (req, res) => {
 	});
 });
 
+app.post("/contact", sendFeedbackEmail);
+
 // Listening to the server
 app.listen(PORT, () => {
 	console.log(`App is listening at ${PORT}`);
 });
+
+
 
 // End of code.
