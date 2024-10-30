@@ -1,3 +1,4 @@
+// PrivacyPolicy.js
 import React from 'react';
 import "./PrivacyPolicy.css";
 
