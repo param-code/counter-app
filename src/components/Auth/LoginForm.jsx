@@ -122,8 +122,11 @@ function LoginForm() {
               Create New Account
             </button>
           </div>
-        </div>
-      </form>
+
+          </div>
+        </form>
+      
+
     </div>
   );
 }
