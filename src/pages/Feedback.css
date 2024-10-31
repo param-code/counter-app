@@ -1,45 +1,57 @@
-/* Container for feedback form */
 .feedback-form-container {
-  background-color: #032344;
-  border-radius: 10px;
-  padding: 50px;
-  width: 650px; /* Slightly increased width for a spacious feel */
+  background: linear-gradient(135deg, #2e2e3a 0%, #1e1e2f 100%);
+  border-radius: 20px;
+  padding: 60px;
+  width: 650px;
   margin: 50px auto;
-  color: white;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.9);
-}
-
-/* Form headings */
-.heading {
-  margin-bottom: 10px; /* Increased spacing below heading */
-  font-size: 40px; /* Increased font size for the heading */
   color: #f5f4ef;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
 }
 
-/* Input fields styling */
+.feedback-form-container:hover {
+  transform: scale(1.02);
+}
+
+.heading {
+  margin-bottom: 20px;
+  font-size: 42px;
+  font-family: 'Poppins', sans-serif;
+  color: #17e6e6;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
 .name,
 .email,
 .exp {
-  margin-top: 30px; /* Increased top margin for space between inputs */
+  margin-top: 20px;
   width: 100%;
-  padding: 12px; /* Increased padding for larger inputs */
-  background-color: #faf5f5;
-  border: 2px solid #0f898d;
-  border-radius: 9px;
-  color: rgb(21, 20, 20);
-  font-size: 15px; /* Slightly increased font size for input text */
+  padding: 15px;
+  background-color: #3a3a4d;
+  border: 2px solid #17e6e6;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 16px;
   box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.name:focus,
+.email:focus,
+.exp:focus {
+  outline: none;
+  border-color: #58a7db;
+  box-shadow: 0 0 5px rgba(24, 144, 255, 0.5);
 }
 
 textarea {
-  height: 100px; /* Increased height of the textarea */
+  height: 120px;
   resize: none;
 }
 
-/* Star rating styling */
 .stars {
-  margin-top: 30px; /* Ensure consistent spacing */
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   margin: 10px 0;
@@ -47,60 +59,68 @@ textarea {
 
 .star,
 .star-filled {
-  font-size: 35px; /* Slightly larger stars for better visibility */
+  font-size: 40px;
   cursor: pointer;
-  transition: color 0.3s;
+  transition: color 0.3s, transform 0.2s;
 }
 
 .star {
-  color: rgb(208, 208, 208);
+  color: #a3a3a3;
 }
 
 .star-filled {
-  color: gold;
+  color: #f39c12;
 }
 
-/* Submit button */
+.star:hover,
+.star-filled:hover {
+  transform: scale(1.2);
+}
+
 .post-button {
-  margin-top: 40px; /* More space between the last input and button */
-  background-color: #eaeae6;
-  width: 200px;
+  margin-top: 30px;
+  background: linear-gradient(135deg, #17e6e6, #15b2b2);
+  width: 220px;
   color: #2e2e2e;
-  border: 2px solid black;
-  padding: 15px 30px; /* Bigger button for easier clicking */
-  border-radius: 5px;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 18px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .post-button:hover {
-  background-color: #17e6e6;
+  background: linear-gradient(135deg, #15b2b2, #0e8f8f);
+  transform: translateY(-2px);
 }
 
-/* Pop-up overlay styling */
 .popup-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .popup {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
   text-align: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.5s ease;
 }
 
 .popup h3 {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   color: #333;
+  font-family: 'Poppins', sans-serif;
 }
 
 .popup p {
@@ -109,22 +129,44 @@ textarea {
 }
 
 .close-popup-button {
-  background-color: #a6e8f0;
+  background-color: #17e6e6;
   color: #2e2e2e;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .close-popup-button:hover {
-  background-color: #58a7db;
+  background-color: #15b2b2;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 768px) {
   .feedback-form-container {
-    width: 100%; /* Set to 100% width on smaller screens */
-    padding: 30px; /* Adjust padding for better fit on small screens */
-    box-sizing: border-box; /* Ensures padding is included in the width */
+    width: 90%;
+    padding: 30px;
+    box-sizing: border-box;
+  }
+
+  .heading {
+    font-size: 36px;
+  }
+
+  .post-button {
+    width: 100%;
   }
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Feedback.css";
+import { feedbackValidation } from "@/validations/validation";
 
 const Feedback = () => {
   const [name, setName] = useState("");
@@ -10,6 +11,7 @@ const Feedback = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState("");
+  const [errors, setErrors] = useState({});
 
   const handleRating = (rate) => {
     setRating(rate);
@@ -17,6 +19,21 @@ const Feedback = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    try {
+      await feedbackValidation.validate(
+        { name, email, feedback },
+        { abortEarly: false }
+      );
+      setErrors({});
+    } catch (error) {
+      const newErrors = {};
+      error.inner.forEach((err) => {
+        newErrors[err.path] = err.message;
+      });
+      setErrors(newErrors);
+      return;
+    }
 
     if (name && email && rating && feedback) {
       try {
@@ -73,7 +90,7 @@ const Feedback = () => {
 
   return (
     <div className="feedback-form-container">
-      <form onSubmit={handleSubmit}>
+      <form noValidate  onSubmit={handleSubmit}>
         <h1 className="heading">Feedback Form</h1>
 
         {/* Name Input */}
@@ -85,7 +102,7 @@ const Feedback = () => {
           onChange={(e) => setName(e.target.value)}
           required
         />
-
+        {errors.name && <div className="text-red-600 mt-1">{errors.name}</div>}
         {/* Email Input */}
         <input
           className="email"
@@ -95,16 +112,18 @@ const Feedback = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-
-         {/* Feedback Textarea */}
-         <textarea
+        {errors.email && <div className="text-red-600 mt-1">{errors.email}</div>}
+        {/* Feedback Textarea */}
+        <textarea
           className="exp"
           value={feedback}
           onChange={(e) => setFeedback(e.target.value)}
           placeholder="Describe your experience.."
           required
         />
-
+        {errors.feedback && (
+          <div className="text-red-600 mt-1">{errors.feedback}</div>
+        )}
         {/* Star Rating */}
         <div className="stars">
           {[1, 2, 3, 4, 5].map((star) => (
@@ -121,8 +140,6 @@ const Feedback = () => {
             </span>
           ))}
         </div>
-
-       
 
         {/* Submit Button */}
         <button type="submit" className="post-button">
