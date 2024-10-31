@@ -1,14 +1,16 @@
 // PrivacyPolicy.js
 import React from 'react';
 import "./PrivacyPolicy.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShieldAlt, faLock, faCookie, faUsers, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
 const PrivacyPolicy = () => {
   return (
     <div className="privacy-container">
       <h1>Privacy and Policy</h1>
 
-      <section>
-        <h2>1. Data Collection</h2>
+      <section className="privacy-section">
+        <h2><FontAwesomeIcon icon={faShieldAlt} /> 1. Data Collection</h2>
         <p>
           We collect various types of information, including personal data, such as your name, 
           email address, and other contact details, as well as non-personal data, like browsing 
@@ -17,8 +19,8 @@ const PrivacyPolicy = () => {
         </p>
       </section>
 
-      <section>
-        <h2>2. Use of Information</h2>
+      <section className="privacy-section">
+        <h2><FontAwesomeIcon icon={faLock} /> 2. Use of Information</h2>
         <p>
           The information we collect is used to provide and improve our services, personalize user 
           experiences, respond to your inquiries, and send you updates about our services. We may 
@@ -26,8 +28,8 @@ const PrivacyPolicy = () => {
         </p>
       </section>
 
-      <section>
-        <h2>3. Data Security</h2>
+      <section className="privacy-section">
+        <h2><FontAwesomeIcon icon={faLock} /> 3. Data Security</h2>
         <p>
           We take data security seriously and implement industry-standard measures to protect 
           your information from unauthorized access, disclosure, or loss. However, no online 
@@ -35,8 +37,8 @@ const PrivacyPolicy = () => {
         </p>
       </section>
 
-      <section>
-        <h2>4. Cookies</h2>
+      <section className="privacy-section">
+        <h2><FontAwesomeIcon icon={faCookie} /> 4. Cookies</h2>
         <p>
           Cookies are small files stored on your device that help us enhance your browsing 
           experience. We use cookies to understand user behavior, track preferences, and 
@@ -45,8 +47,8 @@ const PrivacyPolicy = () => {
         </p>
       </section>
 
-      <section>
-        <h2>5. Third-Party Services</h2>
+      <section className="privacy-section">
+        <h2><FontAwesomeIcon icon={faUsers} /> 5. Third-Party Services</h2>
         <p>
           We may use third-party services for hosting, analytics, and advertising. These 
           third parties have their own privacy policies, and we are not responsible for 
@@ -55,8 +57,8 @@ const PrivacyPolicy = () => {
         </p>
       </section>
 
-      <section>
-        <h2>6. Your Rights</h2>
+      <section className="privacy-section">
+        <h2><FontAwesomeIcon icon={faPaperPlane} /> 6. Your Rights</h2>
         <p>
           You have the right to access, correct, or delete your personal information. If 
           you wish to exercise any of these rights, please contact us at the provided 
@@ -64,7 +66,7 @@ const PrivacyPolicy = () => {
         </p>
       </section>
 
-      <section>
+      <section className="privacy-section">
         <h2>7. Policy Updates</h2>
         <p>
           This privacy policy may be updated periodically to reflect changes in our practices. 
@@ -76,4 +78,4 @@ const PrivacyPolicy = () => {
   );
 };
 
-export default PrivacyPolicy;
+export default PrivacyPolicy;  
