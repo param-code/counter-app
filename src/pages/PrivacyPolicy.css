@@ -1,15 +1,34 @@
 /* PrivacyPolicy.css */
 .privacy-container {
-  max-width: 800px;
+  max-width: 990px;
   margin: 40px auto;
   padding: 40px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #ffffff;
-  color: #333;
+  background-color: #001f3f; /* Navy blue background */
+  color: white; /* White text for better contrast */
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
   line-height: 1.8;
   transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.privacy-section {
+  border: 1px solid #d8dee4;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: none; /* Light gray background for sections */
+  transition: background-color 0.3s, color 0.3s; /* Added color transition */
+  color: black; /* Default text color */
+}
+
+.privacy-section:hover {
+  background-color: #001f3f; /* Change background to navy blue on hover */
+  color: white; /* Change text color to white on hover */
+}
+
+.privacy-section p {
+  color: inherit; /* Ensure p elements inherit the color of the section */
 }
 
 .privacy-container:hover {
@@ -19,7 +38,7 @@
 
 .privacy-container h1 {
   font-size: 2.5em;
-  color: #0056b3;
+  color: #fff;
   text-align: center;
   margin-bottom: 35px;
   font-weight: 700;
@@ -27,7 +46,7 @@
 
 .privacy-container h2 {
   font-size: 1.8em;
-  color: #004691;
+  color: #f1f1f1; 
   margin-top: 30px;
   padding-bottom: 10px;
   border-bottom: 2px solid #d8dee4;
@@ -35,12 +54,15 @@
 }
 
 .privacy-container h2:hover {
-  color: #0056b3;
+  color: #ffcc00; 
+}
+.privacy-container p:hover {
+  color: #ffcc00; 
 }
 
 .privacy-container p {
   font-size: 1.15em;
-  color: #555;
+  color: #f1f1f1; 
   margin: 20px 0;
 }
 
@@ -53,19 +75,19 @@
 }
 
 .privacy-container a {
-  color: #0054ad;
+  color: #ffcc00; 
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
 }
 
 .privacy-container a:hover {
-  color: #0056b3;
+  color: #ffdd57; 
   text-decoration: underline;
 }
 
 html, body, #root {
-  background-color: #f3f6f9;
+  background-color: #f3f6f9; 
   margin: 0;
   padding: 0;
 }
