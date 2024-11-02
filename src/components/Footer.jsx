@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Clock from "../assets/clock_img.webp";
 import {
@@ -10,10 +10,47 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import GoogleTranslate from "./GoogleTranslate";
 import "./css/Footer.css";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+
+  const handleSubscription = async () => {
+    if (!email) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+
+    try {
+      const response = await axios.post("http://localhost:4000/subscribe", {
+        email,
+      });
+      toast.success(response.data.message || "Subscription successful!");
+      setEmail("");
+    } catch (error) {
+      toast.error(
+        error.response?.data?.message || "Subscription failed. Please try again."
+      );
+    }
+  };
+
   return (
     <footer className="bg-gray-900 text-white py-4">
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+
       {/* Social Media and Language */}
       <div className="bg-teal-600 py-2">
         <div className="container mx-auto px-4 flex justify-between items-center">
@@ -83,58 +120,37 @@ const Footer = () => {
           </h2>
           <ul className="flex flex-wrap justify-center p-2 space-x-4 text-sm text-gray-400">
             <li>
-              <a
-                href="/"
-                className="hover:text-white transition-colors duration-300"
-              >
+              <a href="/" className="hover:text-white transition-colors duration-300">
                 Home
               </a>
             </li>
             <li>
-              <a
-                href="/Privacy-Policy"
-                className="hover:text-white transition-colors duration-300"
-              >
+              <a href="/Privacy-Policy" className="hover:text-white transition-colors duration-300">
                 Privacy & Policy
               </a>
             </li>
             <li>
-              <a
-                href="/Timer"
-                className="hover:text-white transition-colors duration-300"
-              >
+              <a href="/Timer" className="hover:text-white transition-colors duration-300">
                 Timer
               </a>
             </li>
             <li>
-              <a
-                href="/WorldClock"
-                className="hover:text-white transition-colors duration-300"
-              >
+              <a href="/WorldClock" className="hover:text-white transition-colors duration-300">
                 World Clock
               </a>
             </li>
             <li>
-              <a
-                href="/counter"
-                className="hover:text-white transition-colors duration-300"
-              >
+              <a href="/counter" className="hover:text-white transition-colors duration-300">
                 Stopwatch
               </a>
             </li>
             <li>
-              <a
-                href="/Contributors"
-                className="hover:text-white transition-colors duration-300"
-              >
+              <a href="/Contributors" className="hover:text-white transition-colors duration-300">
                 Contributors
               </a>
             </li>
             <li>
-              <a
-                href="/Feedback"
-                className="hover:text-white transition-colors duration-300"
-              >
+              <a href="/Feedback" className="hover:text-white transition-colors duration-300">
                 Feedback
               </a>
             </li>
@@ -164,13 +180,33 @@ const Footer = () => {
       </div>
 
       {/* Footer Bottom */}
-      <div className="bg-gray-900 text-center">
-        <a href="/terms" className="text-xs text-gray-500 hover:text-white">
-          Terms and Conditions
-        </a>
-        <p className="text-xs text-gray-500">
-          © 2024 Counter Timer. All Rights Reserved.
-        </p>
+      <div className="bg-gray-900 text-center py-4">
+        <div className="container mx-auto flex flex-col md:flex-row justify-around items-center">
+          <div className="text-center">
+            <a href="/terms" className="text-xs text-gray-500 hover:text-white mr-4">
+              Terms and Conditions
+            </a>
+            <p className="text-xs text-gray-500">
+              © 2024 Counter Timer. All Rights Reserved.
+            </p>
+          </div>
+          <div className="text-left">
+            <h3 className="text-teal-500 mb-2 font-bold">Stay Updated</h3>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="px-3 py-2 rounded-md text-gray-900"
+            />
+            <button
+              onClick={handleSubscription}
+              className="ml-2 px-3 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition duration-300"
+            >
+              Subscribe
+            </button>
+          </div>
+        </div>
       </div>
     </footer>
   );

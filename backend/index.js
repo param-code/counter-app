@@ -8,6 +8,7 @@ const database = require("./config/database");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const { sendFeedbackEmail } = require("./controllers/othercontrollers");
+const { subscribe } = require("./controllers/subscribeController");
 // Loading environment variables from .env file
 require("dotenv").config();
 
@@ -40,6 +41,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/contact", sendFeedbackEmail);
+app.post("/subscribe", subscribe);
 
 // Listening to the server
 app.listen(PORT, () => {

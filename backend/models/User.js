@@ -40,8 +40,8 @@ const userSchema = new mongoose.Schema(
 			type: String,
 			unique: true,
 			sparse: true, // This allows either Google login or email/password login
-		},
-		// Add timestamps for when the document is created and last modified
+		}
+	
 	},
 	{ timestamps: true }
 );
