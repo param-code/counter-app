@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Timer</title>
+    <link rel="stylesheet" href="Home.css" /> 
+     
+    <style>
+      /* Optional: Smooth scrolling */
+      html {
+          scroll-behavior: smooth;
+      }
+  </style>
+</head>
+<body>
+    <header>
+        <div class="footer-content">
+          <nav>
+            <ul class="footer-nav">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+              <li><a href="Timer.html">Timer</a></li>
+                <li> <a href="World_Clock.html">World Clock</a></li>
+                  <li><a href="History.html">History</a></li>
+                    <li><a href="Settings.html">Settings</a></li>
+                    <li><a href="#">Theme</a></li>
+            </ul>
+          </nav>
+        </header>
+          
+
+      <section id="Home">
+        <h1> Home Section</h1>
+        <p>This is the main page where you can start using the timer features.</p>
+      </section>
+
+      <section id="About">
+        <h1>About Section</h1>
+        <p>This app helps you track time with various tools like a timer, world clock, and history tracking.</p>
+      </section>
+
+      <section id="timer">
+        <h1>Timer Section</h1>
+        <p>Use the timer to count down or track time intervals for various tasks.</p>
+      </section>
+
+      <section id="World Clock">
+        <h1>World Clock Section</h1>
+        <p>Check the current time in various locations around the globe.</p>
+      </section>
+
+      <section id="History">
+        <h1>History Section</h1>
+        <p>Review your past counter sessions.</p>
+      </section>
+
+      <section id="Settings">
+        <h1>Settings Section</h1>
+        <p>Configure the app to match your preferences, including setting time zones and notifications.</p>
+    
+      </section>
+
+      <section id="Themes">
+        <h1>Themes Section</h1>
+        <p>Switch between light and dark themes to suit your viewing preference.</p>
+      </section>
+
+<footer>
+      <div class="footer-copy">
+        <p>© 2024 Counter Timer. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Smooth scrolling to sections
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default anchor click behavior
+
+            const targetId = this.getAttribute('href'); // Get the target section ID
+            const targetSection = document.querySelector(targetId); // Find the target section
+
+            // Scroll to the target section smoothly
+            targetSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
+</script>
+<script src="js/script.js"></script>
+</body>
+</html>

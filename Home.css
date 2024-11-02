@@ -1,0 +1,141 @@
+footer {
+    background-color: #05365f; 
+    color: #f6f0f0; 
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+  }
+  
+  .footer-content {
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .footer-nav {
+    list-style-type: none;
+    display:flexbox;
+    gap: 60px;
+    margin: 20;
+    padding:0;
+  }
+  .footer-nav a {
+    color: #ccc;
+    text-decoration: none;
+    font-weight: 500;
+    gap: 20px;
+  }
+  
+  .footer-nav a:hover {
+    text-decoration: underline;
+    gap:30px;
+  }
+  
+  .footer-copy {
+    font-size: 0.9em;
+    color: #ccc;
+  }
+  
+  body {
+    margin:0;
+    min-height: 100vh;
+  }
+  html {
+    scroll-behavior: smooth;
+}
+/* Footer content styling */
+.footer-content {
+  background-color: #333;  /* Background color of footer */
+  color: #fff;             /* Text color */
+  padding: 20px;
+  text-align: center;
+}
+
+/* Footer navigation bar styling */
+.footer-nav {
+  list-style: none;        /* Removes bullets from the list */
+  padding: 0;              /* Removes padding */
+  margin: 0;               /* Removes margin */
+  display: flex;           /* Flexbox for horizontal layout */
+  justify-content: center; /* Centers the navigation links */
+}
+
+/* Footer nav links */
+.footer-nav li {
+  margin: 0 15px;          /* Space between links */
+}
+
+.footer-nav a {
+  color: #fff;             /* Link color */
+  text-decoration: none;   /* Removes underlines */
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease; /* Adds a transition effect for hover */
+}
+
+/* Hover effect for navigation links */
+.footer-nav a:hover {
+  background-color: #555;  /* Change background on hover */
+  color: #ffcc00;          /* Change text color on hover */
+}
+
+/* Footer copyright text styling */
+.footer-copy {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #ccc;             /* Lighter text color for copyright info */
+}
+
+/* Section styling */
+section {
+  padding: 60px 20px;      /* Adds space inside the section */
+  margin: 40px 0;          /* Adds space between sections */
+  background-color: #f9f9f9; /* Background color for the section */
+  border-radius: 10px;     /* Rounded corners for the section */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Section titles (h1) styling */
+section h1 {
+  font-size: 28px;
+  color: #333;
+  text-align: center;      /* Centers the title */
+  margin-bottom: 20px;
+}
+
+/* Section paragraph (p) styling */
+section p {
+  font-size: 16px;
+  color: #666;
+  text-align: center;      /* Centers the text */
+  line-height: 1.6;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .footer-nav {
+      flex-direction: column; /* Stacks the navigation links vertically */
+  }
+
+  .footer-nav li {
+      margin: 10px 0; /* Adds space between stacked links */
+  }
+
+  section {
+      padding: 40px 10px; /* Reduce padding for smaller screens */
+  }
+
+  section h1 {
+      font-size: 24px; /* Adjust title size */
+  }
+
+  section p {
+      font-size: 14px; /* Adjust paragraph size */
+  }
+}
