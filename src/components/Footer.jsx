@@ -180,34 +180,42 @@ const Footer = () => {
       </div>
 
       {/* Footer Bottom */}
-      <div className="bg-gray-900 text-center py-4">
-        <div className="container mx-auto flex flex-col md:flex-row justify-around items-center">
-          <div className="text-center">
-            <a href="/terms" className="text-xs text-gray-500 hover:text-white mr-4">
-              Terms and Conditions
-            </a>
-            <p className="text-xs text-gray-500">
-              © 2024 Counter Timer. All Rights Reserved.
-            </p>
-          </div>
-          <div className="text-left">
-            <h3 className="text-teal-500 mb-2 font-bold">Stay Updated</h3>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="px-3 py-2 rounded-md text-gray-900"
-            />
-            <button
-              onClick={handleSubscription}
-              className="ml-2 px-3 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition duration-300"
-            >
-              Subscribe
-            </button>
-          </div>
-        </div>
+<div className="bg-gray-900 text-center py-4">
+  <div className="container mx-auto flex flex-col items-center">
+    
+    {/* Stay Updated Section */}
+    <div className="mb-2 text-center" style={{ marginTop: '-55px' }}>
+      <h3 className="text-teal-500 mb-2 font-bold">Stay Updated</h3>
+      <div className="flex justify-center items-center">
+        <input
+          type="email"
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="px-3 py-2 rounded-md text-gray-900"
+        />
+        <button
+          onClick={handleSubscription}
+          className="ml-2 px-3 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition duration-300"
+        >
+          Subscribe
+        </button>
       </div>
+    </div>
+
+    {/* Terms and Conditions Section */}
+    <div className="text-center mt-4">
+      <a href="/terms" className="text-xs text-gray-500 hover:text-white mr-4">
+        Terms and Conditions
+      </a>
+      <p className="text-xs text-gray-500">
+        © 2024 Counter Timer. All Rights Reserved.
+      </p>
+    </div>
+    
+  </div>
+</div>
+
     </footer>
   );
 };
