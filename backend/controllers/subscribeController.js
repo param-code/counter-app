@@ -1,6 +1,6 @@
 
 const nodemailer = require('nodemailer');
-
+const Newsletters = require('../models/Newsletters'); 
 const transporter = nodemailer.createTransport({
   service: 'gmail', // Or your preferred email service
   auth: {
@@ -10,9 +10,18 @@ const transporter = nodemailer.createTransport({
 });
 exports.subscribe = async (req, res) => {
     const { email} = req.body;
-  
     try {
-      const mailOptions = {
+
+    const existingSubscription = await Newsletters.findOne({ email });
+    if (existingSubscription) {
+      return res.status(400).json({ message: 'This email is already subscribed.' });
+    }
+
+    // Step 2: Save the new subscription to the database
+    const newSubscription = new Newsletters({ email });
+    await newSubscription.save();
+
+    const mailOptions = {
         from: process.env.SMTP_EMAIL,
         to: email,
         subject: 'Subscription Confirmation',
@@ -20,6 +29,11 @@ exports.subscribe = async (req, res) => {
           <h1>Thank you for subscribing!</h1>
           <p>You have successfully subscribed to our platform.</p>
           <p>Stay tuned for updates and exclusive offers!</p>
+          <a href="https://github.com/Yashgabani845/hiring-portal" 
+               style="display: inline-block; padding: 10px 20px; margin-top: 20px; color: white; background-color: #007BFF; text-decoration: none; border-radius: 5px;">
+              Explore More
+            </a>
+            <p style="margin-top: 30px;">Best Regards,<br>Hiring Portal</p>
         `,
       };
   
