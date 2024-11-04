@@ -195,7 +195,7 @@ function SignupForm() {
           Create Account
         </button>
         <div className="flex flex-col items-center space-y-3 mt-3">
-          <button className="w-full flex items-center justify-center gap-2 p-2 border rounded-md border-gray-300 hover:bg-gray-100 transition">
+          <button  onClick={() => window.location.href = "http://localhost:4000/auth/google"} className="w-full flex items-center justify-center gap-2 p-2 border rounded-md border-gray-300 hover:bg-gray-100 transition">
             <FcGoogle fontSize={18} />
             <span>Sign up with Google</span>
           </button>
