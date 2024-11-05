@@ -5,16 +5,18 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const database = require("./config/database");
-const cookieParser = require("cookie-parser");
-const cors = require("cors");
 const passport = require("passport");
 const session = require("express-session");
+require("./passport"); // Import passport configuration
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
 const { sendFeedbackEmail } = require("./controllers/othercontrollers");
 const { subscribe } = require("./controllers/subscribeController");
 // Loading environment variables from .env file
 require("dotenv").config();
 const authRoutes = require("./routes/authRoutes");
 const todoRoutes = require("./routes/todoRoutes");
+const googleauth = require("./routes/googleauth");
 
 // Visitor Schema
 const visitorSchema = new mongoose.Schema({
@@ -55,6 +57,7 @@ app.use(passport.session());
 // Setting up routes
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/todo", todoRoutes);
+app.use("/auth", googleauth)
 
 // Testing the server
 app.get("/", (req, res) => {
