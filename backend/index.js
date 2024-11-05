@@ -2,6 +2,7 @@
 
 // Importing necessary modules and packages
 const express = require("express");
+const mongoose = require("mongoose");
 const app = express();
 const database = require("./config/database");
 const cookieParser = require("cookie-parser");
@@ -14,6 +15,13 @@ const { subscribe } = require("./controllers/subscribeController");
 require("dotenv").config();
 const authRoutes = require("./routes/authRoutes");
 const todoRoutes = require("./routes/todoRoutes");
+
+// Visitor Schema
+const visitorSchema = new mongoose.Schema({
+  count: { type: Number, default: 0 }
+});
+
+const Visitor = mongoose.model("Visitor", visitorSchema);
 
 // Setting up port number
 const PORT = process.env.PORT || 4000;
@@ -62,6 +70,47 @@ app.post("/subscribe", subscribe);
 // Listening to the server
 app.listen(PORT, () => {
   console.log(`App is listening at ${PORT}`);
+});
+
+// Endpoint to get visitor count
+// Import Node's `crypto` module to create a unique ID for each visitor
+const crypto = require("crypto");
+
+// Create a temporary set to store recent visitor IDs
+const recentVisitors = new Set();
+
+app.get("/api/visitor-count", async (req, res) => {
+  // Generate a unique ID based on the visitor's IP and browser information
+  const visitorId = crypto
+    .createHash("md5")
+    .update(req.ip + req.headers["user-agent"])
+    .digest("hex");
+
+  // If the visitor has already been counted recently, skip incrementing
+  if (recentVisitors.has(visitorId)) {
+    const visitor = await Visitor.findOne();
+    return res.json({ count: visitor.count });
+  }
+
+  // Add the visitor to the recentVisitors set
+  recentVisitors.add(visitorId);
+
+  // Remove the visitor from the cache after 30 seconds to allow counting later if they revisit
+  setTimeout(() => {
+    recentVisitors.delete(visitorId);
+  }, 3000); // 3 seconds
+
+  // Increment visitor count
+  let visitor = await Visitor.findOne();
+  if (!visitor) {
+    visitor = new Visitor({ count: 1 });
+  } else {
+    visitor.count += 1;
+  }
+  await visitor.save();
+
+  // Send the updated count to the client
+  res.json({ count: visitor.count });
 });
 
 // End of code.

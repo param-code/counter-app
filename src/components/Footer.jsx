@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Clock from "../assets/clock_img.webp";
 import {
@@ -16,6 +16,21 @@ import axios from "axios";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
+  const [visitorCount, setVisitorCount] = useState(0);
+
+  useEffect(() => {
+     // This function fetches and updates the visitor count
+    const fetchVisitorCount = async () => {
+      try {
+        const response = await axios.get("http://localhost:4000/api/visitor-count");
+        setVisitorCount(response.data.count);
+      } catch (error) {
+        console.error("Error fetching visitor count:", error);
+      }
+    };
+
+    fetchVisitorCount();
+  }, []);
 
   const handleSubscription = async () => {
     if (!email) {
@@ -211,6 +226,12 @@ const Footer = () => {
       <p className="text-xs text-gray-500">
         © 2024 Counter Timer. All Rights Reserved.
       </p>
+            {/* Visitor Count */}
+            <div className="text-center mt-2 py-2 px-0 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded-lg border border-gray-300 shadow-lg">
+            <p className="text-white font-semibold text-lg">
+              Total Visitors: {visitorCount}
+  </p>
+</div>
     </div>
     
   </div>
