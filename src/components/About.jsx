@@ -228,23 +228,41 @@ const About= ()=>{
 
                 <section className="mb-20">
             <h2 className="text-3xl font-semibold text-[#0D9488] dark:text-blue-300 mb-8 text-center">What Our Customers Say</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {sampleCards.map((card, index) => (
-                    <motion.div 
-                        key={index} 
-                        className="bg-white dark:bg-gray-800 rounded-lg border border-[#0D9488] shadow-sm hover:shadow-lg transition-shadow p-4"
-                        whileHover={{ scale: 1.03 }}
-                    >
-                        <img 
-                            src={card.image} 
-                            alt={card.name} 
-                            className="rounded-full h-32 w-32 mb-4 object-cover mx-auto"
-                        />
-                        <h3 className="text-lg font-semibold text-blue-700 dark:text-blue-300 text-center">{card.name}</h3>
-                        <p className="text-blue-600 dark:text-blue-400 text-center">{card.review}</p>
-                    </motion.div>
-                ))}
-            </div>
+ 
+ <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {sampleCards.map((card, index) => (
+        <motion.div 
+            key={index} 
+            className="relative bg-white dark:bg-gray-800 rounded-lg p-4 transform transition-transform duration-300 ease-out border-2 border-transparent hover:border-[#0D9488] shadow-md hover:shadow-2xl"
+            whileHover={{ scale: 1.05 }}
+        >
+            {/* Border Animation */}
+            <motion.div 
+                className="absolute inset-0 rounded-lg border-2 border-[#0D9488] opacity-0 hover:opacity-100 transition-opacity duration-300"
+            ></motion.div>
+            
+            {/* Image with Hover Effect */}
+            <motion.img 
+                src={card.image} 
+                alt={card.name} 
+                className="rounded-full h-32 w-32 mb-4 object-cover mx-auto transform transition-transform duration-300 hover:scale-110 shadow-md"
+            />
+            
+            {/* Card Title */}
+            <h3 className="text-lg font-semibold text-blue-700 dark:text-blue-300 text-center transition-colors duration-300 hover:text-[#0D9488]">
+                {card.name}
+            </h3>
+            
+            {/* Card Review Text */}
+            <p className="text-blue-600 dark:text-blue-400 text-center transition-colors duration-300 hover:text-[#0D9488]">
+                {card.review}
+            </p>
+        </motion.div>
+    ))}
+</div>
+
+
+
         </section>
                 
                 <section>
