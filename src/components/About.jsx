@@ -272,15 +272,15 @@ const About= ()=>{
                             </CardHeader>
                             <CardContent>
                                 <p className="text-[#0D9488] dark:text-white mb-6">Subscribe to our newsletter for the latest updates, tips, and exclusive offers.</p>
-                                <div className="flex">
+                                <div className="flex gap-5">
                                     <input
                                         type="email"
                                         placeholder="Your email"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
-                                        className="flex-grow px-4 py-2 border border-blue-300 dark:border-blue-700 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="flex-grow px-4 py-2 border border-blue-300 dark:border-blue-700 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500 w-[40%]"
                                     />
-                                    <Button onClick={handleSubscribe} className="rounded-r-md bg-[#0D9488] text-white hover:bg-[#0D9488] dark:bg-[#176a63] dark:hover:bg-blue-800">
+                                    <Button onClick={handleSubscribe} className="rounded-r-md bg-[#0D9488] text-white hover:bg-[#0D9488] dark:bg-[#176a63] dark:hover:bg-blue-800 ">
                                         Subscribe
                                     </Button>
                                 </div>
