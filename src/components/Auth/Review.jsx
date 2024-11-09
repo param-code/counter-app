@@ -22,6 +22,12 @@ const Review = () => {
   // Function to handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Check if a rating is selected and a comment is provided
+    if (rating === 0 || comment.trim() === '') {
+      alert('Please provide both a rating and a comment before submitting.');
+      return;
+    }
     alert(`We value your feedback. Thank you for rating us!`);
 
     // Clear the comment and rating after submission
@@ -62,9 +68,8 @@ const Review = () => {
                   <button
                     key={index}
                     type="button"
-                    className={`text-4xl transition duration-300 ${
-                      starValue <= (hover || rating) ? 'text-yellow-400' : 'text-gray-300'
-                    }`}
+                    className={`text-4xl transition duration-300 ${starValue <= (hover || rating) ? 'text-yellow-400' : 'text-gray-300'
+                      }`}
                     onClick={() => setRating(starValue)}
                     onMouseEnter={() => setHover(starValue)}
                     onMouseLeave={() => setHover(0)}
