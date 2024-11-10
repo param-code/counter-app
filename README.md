@@ -10,7 +10,7 @@ Welcome to the **Counter App**, a simple stopwatch application built using **Rea
   <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge"/>
 </p>
 
-### Backend is available at https://counter-app-backend.vercel.app/
+### 🌐 Backend is available at https://counter-app-backend.vercel.app/
 
 ## 📈 GitHub Repository Stats
 | 🌟 **Stars** | 🍴 **Forks** | 🐛 **Issues** | 🔔 **Open PRs** | 🔕 **Closed PRs** | 🛠️ **Languages** | ✅ **Contributors** |
@@ -30,15 +30,15 @@ Welcome to the **Counter App**, a simple stopwatch application built using **Rea
 - [License](#license)
 - [Our Valuable Contributors](#our-valuable-contributors)
 
-## Features
+## 🛠️ Features
 
-- Start, pause, and reset stopwatch functionality
-- Real-time time display
-- Easy-to-use and responsive user interface
-- Fast performance with Vite for development
-- Deployed version available (optional: include link)
+- 🚀 Start, pause, and reset stopwatch functionality
+- ⏱️ Real-time time display
+- 💻 Easy-to-use and responsive user interface
+- ⚡ Fast performance with Vite for development
+- 🌐 Deployed version available (optional: include link)
 
-## Installation
+## 🧰 Installation
 
 Follow these steps to get the Counter App up and running on your local machine.
 
@@ -61,32 +61,32 @@ Follow these steps to get the Counter App up and running on your local machine.
 
 Vite will launch the app in your default browser at `http://localhost:5173`.
 
-## Usage
+## 🖥️ Usage
 
 1. **Start/Stop**: Click the 'Start' button to begin timing, and the same button will turn into 'Stop' when the timer is running.
 2. **Pause/Resume**: Pause the stopwatch by pressing the 'Stop' button and resume with 'Start'.
 3. **Reset**: Reset the timer to zero by clicking the 'Reset' button.
 
-## How It Works
+## ⚙️ How It Works
 
 The Counter App uses React's state management to control the stopwatch functionality. When the 'Start' button is pressed, the app starts counting time using `setInterval()`, and when paused or stopped, it clears the interval. Time is displayed in real-time by continuously updating the state.
 
-### Functionality Overview:
+### 🔍 Functionality Overview:
 - **Start Timer**: Initializes the timer using a `setInterval` function, updating every 100 milliseconds.
 - **Pause Timer**: Stops the interval without resetting the elapsed time.
 - **Reset Timer**: Clears the interval and resets the state to the initial value of `00:00:00`.
 
-## Video Demo
+## 🎥 Video Demo
 
 Check out the app in action by watching this demo:
 
+<video width="600" controls>
+  <source src="src/assets/counter-app-video-demo2 (1) (2).mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
-https://github.com/user-attachments/assets/2a8209c3-8b5b-4275-9fda-f2033a4fa03d
 
-
-
-
-## Contributing
+## 🤝 Contributing
 
 Contributions are welcome! If you would like to make any changes, feel free to fork the repository and submit a pull request.
 
@@ -99,11 +99,11 @@ Contributions are welcome! If you would like to make any changes, feel free to f
 
 For more detailed guidelines on contributing, please refer to the [Contributing.md](Contributing.md) file.
 
-## License
+## 📜 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Our Valuable Contributors 
+## 🙌 Our Valuable Contributors 
 
 [![Contributors](https://contrib.rocks/image?repo=param-code/counter-app)](https://github.com/param-code/counter-app/graphs/contributors)
 
@@ -111,7 +111,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 
 
-## Stargazers ❤️
+## ⭐ Stargazers ❤️
 
 <div align='left'>
 
@@ -120,7 +120,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 </div>
 
-## Forkers ❤️
+## 🍴 Forkers ❤️
 
 [![Forkers repo roster for @param-code/counter-app](https://reporoster.com/forks/dark/param-code/counter-app)](https://github.com/param-code/counter-app/network/members)
 
